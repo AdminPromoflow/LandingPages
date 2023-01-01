@@ -8,6 +8,23 @@ class MaterialHome {
       })
     }
 
+    for (let i = 0; i < openCustomizeLanyardFromMaterials.length; i++) {
+      openCustomizeLanyardFromMaterials[i].addEventListener("click", function(){
+
+        const url = "../../controller/lanyard/materials/set-material-selected.php";
+        const data = {
+          action: "setMaterialSelected",
+          optionSelected: materialForSelect[i].textContent
+
+        };
+        material.makeAjaxRequestSetMaterialSelected(url, data);
+
+        customizeLanyard.openCustomizeLanyard(true);
+
+      })
+    }
+
+
     // Event listener to display containerTextMaterials when itemMaterial is clicked
     for (let i = 0; i < itemMaterial.length; i++) {
       containerTextMaterials[i].style.display = "none";
@@ -21,7 +38,7 @@ class MaterialHome {
     // Event listener to display containerTextMaterials when itemMaterial is hovered
     for (let i = 0; i < itemMaterial.length; i++) {
       containerTextMaterials[i].style.display = "none";
-      itemMaterial[i].addEventListener("mousemove", (event) => {
+      itemMaterial[i].addEventListener("mouseenter", function(){
         containerTextMaterials[i].style.display = "flex";
         containerTextMaterialsOn = i;
         materialHome.hideOtherContainerTextMaterials(i);
@@ -48,6 +65,7 @@ class MaterialHome {
       containerTextMaterials[containerTextMaterialsOn].style.display = "none";
     }
   }
+
 }
 
 // Selecting elements from the DOM
@@ -55,6 +73,13 @@ const itemMaterial = document.querySelectorAll(".itemMaterial");
 const containerTextMaterials = document.querySelectorAll(".containerTextMaterials");
 const closeMaterial = document.querySelectorAll(".closeMaterial");
 const buttonMaterialsBox = document.querySelectorAll(".buttonMaterialsBox");
+
+const openCustomizeLanyardFromMaterials = document.querySelectorAll(".openCustomizeLanyardFromMaterials");
+
+const materialForSelect = document.querySelectorAll(".material-for-select");
+
+
+
 const documento = document.documentElement;
 var containerTextMaterialsOn = 0;
 

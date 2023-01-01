@@ -1,10 +1,18 @@
 .price{
   position: relative;
-  padding: 0px;
+
+  width: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  height: 10%;
+  margin: 10px 0;
+
   display: flex;
-  justify-content: right;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 .price h3{
   color: white;
@@ -12,12 +20,9 @@
   padding: 2px 4px;
   font-weight: 200;
 }
-
 .price h3:nth-child(1){
   background-color: rgba(74, 108, 137);
-
 }
 .price h3:nth-child(2){
   background-color:  rgba(74, 108, 137);
-
 }

@@ -2,9 +2,9 @@
 class Database {
   // Database connection parameters
   private $servername = 'localhost';
-  private $dbname = "u273173398_Lanyards";
-  private $username = "u273173398_Cat";//u273173398_Cat
-  private $password = "32skiff32!CI";//32skiff32!CI
+  private $dbname = "Lanyards";//u273173398_Lanyards
+  private $username = "root";//u273173398_Cat
+  private $password = "root";//32skiff32!CI
   private $connection;
 
   // Constructor to establish a database connection
@@ -18,7 +18,7 @@ class Database {
         } catch (PDOException $e) {
             // Handle connection errors
             echo "Connection failed: " . $e->getMessage();
-        } 
+        }
     }
 
     // Method to get the database connection

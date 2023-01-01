@@ -3,6 +3,7 @@
   height: 90%;
   width: 90%;
   min-width: 300px;
+  min-height: 440px;
   background-color: rgba(0, 0, 0, .6);
   z-index: 13;
 
@@ -11,10 +12,16 @@
   align-items: center;
 
 }
-
+.section{
+  display: none;
+}
+.active{
+  display: block;
+}
 .customize-lanyard-container{
   position: relative;
   height: 80%;
+
   overflow-y: scroll;
 
   display: flex;
@@ -22,44 +29,49 @@
   align-items: center;
   flex-wrap: wrap;
   flex-direction: row;
-
-
 }
 .preview-customize-lanyard{
   position: relative;
   padding: 10px;
-  width: 40%;
   height: 90%;
+  width: 40%;
   min-width: 300px;
+  max-width: 320px;
+  min-height: 440px;
 
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
   background: rgb(69,114,150);
   background: linear-gradient(270deg, rgba(69,114,150,1) 0%, rgba(105,164,195,1) 50%, rgba(31,60,102,1) 100%);
 
   box-shadow: -3px 3px 3px rgba(0, 0, 0, 1);
 
-
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 .preview-customize-lanyard img{
   position: relative;
   height: 90%;
 }
-#lanyards10mmOneEnd{
-  background-color: orange;
+.preview-customize-lanyard h2{
+  position: relative;
+  color: white;
+  font-weight: 500;
+  text-shadow: 2px 2px 3px black;
+  font-size: 2em;
+  text-align: center;
+  margin: 0;
 }
-
 .options-customize-lanyard{
   position: relative;
   padding: 10px;
   height: 90%;
   width: 40%;
   min-width: 300px;
+  max-width: 320px;
+  min-height: 440px;
 
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -69,10 +81,53 @@
 
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 1);
 
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
-.options-customize-lanyard h2{
+.container_buttons_next_preview{
   position: relative;
-  text-align: center;
-  font-weight: 400;
-  color: white
+
+  width: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  height: calc(30% - 50px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+
+.container_buttons_next_preview button{
+  position: relative;
+  background: rgba(141, 67, 68, .9);
+  color: white;
+  font-size: 1.2em;
+  margin: 0 15px;
+  font-weight: 300;
+  padding: 5px 20px;
+  cursor: pointer;
+}
+.close-customize-lanyard{
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  height: 20px;
+  width: 20px;
+  z-index: 1;
+  cursor: pointer;
+  filter: brightness(.8);
+}
+.close-customize-lanyard img{
+  filter: drop-shadow(1px 1px 0px black);
+}
+.close-customize-lanyard img:hover{
+  filter: drop-shadow(2px 2px 1px black);
+}
+.close-customize-lanyard img:active{
+  filter: drop-shadow(1px 1px 0px black);
 }

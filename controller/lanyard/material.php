@@ -21,24 +21,37 @@ class Material {
                 switch ($action) {
                     case "getMaterials":
                         // Handle the retrieval of materials
-                        $this->handleGetMaterials($data);
+                        $materials = $this->getMaterials($data);
+                        $lanyardType = new LanyardType();
+                        $lanyardsType  = $lanyardType->getAllLanyardsType();
+                        echo json_encode($lanyardsType);exit;
+
+                        $response = array('materials' => $materials);
+
+
+
+                        $materialSelected  = array_rand($response['materials']);
+                        $materialSelected = ($response['materials'][$materialSelected]["material"]);
+                        $materialSelected =  array("optionSelected" => $materialSelected);
+                        $this->setSessionMaterial((object)$materialSelected);
+
+
+
+                      //  echo json_encode($response);
                         break;
                     case "setMaterialSelected":
                         // Handle setting the selected material and searching its attributes
-
-                        $this->handleGetMaterials($data);
-                        
-                        $this->handleSetMaterialSelected($data);
+                        $this->setSessionMaterial($data);
 
                         $infoMaterial  = $this->handleSearchMaterialAttributes($data);
 
                         // Prepare and send the response with material information
-                        $response = array('material' => $infoMaterial
-                      );
+                        $response = array('material' => $infoMaterial);
                         echo json_encode($response);
                         break;
                       case "getMaterialSelected":
-                        //$this->handleGetMaterialSelected($data);
+                        $materialSelecteed = $this->handleGetMaterialSelected($data);
+                        $response = array('getMaterial' => $materialSelecteed);
                         break;
 
 
@@ -61,9 +74,17 @@ class Material {
     }
 
     // Private function to handle the action of setting the selected material
-    private function handleSetMaterialSelected($data) {
+    private function setSessionMaterial($data) {
         session_start(); // Start or resume a session
         $_SESSION['materialSelected'] = $data->optionSelected; // Store the selected material option in the session
+
+      //  echo json_encode($_SESSION['materialSelected']);
+    }
+
+    // Private function to handle the action of getting the selected material
+    private function handleGetMaterialSelected() {
+        session_start(); // Start or resume a session
+        return ($_SESSION['materialSelected']) ; // Store the get material option in the session
     }
 
     // Private function to handle searching for attributes of the selected material
@@ -89,14 +110,14 @@ class Material {
     }
 
     // Private function to handle the retrieval of all materials
-    private function handleGetMaterials($data){
+    private function getMaterials($data){
         $connection = new Database(); // Create a new database connection
 
         $lanyards = new Lanyards($connection); // Instantiate the Lanyards model
 
         $response = $lanyards->getAllLanyardMaterials(); // Retrieve all lanyard materials
 
-        echo json_encode($response); // Send the response with all materials
+        return($response); // Send the response with all materials
     }
 }
 

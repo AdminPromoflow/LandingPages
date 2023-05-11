@@ -17,7 +17,7 @@ class Material {
       headers: {
         "Content-Type": "application/json" // Indicate that you're sending JSON
       },
-      body: JSON.stringify(data) // Convert the JSON object to a JSON string and send it
+      body: JSON.stringify(data) // Convert the JSON object to a JSON string and send it.
     })
       .then(response => {
         if (response.ok) {
@@ -30,8 +30,8 @@ class Material {
         data = JSON.parse(data);
         containersBoxesMaterial.innerHTML = "";
 
-        for (var i = 0; i < data.length; i++) {
-          material.createMaterials(data[i], i);
+        for (var i = 0; i < data["materials"].length; i++) {
+          material.createMaterials(data["materials"][i], i);
         }
       })
       .catch(error => {
@@ -74,7 +74,7 @@ class Material {
         throw new Error("Network error.");
       })
       .then(data => {
-        alert(data);
+        //alert(data);
        data = JSON.parse(data);
         material.showSelectedMaterial(data["material"]);
         previewMaterial.showSelectedPreviewtMaterial(data["material"]);

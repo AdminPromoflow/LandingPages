@@ -26,7 +26,7 @@ class Lanyards {
 
       try {
           // Prepare the SQL query to select all customers
-          $sql = $this->connection->getConnection()->prepare("SELECT  `material`, `linkImg`, `description` FROM `Lanyards` ");
+          $sql = $this->connection->getConnection()->prepare("SELECT DISTINCT `material`, `linkImg`, `description` FROM `Lanyards` ");
 
           // Execute the query
           $sql->execute();

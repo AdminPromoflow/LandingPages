@@ -89,7 +89,7 @@ CREATE TABLE `Extras`
 	`idExtras` INT NOT NULL AUTO_INCREMENT,
 	`group` VARCHAR(50) NOT NULL,
 	`type` VARCHAR(50) NOT NULL,
-	`price` VARCHAR(50) NOT NULL,
+	`price` FLOAT(5,2) NOT NULL,
 	`idLanyard` INT NULL,
 	CONSTRAINT `PK_extras` PRIMARY KEY (`idExtras` ASC)
 )
@@ -120,7 +120,7 @@ CREATE TABLE `LanyardTypes`
 (
 	`idLanayardType` INT NOT NULL AUTO_INCREMENT,
 	`type` VARCHAR(50) NULL,
-	`price` FLOAT(3,0) NULL,
+	`price` FLOAT(3,2) NULL,
 	`idLanyard` INT NULL,
 	CONSTRAINT `PK_LanyardTypes` PRIMARY KEY (`idLanayardType` ASC)
 )

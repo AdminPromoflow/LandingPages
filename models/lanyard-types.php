@@ -50,6 +50,33 @@ class LanyardTypes {
       }
   }
 
+  public function getAllLanyardsType() {
+      try {
+
+          // Prepare the SQL query with placeholders
+          $sql = $this->connection->getConnection()->prepare("SELECT DISTINCT `type`, `price`  FROM `LanyardTypes`");
+
+
+        //  echo json_encode($this->material);exit;
+
+          // Execute the query
+          $sql->execute();
+
+          // Fetch the password
+          $response = $sql->fetch(); // Retrieve the password as a single value
+
+          // Close the database connection
+          $this->connection->closeConnection();
+
+          return $response;
+
+      } catch (PDOException $e) {
+          // Handle any exceptions and provide an error message
+          echo "Error in the query: " . $e->getMessage();
+          throw new Exception("Error in the user verification query.");
+      }
+  }
+
     /*
    * Get a list of all Materia's lanyards from the database.
    *

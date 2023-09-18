@@ -5,6 +5,21 @@
     <title></title>
   </head>
   <body>
-    <h1>Hola</h1>
+    <style media="screen">
+    .fondo{
+    background-image: url('img/fondo.jpg'); 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+    }
+    </style>
+    <section>
+      <div class="fondo">
+
+      </div>
+    </section>
+    <script type="text/javascript">
+
+    </script>
   </body>
 </html>

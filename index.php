@@ -7,10 +7,13 @@
   <body>
     <style media="screen">
     .fondo{
-    background-image: url('img/fondo.jpg'); 
+      position: relative;
+      height: 100vh;
+      width: auto;
+    /*background-image: url('img/fondo.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
-    height: 100vh;
+    height: 100vh;*/
     }
     </style>
     <section>

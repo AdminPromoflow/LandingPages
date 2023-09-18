@@ -6,12 +6,16 @@
   </head>
   <body>
     <style media="screen">
+    body{
+      margin: 0px;
+      padding: 0px;
+    }
     .fondo{
       background-image: url('img/fondo.jpg');
       position: relative;
       height: 100vh;
       width: auto;
-      margin: 0px;
+
       background-size: cover;
     /*background-image: url('img/fondo.jpg');
     background-repeat: no-repeat;

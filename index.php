@@ -10,7 +10,7 @@
       margin: 0px;
       padding: 0px;
     }
-    .fondo{
+    .background{
       background-image: url('img/fondo.jpg');
       position: relative;
       height: 100vh;
@@ -24,7 +24,7 @@
     }
     </style>
     <section>
-      <div class="fondo">
+      <div class="background">
 
       </div>
     </section>

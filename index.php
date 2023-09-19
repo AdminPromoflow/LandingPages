@@ -52,6 +52,7 @@
     }
     .image img:active{
       filter: drop-shadow(10px 10px 16px black);
+      transform: rotate(-2deg);
     }
 
 

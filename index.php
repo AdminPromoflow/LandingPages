@@ -43,8 +43,16 @@
     .image img{
       position: relative;
       height: 100%;
-
+      filter: drop-shadow(5px 5px 6px black);
+      transition: .5s;
     }
+    .image img:hover{
+      filter: drop-shadow(10px 10px 6px black);
+    }
+    .image img:active{
+      filter: drop-shadow(5px 5px 6px black);
+    }
+
 
     @media (max-width: 660px) {
       .hide{

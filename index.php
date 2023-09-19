@@ -39,11 +39,9 @@
     }
     .image:nth-child(1){
       background-image: url('img/LanyardLeft.png');
-      background-size: cover;
     }
     .image:nth-child(2){
       background-image: url('img/LanyardRigth.png');
-      background-size: cover;
     }
     @media (max-width: 767px) {
     /* Tus estilos para dispositivos móviles aquí */

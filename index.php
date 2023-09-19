@@ -47,8 +47,11 @@
       height: 100%;
 
     }
-    @media (max-width: 767px) {
-    /* Tus estilos para dispositivos móviles aquí */
+
+    @media (max-width: 660px) {
+      .hide{
+      display: none;
+      }
     }
 
     </style>
@@ -58,7 +61,7 @@
           <div class="image">
             <img src="img/LanyardLeft.png" alt="">
           </div>
-          <div class="image">
+          <div class="image hide">
             <img src="img/LanyardRigth.png" alt="">
           </div>
         </div>

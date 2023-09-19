@@ -28,13 +28,12 @@
       justify-content: center;
       flex-wrap: wrap;
       align-items: center;
-      background: yellow;
     }
     .image{
       position: relative;
       width: 300px;
       background: green;
-      margin: 10px;
+      margin: 0px 10px 10px 10px;
       height: 600px;
       display: flex;
       justify-content: center;

@@ -67,10 +67,10 @@
       <div class="background">
         <div class="containerImage">
           <div class="image">
-            <img src="img/LanyardLeft.png" alt="">
+            <img src="img/LanyardLeft1.png" alt="">
           </div>
           <div class="image hide">
-            <img src="img/LanyardRigth.png" alt="">
+            <img src="img/LanyardRigth1.png" alt="">
           </div>
         </div>
       </div>

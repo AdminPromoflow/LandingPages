@@ -37,11 +37,11 @@
       margin: 10px;
       height: 400px;
     }
-    .image:nth-child(1){
-      background-image: url('img/LanyardLeft.png');
-    }
-    .image:nth-child(2){
-      background-image: url('img/LanyardRigth.png');
+    .image img{
+      position: relative;
+      height: 100%;
+      width: 100%;
+      
     }
     @media (max-width: 767px) {
     /* Tus estilos para dispositivos móviles aquí */
@@ -52,10 +52,10 @@
       <div class="background">
         <div class="containerImage">
           <div class="image">
-
+            <img src="img/LanyardLeft.png" alt="">
           </div>
           <div class="image">
-
+            <img src="img/LanyardRigth.png" alt="">
           </div>
         </div>
       </div>

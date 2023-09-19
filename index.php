@@ -28,6 +28,7 @@
       justify-content: center;
       flex-wrap: wrap;
       align-items: center;
+      background: yellow;
     }
     .image{
       position: relative;

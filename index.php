@@ -32,7 +32,6 @@
     .image{
       position: relative;
       width: 300px;
-      background: green;
       margin: 0px 10px 10px 10px;
       height: 600px;
       display: flex;

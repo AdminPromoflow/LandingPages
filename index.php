@@ -34,9 +34,13 @@
       position: relative;
       width: 300px;
       background: green;
-      margin: 0px 10px;
+      margin: 10px;
       height: 400px;
     }
+    @media (max-width: 767px) {
+    /* Tus estilos para dispositivos móviles aquí */
+    }
+
     </style>
     <section>
       <div class="background">

@@ -35,7 +35,12 @@
       width: 300px;
       background: green;
       margin: 10px;
-      height: 400px;
+      height: 600px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: center;
+
     }
     .image img{
       position: relative;

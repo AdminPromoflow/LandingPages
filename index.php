@@ -43,14 +43,15 @@
     .image img{
       position: relative;
       height: 100%;
-      filter: drop-shadow(5px 5px 6px black);
+      filter: drop-shadow(10px 10px 16px black);
       transition: .5s;
     }
     .image img:hover{
-      filter: drop-shadow(10px 10px 6px black);
+      filter: drop-shadow(20px 20px 12px black);
+      transform: rotate(1deg);
     }
     .image img:active{
-      filter: drop-shadow(5px 5px 6px black);
+      filter: drop-shadow(10px 10px 16px black);
     }
 
 

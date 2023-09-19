@@ -23,6 +23,12 @@
       flex-wrap: wrap;
       align-items: center;
     }
+    .containerImage{
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: center;
+    }
     .image{
       position: relative;
       width: 300px;
@@ -33,11 +39,13 @@
     </style>
     <section>
       <div class="background">
-        <div class="image">
+        <div class="containerImage">
+          <div class="image">
 
-        </div>
-        <div class="image">
+          </div>
+          <div class="image">
 
+          </div>
         </div>
       </div>
     </section>

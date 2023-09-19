@@ -40,12 +40,9 @@
     .image img{
       position: relative;
       height: 100%;
-      width: 100%;
-      
+
     }
-    @media (max-width: 767px) {
-    /* Tus estilos para dispositivos móviles aquí */
-    }
+    
 
     </style>
     <section>

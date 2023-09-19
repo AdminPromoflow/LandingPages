@@ -21,7 +21,7 @@
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      align-items: center;
+      align-items: flex-start;
     }
     .containerImage{
       display: flex;

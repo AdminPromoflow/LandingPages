@@ -11,21 +11,34 @@
       padding: 0px;
     }
     .background{
+      position: relative;
       background-image: url('img/background.png');
       position: relative;
       height: 100vh;
       width: auto;
-
       background-size: cover;
-    /*background-image: url('img/fondo.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    height: 100vh;*/
+
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .image{
+      position: relative;
+      width: 300px;
+      background: green;
+      margin: 0px 10px;
+      
     }
     </style>
     <section>
       <div class="background">
+        <div class="image">
 
+        </div>
+        <div class="image">
+
+        </div>
       </div>
     </section>
     <script type="text/javascript">

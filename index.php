@@ -11,7 +11,7 @@
       padding: 0px;
     }
     .background{
-      background-image: url('img/fondo.png');
+      background-image: url('img/background.png');
       position: relative;
       height: 100vh;
       width: auto;

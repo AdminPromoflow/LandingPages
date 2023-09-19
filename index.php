@@ -28,7 +28,7 @@
       width: 300px;
       background: green;
       margin: 0px 10px;
-      
+      height: 400px;
     }
     </style>
     <section>

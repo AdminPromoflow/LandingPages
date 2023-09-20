@@ -28,6 +28,8 @@
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
+      border-radius: 10px;
+      box-shadow: 30px 30px  40px black;
 
     }
     .container{

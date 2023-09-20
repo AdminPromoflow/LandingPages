@@ -12,7 +12,8 @@
       padding: 0px;
     }
     .background{
-      position: relative;
+      position: fixed;
+      top: 0px;
       background-image: url('img/background.png');
       position: relative;
       height: 120vh;
@@ -24,8 +25,6 @@
       background-repeat: no-repeat; /* Do not repeat the image */
 
 
-      display: fixed;
-      top: 60px;
     }
     .container{
       position: relative;

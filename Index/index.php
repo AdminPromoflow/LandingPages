@@ -13,7 +13,7 @@
     }
     .background{
       position: relative;
-      background-image: url('img/background.png');
+      background-image: url('Index/img/background.png');
       position: relative;
       height: 120vh;
       width: auto;
@@ -53,7 +53,7 @@
       <div class="background">
         <div class="container">
           <div class="content">
-            <img src="img/Example.png" alt="">
+            <img src="Index/img/Example.png" alt="">
           </div>
 
         </div>

@@ -39,7 +39,7 @@
     <section>
       <div class="background">
         <div class="container">
-
+          <h1>Hola</h1>
         </div>
       </div>
     </section>

@@ -19,6 +19,11 @@
       width: auto;
       background-size: cover;
 
+      background-color: #cccccc; /* Used if the image is unavailable */
+      background-position: center; /* Center the image */
+      background-repeat: no-repeat; /* Do not repeat the image */
+
+
       display: flex;
       justify-content: center;
       flex-wrap: wrap;

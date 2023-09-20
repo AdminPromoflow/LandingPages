@@ -24,10 +24,8 @@
       background-repeat: no-repeat; /* Do not repeat the image */
 
 
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      align-items: flex-start;
+      display: fixed;
+      top: 60px;
     }
     .container{
       position: relative;

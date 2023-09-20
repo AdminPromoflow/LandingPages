@@ -34,7 +34,7 @@
       position: relative;
       height: 90%;
       width: 80vw;
-      background: green;
+      background: #0A1118;
       overflow-y: scroll;
         }
     .content{

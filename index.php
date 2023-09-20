@@ -12,8 +12,7 @@
       padding: 0px;
     }
     .background{
-      position: sticky;
-      top: 0px;
+      position: relative;
       background-image: url('img/background.png');
       position: relative;
       height: 120vh;
@@ -27,7 +26,8 @@
 
     }
     .container{
-      position: relative;
+      position: sticky;
+      top: 0px;
       height: 2000px;
       width: 80vw;
       background: green;

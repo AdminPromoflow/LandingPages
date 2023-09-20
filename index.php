@@ -12,68 +12,26 @@
       padding: 0px;
     }
     .background{
-      position: relative;
-      background-image: url('img/background.png');
-      position: relative;
-      height: 100vh;
-      width: auto;
-      background-size: cover;
+      background-image: url("img/background.png"); /* The image used */
+      background-color: #cccccc; /* Used if the image is unavailable */
+      height: 100%; /* You must set a specified height */
+      background-position: center; /* Center the image */
+      background-repeat: no-repeat; /* Do not repeat the image */
+      background-size: cover; /* Resize the background image to cover the entire container */
 
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
       align-items: flex-start;
     }
-    .containerImage{
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-    .image{
-      position: relative;
-      width: 300px;
-      margin: 0px 10px 10px 10px;
-      height: 600px;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      align-items: center;
-
-    }
-    .image img{
-      position: relative;
-      height: 100%;
-      filter: drop-shadow(10px 10px 16px black);
-      transition: .5s;
-    }
-    .image img:hover{
-      filter: drop-shadow(20px 20px 12px black);
-      transform: rotate(1deg);
-    }
-    .image img:active{
-      filter: drop-shadow(10px 10px 16px black);
-      transform: rotate(-2deg);
-    }
 
 
-    @media (max-width: 660px) {
-      .hide{
-      display: none;
-      }
-    }
+
 
     </style>
     <section>
       <div class="background">
-        <div class="containerImage">
-          <div class="image">
-            <img src="img/LanyardLeft1.png" alt="">
-          </div>
-          <div class="image hide">
-            <img src="img/LanyardRigth1.png" alt="">
-          </div>
-        </div>
+
       </div>
     </section>
     <script type="text/javascript">

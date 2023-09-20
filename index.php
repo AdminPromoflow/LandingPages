@@ -12,12 +12,12 @@
       padding: 0px;
     }
     .background{
-      background-image: url("img/background.png"); /* The image used */
-      background-color: #cccccc; /* Used if the image is unavailable */
-      height: 100%; /* You must set a specified height */
-      background-position: center; /* Center the image */
-      background-repeat: no-repeat; /* Do not repeat the image */
-      background-size: cover; /* Resize the background image to cover the entire container */
+      position: relative;
+      background-image: url('img/background.png');
+      position: relative;
+      height: 100vh;
+      width: auto;
+      background-size: cover;
 
       display: flex;
       justify-content: center;

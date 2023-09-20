@@ -27,7 +27,7 @@
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      
+
     }
     .container{
       position: relative;
@@ -41,6 +41,11 @@
       height: 2000px;
 
     }
+    .content img{
+      position: relative;
+      width: 100%;
+      
+    }
 
 
     </style>
@@ -48,7 +53,7 @@
       <div class="background">
         <div class="container">
           <div class="content">
-            <h1>Hola</h1>
+            <img src="img/Example.png" alt="">
           </div>
 
         </div>

@@ -24,7 +24,10 @@
       background-repeat: no-repeat; /* Do not repeat the image */
       padding: 3vw;
 
-
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      
     }
     .container{
       position: relative;
@@ -36,7 +39,7 @@
     .content{
       position: relative;
       height: 2000px;
-      
+
     }
 
 

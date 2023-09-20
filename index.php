@@ -30,7 +30,10 @@
       align-items: flex-start;
     }
     .container{
-      
+      position: relative;
+      height: 2000px;
+      width: 80vw;
+      background: green;
     }
 
 

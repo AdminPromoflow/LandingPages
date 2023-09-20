@@ -15,7 +15,7 @@
       position: relative;
       background-image: url('img/background.png');
       position: relative;
-      height: 100vh;
+      height: 120vh;
       width: auto;
       background-size: cover;
 
@@ -29,14 +29,18 @@
       flex-wrap: wrap;
       align-items: flex-start;
     }
-
+    .container{
+      
+    }
 
 
 
     </style>
     <section>
       <div class="background">
+        <div class="container">
 
+        </div>
       </div>
     </section>
     <script type="text/javascript">

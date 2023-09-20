@@ -28,6 +28,7 @@
     .container{
       position: sticky;
       top: 0px;
+      left: 0px;
       height: 2000px;
       width: 80vw;
       background: green;

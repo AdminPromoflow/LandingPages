@@ -12,7 +12,7 @@
       padding: 0px;
     }
     .background{
-      position: fixed;
+      position: sticky;
       top: 0px;
       background-image: url('img/background.png');
       position: relative;

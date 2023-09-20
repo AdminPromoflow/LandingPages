@@ -10,6 +10,7 @@
     body{
       margin: 0px;
       padding: 0px;
+      background: #051527;
     }
     .background{
       position: relative;

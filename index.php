@@ -22,25 +22,32 @@
       background-color: #cccccc; /* Used if the image is unavailable */
       background-position: center; /* Center the image */
       background-repeat: no-repeat; /* Do not repeat the image */
+      padding: 3vw;
 
 
     }
     .container{
-      position: sticky;
-      top: 0px;
-      left: 0px;
-      height: 2000px;
+      position: relative;
+      height: 90%;
       width: 80vw;
       background: green;
+      overflow-y: scroll;
+        }
+    .content{
+      position: relative;
+      height: 2000px;
+      
     }
-
 
 
     </style>
     <section>
       <div class="background">
         <div class="container">
-          <h1>Hola</h1>
+          <div class="content">
+            <h1>Hola</h1>
+          </div>
+
         </div>
       </div>
     </section>

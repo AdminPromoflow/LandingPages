@@ -33,7 +33,6 @@
   }
 </style>
 <div class="slider-container">
-<<<<<<< HEAD
     <div class="slider">
         <img class="darker" src="../Index/Slider/img/imagen1.png" alt="Imagen 1">
         <img src="../Index/Slider/img/imagen2.png" alt="Imagen 2">
@@ -42,17 +41,6 @@
     <div class="slider-buttons">
         <button onclick="previousSlide()">Anterior</button>
         <button onclick="nextSlide()">Siguiente</button>
-=======
-        <div class="slider">
-            <img class="darker" src="../Index/Slider/img/imagen11.png" alt="Imagen 1">
-            <img src="../Index/Slider/img/imagen22.png" alt="Imagen 2">
-            <img src="../Index/Slider/img/imagen3.jpg" alt="Imagen 3">
-        </div>
-        <div class="slider-buttons">
-            <button onclick="previousSlide()">Anterior</button>
-            <button onclick="nextSlide()">Siguiente</button>
-        </div>
->>>>>>> 9b81da622c01848af95526f5200e9195eb5aad56
     </div>
 </div>
 <script type="text/javascript">

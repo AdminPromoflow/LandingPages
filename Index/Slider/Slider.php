@@ -34,9 +34,9 @@
 </style>
 <div class="slider-container">
         <div class="slider">
-            <img class="darker" src="../Index/Slider/img/imagen1.png" alt="Imagen 1">
-            <img src="../Index/Slider/img/imagen2.png" alt="Imagen 2">
-            <img src="../Index/Slider/img/imagen3.png" alt="Imagen 3">
+            <img class="darker" src="../Index/Slider/img/imagen11.png" alt="Imagen 1">
+            <img src="../Index/Slider/img/imagen22.png" alt="Imagen 2">
+            <img src="../Index/Slider/img/imagen33.png" alt="Imagen 3">
         </div>
         <div class="slider-buttons">
             <button onclick="previousSlide()">Anterior</button>

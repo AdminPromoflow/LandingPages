@@ -1,6 +1,6 @@
 <style media="screen">
 .slider-container {
-    width: 100%;
+    width: 300%;
     overflow: hidden;
 }
 
@@ -10,7 +10,7 @@
 }
 
 .slider img {
-    width: 100vw;
+    width: 33.333%;
     height: auto;
 }
 

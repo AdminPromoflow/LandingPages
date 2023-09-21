@@ -11,7 +11,6 @@
 
 .slider img {
     width: 33.333%;
-    height: auto;
 }
 
 .slider-buttons {

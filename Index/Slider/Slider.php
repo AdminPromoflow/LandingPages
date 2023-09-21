@@ -36,7 +36,7 @@
         <div class="slider">
             <img class="darker" src="../Index/Slider/img/imagen1.png" alt="Imagen 1">
             <img src="../Index/Slider/img/imagen2.png" alt="Imagen 2">
-            <img src="../Index/Slider/img/imagen4.png" alt="Imagen 3">
+            <img src="../Index/Slider/img/imagen3.png" alt="Imagen 3">
         </div>
         <div class="slider-buttons">
             <button onclick="previousSlide()">Anterior</button>

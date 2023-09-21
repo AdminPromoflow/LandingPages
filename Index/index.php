@@ -42,6 +42,7 @@
         background: rgb(8,12,20);
         background: linear-gradient(90deg, rgba(8,12,20,1) 0%, rgba(78,121,116,1) 49%, rgba(44,71,76,1) 100%);
         overflow-y: scroll;
+        overflow-x: hidden;
         box-shadow: 30px 30px  40px black;
         border-radius: 10px;
         box-shadow: 30px 30px  40px rgba(20,20,20,.5), -30px -30px  40px rgba(30,30,30,.5);
@@ -62,6 +63,8 @@
         <div class="container">
           <div class="content">
             <?php include "../General/Menu/Menu.php" ?>
+            <?php include "../Index/Slider/Slider.php" ?>
+
             <img src="../Index/img/Example.png" alt="">
           </div>
         </div>

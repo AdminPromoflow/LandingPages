@@ -7,7 +7,7 @@
     min-height: 60px;
     max-height: 100px;
     width: 100%;
-    background-color: rgba(255,255,255,.3);
+    background-color: rgba(255,255,255,.4);
     z-index: 10;
     box-shadow: 12px 0px 15px rgba(0,0,0,.3);
     font-family: 'IBM Plex Sans Condensed', sans-serif;
@@ -18,6 +18,13 @@
     width: 25%;
     left: 1vw;
   }
+  .logo img{
+    position: relative;
+    left: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    filter: drop-shadow(1px 1px 1px rgba(0,0,0,.9));
+  }
   .containerItems{
     position: absolute;
     height: 100%;
@@ -27,7 +34,7 @@
     justify-content: center;
     align-items: center;
   }
-  .containerItems h3{
+  .containerItems h3, .containerItems2 h3{
     position: relative;
     display: inline-block;
     margin: 0px;
@@ -37,32 +44,32 @@
     border-bottom: 2px solid transparent;
     padding: 0 8px;
     border-left: 2px solid black;
-
     text-shadow: 1px 1px 2px rgba(34, 61, 67, .3);
     transition: .5s;
-
   }
   .transparentLeftLine{
     border-left: 2px solid transparent!important;
-
   }
   .containerItems h3:hover{
-    text-shadow: 1px 1px 2px rgba(34, 61, 67, 1);
+    text-shadow: 1px 1px 0px rgba(34, 61, 67, 1);
   }
   .containerItems2{
     position: absolute;
     height: 100%;
     width: calc(25% - 4vw);
     left: calc(3vw + 75%);
-    background-color: orange;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-  .logo img{
-    position: relative;
-    left: 0px;
-    top: 50%;
-    transform: translateY(-50%);
-    filter: drop-shadow(1px 1px 1px rgba(0,0,0,.9));
+  .containerItems2 img{
+    width: 40px;
+    padding: 0 10px;
+    filter: drop-shadow(1px 1px rgba(0, 0, 0, 1));
+    cursor: pointer;
+
   }
+
 </style>
 <section class="menu">
   <div class="logo">
@@ -77,6 +84,9 @@
 
   </div>
   <div class="containerItems2">
+    <img src="../General/Menu/img/Checkout.png" alt="">
+    <h3>Login</h3>
+
   </div>
 </section>
 <script type="text/javascript">

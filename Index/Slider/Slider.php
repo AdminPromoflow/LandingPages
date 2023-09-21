@@ -1,48 +1,48 @@
 <style media="screen">
-.slider-container {
-    width: 300%;
-    overflow: hidden;
-}
+  .slider-container {
+      width: 300%;
+      overflow: hidden;
+  }
 
-.slider {
-    display: flex;
-    transition: transform 1s ease-in-out;
-}
+  .slider {
+      display: flex;
+      transition: transform 1s ease-in-out;
+  }
 
-.slider img {
-    width: 100vw;
-    height: auto;
-}
+  .slider img {
+      width: 33.333%;
+      height: auto;
+  }
 
-.slider-buttons {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-}
+  .slider-buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 0px;
+  }
 
-.slider-buttons button {
-    margin: 0 10px;
-    padding: 5px 10px;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-}
-.darker{
-  filter: brightness(.8);
-}
+  .slider-buttons button {
+      margin: 0 10px;
+      padding: 5px 10px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+  }
+  .darker{
+    filter: brightness(.8);
+  }
 </style>
 <div class="slider-container">
-        <div class="slider">
-            <img class="darker" src="../Index/Slider/img/imagen1.png" alt="Imagen 1">
-            <img src="../Index/Slider/img/imagen2.png" alt="Imagen 2">
-            <img src="../Index/Slider/img/imagen4.png" alt="Imagen 3">
-        </div>
-        <div class="slider-buttons">
-            <button onclick="previousSlide()">Anterior</button>
-            <button onclick="nextSlide()">Siguiente</button>
-        </div>
+    <div class="slider">
+        <img class="darker" src="../Index/Slider/img/imagen1.png" alt="Imagen 1">
+        <img src="../Index/Slider/img/imagen2.png" alt="Imagen 2">
+        <img src="../Index/Slider/img/imagen4.png" alt="Imagen 3">
     </div>
+    <div class="slider-buttons">
+        <button onclick="previousSlide()">Anterior</button>
+        <button onclick="nextSlide()">Siguiente</button>
+    </div>
+</div>
 <script type="text/javascript">
 const slider = document.querySelector('.slider');
 const images = document.querySelectorAll('.slider img');

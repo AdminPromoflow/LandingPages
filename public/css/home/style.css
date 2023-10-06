@@ -1,0 +1,44 @@
+body{
+  margin: 0px;
+  padding: 0px;
+  background: #051527;
+  font-family: 'IBM Plex Sans Condensed', sans-serif;
+}
+.background{
+  position: relative;
+  background-image: url('../../../public/img/home/background.png');
+  position: relative;
+  height: 120vh;
+  width: auto;
+  background-size: cover;
+  filter: brightness(1.7);
+  background-color: #cccccc; /* Used if the image is unavailable */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  padding: 3vw;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.container{
+  position: relative;
+  height: 90%;
+  width: 80vw;
+  background: rgb(8,12,20);
+  background: linear-gradient(90deg, rgba(8,12,20,1) 0%, rgba(78,121,116,1) 49%, rgba(44,71,76,1) 100%);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  box-shadow: 30px 30px  40px black;
+  border-radius: 10px;
+  box-shadow: 30px 30px  40px rgba(20,20,20,.5), -30px -30px  40px rgba(30,30,30,.5);
+  filter: brightness(0.6);
+  min-width: 300px;
+}
+.content{
+  position: relative;
+  height: auto;
+}
+.content img{
+  position: relative;
+  width: 100%;
+}

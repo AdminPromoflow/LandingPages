@@ -4,9 +4,10 @@ class ApiHandler {
         // Check if a POST request was received
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Get the action type from the JSON data
-            $data = json_decode(file_get_contents("php://input"));
+            $rawData = file_get_contents("php://input");
+            $data = json_decode($rawData);
 
-            if ($data && isset($data->action)) {
+            if ($data !== null && isset($data->action)) {
                 // Get the action from the JSON data
                 $action = $data->action;
 
@@ -41,8 +42,8 @@ class ApiHandler {
 
     // Function to handle registration
     private function handleRegistration() {
-      
         // Logic to process registration
+        // You should implement your registration logic here and handle any errors appropriately.
         $response = array("message" => "Registration successful");
         echo json_encode($response);
     }
@@ -50,6 +51,7 @@ class ApiHandler {
     // Function to handle login
     private function handleLogin() {
         // Logic to process login
+        // You should implement your login logic here and handle any errors appropriately.
         $response = array("message" => "Login successful");
         echo json_encode($response);
     }

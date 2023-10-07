@@ -12,7 +12,7 @@
   </div>
   <div class="containerItems2">
     <img src="../../public/img/global/menu/checkout.png" alt="">
-    <h3 class="openLogin">Login</h3>
+    <h3  class="openLogin">Login</h3>
 
   </div>
   <div class="containerItems3">

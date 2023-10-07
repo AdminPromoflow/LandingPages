@@ -1,3 +1,61 @@
+class Register {
+  constructor() {
+    // Event listener to close the register form
+    closeRegister.addEventListener("click", function() {
+    //  closeLoginAndRegister();
+    });
+
+    // Event listener to open the register form from the login screen
+
+    openRegisterFromLogin.addEventListener("click", function() {
+    //  openRegisterFromLogin();
+    });
+  }
+  closeRegister(){
+    if (closeRegisterSide == "left") {
+      register.style.left = "100%";
+      closeRegisterSide = "right";
+    } else if (closeRegisterSide == "right") {
+      register.style.left = "-100%";
+      closeRegisterSide = "left";
+    }
+
+    register.style.transform = "translateY(-50%)";
+
+    // Delay the animation to allow time for the transition
+    setTimeout(function() {
+      // Perform rotation animations on login and register elements
+      containerRegister.style.transform = "perspective(600px) rotateY(-180deg)";
+
+      // Control the visibility of the front and back faces of the elements
+      containerRegister.style.backfaceVisibility = "hidden";
+
+      // Adjust the Z-index to display the login form on top
+      register.style.zIndex = "13";
+    }, 700); // 700 milliseconds delay
+  }
+
+}
+// Select HTML elements by class and ID for register
+const openRegister = document.querySelectorAll('.openRegister');
+var register = document.getElementById("register");
+var closeRegister = document.getElementById("closeRegister");
+var openRegisterFromLogin = document.getElementById("openRegisterFromLogin");
+
+// Set the initial position of the "register" element
+register.style.left = "50%";
+register.style.transform = "translate(-50%,  -50%)";
+var closeRegisterSide = "left";
+
+const registerClass = new Register();
+
+
+
+
+/*
+
+
+
 const nameRegister = document.getElementById("nameRegister");
 const emailRegister = document.getElementById("emailRegister");
 const passwordRegister = document.getElementById("passwordRegister");
@@ -94,4 +152,4 @@ function makeAjaxRequestRegister(url, data) {
      .catch(error => {
          console.error("Error:", error);
      });
- }
+ }*/

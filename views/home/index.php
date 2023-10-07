@@ -34,22 +34,23 @@
         </div>
 
         <!-- Include the login component -->
-        <?php include "../views/global/login.php" ?>
+        <?php include "../../views/global/login.php" ?>
 
         <!-- Include the register component -->
-        <?php include "../views/global/register.php" ?>
+        <?php include "../../views/global/register.php" ?>
 
       </div>
     </div>
   </section>
 
 
+
+
   <!-- Add the JS file -->
+  <script src="../../public/js/global/login.js"></script>
   <script src="../../public/js/home/app.js"></script>
   <script src="../../public/js/global/menu.js"></script>
   <script src="../../public/js/home/sectons/section-1-slider.js"></script>
-  <script src="../../public/js/global/login.js"></script>
   <script src="../../public/js/global/register.js"></script>
-  
 </body>
 </html>

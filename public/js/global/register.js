@@ -33,7 +33,6 @@ class Register {
     register.style.transform = "translateY(-50%)";
   }
   showRegister(time){
-     loginClass.hideLogin();
     // Delay the animation to allow time for the transition
     setTimeout(function() {
       // Perform rotation animations on login and register elements
@@ -47,13 +46,9 @@ class Register {
     }, time); // 700 milliseconds delay
   }
   hideRegister(time){
-
     setTimeout(function() {
-
       containerRegister.style.transform = "perspective(600px) rotateY(-180deg)";
-
       containerRegister.style.backfaceVisibility = "hidden";
-
       register.style.zIndex = "13";
     }, time); // 700 milliseconds delay
   }

@@ -43,6 +43,7 @@ class Login {
   }
   showLogin(time){
     setTimeout(function() {
+
       // Perform rotation animations on login and register elements
       containerLogin.style.transform = "perspective(600px) rotateY(0deg)";
 
@@ -51,11 +52,10 @@ class Login {
 
       // Adjust the Z-index to display the login form on top
       login.style.zIndex = "14";
-    }, time); // 700 milliseconds delay
+    }, time);
   }
 
   hideLogin(time){
-
     setTimeout(function() {
       containerLogin.style.transform = "perspective(600px) rotateY(0deg)";
       containerLogin.style.backfaceVisibility = "visible";
@@ -68,6 +68,8 @@ class Login {
 //const openLoginFromRegister = document.getElementById("openLoginFromRegister");
 const login = document.getElementById("login");
 const closeLogin = document.getElementById("closeLogin"); // Button to close mobile menu
+var containerLogin = document.getElementById("containerLogin");
+
 var closeLoginSide = "left";
 
 // Create an instance of the Login class

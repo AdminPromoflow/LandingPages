@@ -2,13 +2,13 @@
 class Menu {
   constructor() {
     // Add click events to open the login section
-  /*  for (let i = 0; i < openLoginButtons.length; i++) {
+    for (let i = 0; i < openLoginButtons.length; i++) {
       openLoginButtons[i].addEventListener("click", function() {
         // Call the openLogin method from login Class
         loginClass.openLogin();
         registerClass.openRegister();
       });
-    }*/
+    }
 
     // Add click event to open the mobile menu
     openMenuMobileButton.addEventListener("click", this.openMenuMobile.bind(this));

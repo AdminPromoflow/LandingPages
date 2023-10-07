@@ -1,28 +1,36 @@
+// Define a class called "Register"
 class Register {
   constructor() {
     // Event listener to close the register form
-
-    closeRegister.addEventListener("click",function () {
+    closeRegister.addEventListener("click", function () {
+      // Call the closeRegister method of the Register class
       registerClass.closeRegister();
+      // Call the closeLogin method of the Login class (assuming there's a Login class)
       loginClass.closeLogin();
+      // Show the login form with a sliding animation
       loginClass.showLogin(700);
+      // Hide the register form with a sliding animation
       registerClass.hideRegister(700);
     });
 
     // Event listener to open the register form from the login screen
-
-    openRegisterFromLogin.addEventListener("click",function () {
+    openRegisterFromLogin.addEventListener("click", function () {
+      // Hide the login form with a sliding animation
       loginClass.hideLogin(0);
+      // Show the register form with a sliding animation
       registerClass.showRegister(0);
     });
-
   }
-  openRegister(){
+
+  // Method to open the register form
+  openRegister() {
     // Set the position and transformation of the "register" element
     register.style.left = "50%";
-    register.style.transform = "translate(-50%,  -50%)";
+    register.style.transform = "translate(-50%, -50%)";
   }
-  closeRegister(){
+
+  // Method to close the register form
+  closeRegister() {
     if (closeRegisterSide == "left") {
       register.style.left = "100%";
       closeRegisterSide = "right";
@@ -32,9 +40,11 @@ class Register {
     }
     register.style.transform = "translateY(-50%)";
   }
-  showRegister(time){
+
+  // Method to show the register form with a delay
+  showRegister(time) {
     // Delay the animation to allow time for the transition
-    setTimeout(function() {
+    setTimeout(function () {
       // Perform rotation animations on login and register elements
       containerRegister.style.transform = "perspective(600px) rotateY(-360deg)";
 
@@ -45,36 +55,30 @@ class Register {
       register.style.zIndex = "14";
     }, time); // 700 milliseconds delay
   }
-  hideRegister(time){
-    setTimeout(function() {
+
+  // Method to hide the register form with a delay
+  hideRegister(time) {
+    setTimeout(function () {
       containerRegister.style.transform = "perspective(600px) rotateY(-180deg)";
       containerRegister.style.backfaceVisibility = "hidden";
       register.style.zIndex = "13";
     }, time); // 700 milliseconds delay
   }
-
-
-
 }
-// Select HTML elements by class and ID for register
-const openRegister = document.querySelectorAll('.openRegister');
-var closeRegister = document.getElementById("closeRegister");
-var openRegisterFromLogin = document.getElementById("openRegisterFromLogin");
+
+// Get DOM elements for the register
+const openRegisterFromLogin = document.getElementById("openRegisterFromLogin");
+const closeRegister = document.getElementById("closeRegister");
 var containerRegister = document.getElementById("containerRegister");
 var register = document.getElementById("register");
 
 // Set the initial position of the "register" element
 register.style.left = "50%";
-register.style.transform = "translate(-50%,  -50%)";
+register.style.transform = "translate(-50%, -50%)";
 var closeRegisterSide = "left";
 
-
-
-
-
+// Create an instance of the Register class
 const registerClass = new Register();
-
-
 
 
 /*

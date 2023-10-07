@@ -1,31 +1,35 @@
+// Define a class called "Login"
 class Login {
   constructor() {
-
-   // Event listener to close the login form
-    closeLogin.addEventListener("click",function () {
+    // Event listener to close the login form
+    closeLogin.addEventListener("click", function () {
+      // Call the closeLogin method of the Login class
       loginClass.closeLogin();
+      // Call the closeRegister method of the Register class (assuming there's a Register class)
       registerClass.closeRegister();
+      // Show the login form with a sliding animation
       loginClass.showLogin(700);
+      // Hide the register form with a sliding animation
       registerClass.hideRegister(700);
     });
 
-
-
     // Event listener to open the login form from the register screen
-    openLoginFromRegister.addEventListener("click",function () {
+    openLoginFromRegister.addEventListener("click", function () {
+      // Show the login form with a sliding animation
       loginClass.showLogin(0);
+      // Hide the register form with a sliding animation
       registerClass.hideRegister(0);
     });
-
-
   }
-  openLogin(){
-     // Set the position and transformation of the "login" element
-     login.style.left = "50%";
-     login.style.transform = "translate(-50%,  -50%)";
+
+  openLogin() {
+    // Set the position and transformation of the "login" element
+    login.style.left = "50%";
+    login.style.transform = "translate(-50%, -50%)";
     // registerClass.openRegister();
   }
-  closeLogin(){
+
+  closeLogin() {
     if (closeLoginSide == "left") {
       login.style.left = "100%";
       closeLoginSide = "right";
@@ -35,37 +39,35 @@ class Login {
     }
     login.style.transform = "translateY(-50%)";
 
-    /*this.hideLogin();
+    /* Uncomment these lines if needed:
+    this.hideLogin();
     registerClass.closeRegister();
-    registerClass.hideRegister();*/
+    registerClass.hideRegister();
+    */
   }
-  showLogin(time){
-    setTimeout(function() {
 
+  showLogin(time) {
+    setTimeout(function () {
       // Perform rotation animations on login and register elements
       containerLogin.style.transform = "perspective(600px) rotateY(0deg)";
-
-      // Control the visibility of the front and back faces of the elements
       containerLogin.style.backfaceVisibility = "visible";
-
-      // Adjust the Z-index to display the login form on top
       login.style.zIndex = "14";
     }, time);
   }
 
-  hideLogin(time){
-    setTimeout(function() {
+  hideLogin(time) {
+    setTimeout(function () {
       containerLogin.style.transform = "perspective(600px) rotateY(0deg)";
       containerLogin.style.backfaceVisibility = "visible";
       login.style.zIndex = "14";
     }, time);
   }
-
 }
 
+// Get DOM elements
 const openLoginFromRegister = document.getElementById("openLoginFromRegister");
 const login = document.getElementById("login");
-const closeLogin = document.getElementById("closeLogin"); // Button to close mobile menu
+const closeLogin = document.getElementById("closeLogin"); // Button to close the login form
 var containerLogin = document.getElementById("containerLogin");
 
 var closeLoginSide = "left";

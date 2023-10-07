@@ -16,9 +16,7 @@ class Login {
       loginClass.showLogin(0);
       registerClass.hideRegister(0);
     });
-  /*   openLoginFromRegister.addEventListener("click", function() {
-      //openLoginFromRegister()
-    });*/
+
 
   }
   openLogin(){
@@ -65,7 +63,7 @@ class Login {
 
 }
 
-//const openLoginFromRegister = document.getElementById("openLoginFromRegister");
+const openLoginFromRegister = document.getElementById("openLoginFromRegister");
 const login = document.getElementById("login");
 const closeLogin = document.getElementById("closeLogin"); // Button to close mobile menu
 var containerLogin = document.getElementById("containerLogin");

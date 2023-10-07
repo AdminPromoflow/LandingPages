@@ -40,39 +40,3 @@ function openRegisterFromLogin(){
     register.style.zIndex = "14";
   }, 700); // 700 milliseconds delay
 }
-
-// Function to close the login and register forms
-function closeLoginAndRegister() {
-  if (closeLoginSide == "left") {
-    login.style.left = "100%";
-    closeLoginSide = "right";
-  } else if (closeLoginSide == "right") {
-    login.style.left = "-100%";
-    closeLoginSide = "left";
-  }
-
-  if (closeRegisterSide == "left") {
-    register.style.left = "100%";
-    closeRegisterSide = "right";
-  } else if (closeRegisterSide == "right") {
-    register.style.left = "-100%";
-    closeRegisterSide = "left";
-  }
-
-  login.style.transform = "translateY(-50%)";
-
-  // Delay the animation to allow time for the transition
-  setTimeout(function() {
-    // Perform rotation animations on login and register elements
-    containerLogin.style.transform = "perspective(600px) rotateY(0deg)";
-    containerRegister.style.transform = "perspective(600px) rotateY(-180deg)";
-
-    // Control the visibility of the front and back faces of the elements
-    containerLogin.style.backfaceVisibility = "visible";
-    containerRegister.style.backfaceVisibility = "hidden";
-
-    // Adjust the Z-index to display the login form on top
-    login.style.zIndex = "14";
-    register.style.zIndex = "13";
-  }, 700); // 700 milliseconds delay
-}

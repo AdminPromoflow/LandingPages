@@ -2,7 +2,7 @@
   <div id="containerRegister" class="containerRegister">
     <div class="headRegister">
       <h1>Register</h1>
-      <img id="closeRegister" src="../General/Register/img/close.png" alt="">
+      <img id="closeRegister" src="../../public/img/global/register/close.png" alt="">
     </div>
     <div class="bodyRegister">
       <label for="">Please provide your name:</label>

@@ -6,6 +6,7 @@ class Menu {
       openLoginButtons[i].addEventListener("click", function() {
         // Call the openLogin method from login Class
         loginClass.openLogin();
+        registerClass.openRegister();
       });
     }
 

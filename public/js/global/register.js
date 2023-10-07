@@ -1,15 +1,26 @@
 class Register {
   constructor() {
     // Event listener to close the register form
-    closeRegister.addEventListener("click", function() {
-    //  closeLoginAndRegister();
+
+    closeRegister.addEventListener("click",function () {
+      registerClass.closeRegister();
+      loginClass.closeLogin();
+      loginClass.showLogin(700);
+      registerClass.hideRegister(700);
     });
 
     // Event listener to open the register form from the login screen
 
-    openRegisterFromLogin.addEventListener("click", function() {
-    //  openRegisterFromLogin();
+    openRegisterFromLogin.addEventListener("click",function () {
+      loginClass.hideLogin(0);
+      registerClass.showRegister(0);
     });
+
+  }
+  openRegister(){
+    // Set the position and transformation of the "register" element
+    register.style.left = "50%";
+    register.style.transform = "translate(-50%,  -50%)";
   }
   closeRegister(){
     if (closeRegisterSide == "left") {
@@ -19,33 +30,52 @@ class Register {
       register.style.left = "-100%";
       closeRegisterSide = "left";
     }
-
     register.style.transform = "translateY(-50%)";
-
+  }
+  showRegister(time){
+     loginClass.hideLogin();
     // Delay the animation to allow time for the transition
     setTimeout(function() {
       // Perform rotation animations on login and register elements
-      containerRegister.style.transform = "perspective(600px) rotateY(-180deg)";
+      containerRegister.style.transform = "perspective(600px) rotateY(-360deg)";
 
       // Control the visibility of the front and back faces of the elements
+      containerRegister.style.backfaceVisibility = "visible";
+
+      // Adjust the Z-index to display the register form on top
+      register.style.zIndex = "14";
+    }, time); // 700 milliseconds delay
+  }
+  hideRegister(time){
+
+    setTimeout(function() {
+
+      containerRegister.style.transform = "perspective(600px) rotateY(-180deg)";
+
       containerRegister.style.backfaceVisibility = "hidden";
 
-      // Adjust the Z-index to display the login form on top
       register.style.zIndex = "13";
-    }, 700); // 700 milliseconds delay
+    }, time); // 700 milliseconds delay
   }
+
+
 
 }
 // Select HTML elements by class and ID for register
 const openRegister = document.querySelectorAll('.openRegister');
-var register = document.getElementById("register");
 var closeRegister = document.getElementById("closeRegister");
 var openRegisterFromLogin = document.getElementById("openRegisterFromLogin");
+var containerRegister = document.getElementById("containerRegister");
+var register = document.getElementById("register");
 
 // Set the initial position of the "register" element
 register.style.left = "50%";
 register.style.transform = "translate(-50%,  -50%)";
 var closeRegisterSide = "left";
+
+
+
+
 
 const registerClass = new Register();
 

@@ -29,7 +29,7 @@ class Register {
         alert("Registration successful.");
 
         // Define the URL and the JSON data you want to send
-        const url = "../../Controller/Controller.php"; // Replace with your API endpoint URL
+        const url = "../../controller/user-controller.php"; // Replace with your API endpoint URL
         const data = {
           action: "register",
           key1: "value1",

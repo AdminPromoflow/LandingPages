@@ -40,10 +40,10 @@ class Users {
 
       // Bind the email parameter
      $sql->bindParam(':emailUser', $this->email, PDO::PARAM_STR);
+     echo json_encode("pp");exit;
 
       // Execute the query
        $sql->execute();
-       echo json_encode("pp");exit;
 
 
       // Fetch the user count

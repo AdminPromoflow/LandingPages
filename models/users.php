@@ -36,12 +36,11 @@ class Users {
 
 
       // Prepare the SQL query with placeholders
-      $sql = $this->connection->getConnection()->prepare("SELECT COUNT(*) FROM `Users` WHERE `emailUser` = :email");
-
+      $sql = $this->connection->getConnection()->prepare("SELECT COUNT(*) FROM `Users` WHERE `emailUser` = :emailUser");
 
       // Prepara la consulta
       $stmt = $pdo->prepare($sql);
-      
+
       // Bind the email parameter
       $stmt->bindParam(':emailUser', $this->email, PDO::PARAM_STR);
 

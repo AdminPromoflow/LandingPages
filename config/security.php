@@ -33,9 +33,12 @@ class Security {
       $connection = new Database();
       $user = new Users($connection);
       $user->setEmail($email);
-      echo json_encode($user->checkIfUserExistsByEmail()['COUNT(*)']);
+      $value = $user->checkIfUserExistsByEmail()['COUNT(*)'];
 
-      return false;
+      if ($value == "0") {
+        return false;
+      }
+      return true;
     }
 }
 require_once '../models/users.php';

@@ -31,35 +31,28 @@ class Users {
    *
    * @return array An associative array containing the user count.
    */
-  public function checkIfUserExistsByEmail() {
-    try {
+   public function checkIfUserExistsByEmail() {
+       try {
+           // Prepare the SQL query with placeholders
+           $sql = $this->connection->getConnection()->prepare("SELECT COUNT(*) FROM `Users` WHERE `emailUser` = :email");
 
+           // Bind the email parameter
+           $sql->bindParam(':email', $this->email, PDO::PARAM_STR);
 
-      // Prepare the SQL query with placeholders
-      $sql = $this->connection->getConnection()->prepare("SELECT COUNT(*) FROM `Users` WHERE `emailUser` = :emailUser");
+           // Execute the query
+           $sql->execute();
 
-      // Prepara la consulta
-      $stmt = $pdo->prepare($sql);
+           // Fetch the user count
+           $userCount = $sql->fetch(PDO::FETCH_ASSOC);
 
-      // Bind the email parameter
-      $stmt->bindParam(':emailUser', $this->email, PDO::PARAM_STR);
+           return $userCount;
+       } catch(PDOException $e) {
+           // Handle any exceptions and provide an error message
+           echo "Error in the query: " . $e->getMessage();
+           throw new Exception("Error in the user verification query.");
+       }
+   }
 
-      // Execute the query
-      $stmt->execute();
-
-      // Fetch the user count
-      $userCount = $sql->fetch(PDO::FETCH_ASSOC);
-
-      // Close the database connection
-      $this->connection->closeConnection();
-
-      return $userCount;
-    } catch(PDOException $e) {
-      // Handle any exceptions and provide an error message
-      echo "Error in the query: " . $e->getMessage();
-      throw new Exception("Error in the user verification query.");
-    }
-  }
 
   /**
    * Create a new user with the provided name, email, and password.

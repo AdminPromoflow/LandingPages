@@ -42,7 +42,7 @@ class Users {
       // Prepara la consulta
       $stmt = $pdo->prepare($sql);
       // Bind the email parameter
-      $stmtl->bindParam(':emailUser', $this->email, PDO::PARAM_STR);
+      $stmt->bindParam(':emailUser', $this->email, PDO::PARAM_STR);
 
       // Execute the query
       $stmt->execute();

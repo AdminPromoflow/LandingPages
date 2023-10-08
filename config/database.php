@@ -3,8 +3,8 @@ class Database {
   // Database connection parameters
   private $servername = 'localhost';
   private $dbname = "u189167069_Lanyards";
-  private $username = "root";//u273173398_Cat
-  private $password = "root";//32skiff32!CI
+  private $username = "u273173398_Cat";//u273173398_Cat
+  private $password = "32skiff32!CI";//32skiff32!CI
   private $connection;
 
   // Constructor to establish a database connection

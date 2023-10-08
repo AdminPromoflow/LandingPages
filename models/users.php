@@ -38,13 +38,14 @@ class Users {
       // Prepare the SQL query with placeholders
       $sql = $this->connection->getConnection()->prepare("SELECT COUNT(*) FROM `Users` WHERE `emailUser` = :email");
 
+
+      // Prepara la consulta
+      $stmt = $pdo->prepare($sql);
       // Bind the email parameter
-     $sql->bindParam(':emailUser', $this->email, PDO::PARAM_STR);
-     echo json_encode("pp");exit;
+      $stmtl->bindParam(':emailUser', $this->email, PDO::PARAM_STR);
 
       // Execute the query
-       $sql->execute();
-
+      $stmt->execute();
 
       // Fetch the user count
       $userCount = $sql->fetch(PDO::FETCH_ASSOC);

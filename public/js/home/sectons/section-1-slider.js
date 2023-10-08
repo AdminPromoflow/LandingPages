@@ -1,9 +1,8 @@
 
-class Slide {
+class Slider {
   constructor() {
     sliderLong.style.left = "0%";
     buttonSlider[0].style.background = "#7B3378";
-    setInterval(sliderClass.getSlide, 4000);
 
     for (let i = 0; i < buttonSlider.length; i++) {
       buttonSlider[i].addEventListener("click", function(){
@@ -45,8 +44,10 @@ class Slide {
   }
 
 }
-const sliderClass = new Slider();
-
 var currentSlide = 0;
 var sliderLong  = document.getElementById("sliderLong");
 const buttonSlider = document.querySelectorAll('.buttonSlider');
+
+const sliderClass = new Slider();
+
+setInterval(sliderClass.getSlide, 4000);

@@ -33,7 +33,7 @@ class Security {
       $connection = new Database();
       $user = new Users($connection);
       $user->setEmail($email);
-      echo json_encode($user->checkIfUserExistsByEmail());
+      echo json_encode($user->checkIfUserExistsByEmail()[0]);
 
       return false;
     }

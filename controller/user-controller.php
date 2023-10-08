@@ -5,6 +5,7 @@ class ApiHandler {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Get the action type from the JSON data
             $rawData = file_get_contents("php://input");
+
             $data = json_decode($rawData);
 
             if ($data !== null && isset($data->action)) {
@@ -14,7 +15,7 @@ class ApiHandler {
                 // Perform actions based on the request
                 switch ($action) {
                     case "register":
-                        $this->handleRegistration();
+                        $this->handleRegistration($data);
                         break;
 
                     case "login":
@@ -41,18 +42,26 @@ class ApiHandler {
     }
 
     // Function to handle registration
-    private function handleRegistration() {
+    private function handleRegistration($data) {
         // Logic to process registration
-    /*   $connection = new Database();
-       $user = new Users($connection);
+       $name = $data->nameRegister;
+       $email = $data->emailRegister;
+       $password = $data->passwordRegister;
+
+       $security = new Security();
+
+       $var =  $security-> validateUserData($name, $email, $password);
+
+       echo json_encode($var);
+
+      /* $user = new Users($connection);
        $user->setName($data->action);
        $user->setEmail($data->action);
        $user->setPassword($data->action);*/
 
-      // echo json_encode($material->getMaterials());
         // You should implement your registration logic here and handle any errors appropriately.
-        $response = array("message" => "Registration successful");
-        echo json_encode($response);
+      //  $response = array("message" => "Registration successful");
+      //  echo json_encode($response);
     }
 
     // Function to handle login
@@ -64,6 +73,7 @@ class ApiHandler {
     }
 }
 require_once '../config/database.php';
+require_once '../config/security.php';
 require_once '../models/users.php';
 
 // Create an instance of the class and handle the request

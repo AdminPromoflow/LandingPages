@@ -25,15 +25,13 @@ class Register {
     submitBtnRegister.addEventListener("click", function () {
       // Call validation functions and display error or success messages
       if (registerClass.validateName() && registerClass.validateEmail() && registerClass.validatePassword()) {
-        // If all validations pass, show a success message
-        alert("Registration successful.");
-
         // Define the URL and the JSON data you want to send
         const url = "../../controller/user-controller.php"; // Replace with your API endpoint URL
         const data = {
           action: "register",
-          key1: "value1",
-          key2: "value2"
+          nameRegister: nameRegister.value,
+          emailRegister: emailRegister.value,
+          passwordRegister: passwordRegister.value
         };
 
         // Make the AJAX request
@@ -153,7 +151,7 @@ class Register {
       })
       .then(data => {
         // The code inside this function will run when the request is complete
-        console.log(data); // Here you can handle the received response
+        alert(data); // Here you can handle the received response
       })
       .catch(error => {
         console.error("Error:", error);
@@ -165,6 +163,11 @@ const openRegisterFromLogin = document.getElementById("openRegisterFromLogin");
 const closeRegister = document.getElementById("closeRegister");
 const containerRegister = document.getElementById("containerRegister");
 const register = document.getElementById("register");
+
+const nameRegister = document.getElementById("nameRegister");
+const emailRegister = document.getElementById("emailRegister");
+const passwordRegister = document.getElementById("passwordRegister");
+
 
 // Set the initial position of the "register" element
 let closeRegisterSide = "left";

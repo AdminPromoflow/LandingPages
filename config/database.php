@@ -2,7 +2,7 @@
 class Database {
   // Database connection parameters
   private $servername = 'localhost';
-  private $dbname = "u189167069_Lanyards";
+  private $dbname = "u273173398_Lanyards";
   private $username = "u273173398_Cat";//u273173398_Cat
   private $password = "32skiff32!CI";//32skiff32!CI
   private $connection;

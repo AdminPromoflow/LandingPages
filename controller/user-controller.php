@@ -43,6 +43,13 @@ class ApiHandler {
     // Function to handle registration
     private function handleRegistration() {
         // Logic to process registration
+    /*   $connection = new Database();
+       $user = new Users($connection);
+       $user->setName($data->action);
+       $user->setEmail($data->action);
+       $user->setPassword($data->action);*/
+
+      // echo json_encode($material->getMaterials());
         // You should implement your registration logic here and handle any errors appropriately.
         $response = array("message" => "Registration successful");
         echo json_encode($response);
@@ -56,6 +63,8 @@ class ApiHandler {
         echo json_encode($response);
     }
 }
+require_once '../config/database.php';
+require_once '../models/users.php';
 
 // Create an instance of the class and handle the request
 $apiHandler = new ApiHandler();

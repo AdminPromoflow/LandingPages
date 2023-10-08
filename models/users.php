@@ -33,13 +33,14 @@ class Users {
    */
   public function checkIfUserExistsByEmail() {
     try {
+      echo json_encode("pp");exit;
+
       // Prepare the SQL query with placeholders
       $sql = $this->connection->getConnection()->prepare("SELECT COUNT(*) FROM `Users` WHERE `emailUser` = :email");
 
       // Bind the email parameter
      $sql->bindParam(':emailUser', $this->email, PDO::PARAM_STR);
 
-     echo json_encode("pp");exit;
 
       // Execute the query
        $sql->execute();

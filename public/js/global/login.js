@@ -39,11 +39,7 @@ class Login {
     }
     login.style.transform = "translateY(-50%)";
 
-    /* Uncomment these lines if needed:
-    this.hideLogin();
-    registerClass.closeRegister();
-    registerClass.hideRegister();
-    */
+
   }
 
   showLogin(time) {
@@ -57,9 +53,9 @@ class Login {
 
   hideLogin(time) {
     setTimeout(function () {
-      containerLogin.style.transform = "perspective(600px) rotateY(0deg)";
-      containerLogin.style.backfaceVisibility = "visible";
-      login.style.zIndex = "14";
+    containerLogin.style.transform = "perspective(600px) rotateY(-180deg)";
+    containerLogin.style.backfaceVisibility = "hidden";
+    login.style.zIndex = "13";
     }, time);
   }
 }

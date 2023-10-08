@@ -45,7 +45,6 @@ class Menu {
   }
 
 }
-
 // Get elements and buttons related to the menu
 const openLoginButtons = document.querySelectorAll('.openLogin'); // Buttons to open the login
 const openMenuMobileButton = document.getElementById("openMenuMobile"); // Button to open mobile menu

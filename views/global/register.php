@@ -5,11 +5,11 @@
       <img id="closeRegister" src="../../public/img/global/register/close.png" alt="">
     </div>
     <div class="bodyRegister">
-      <label for="">Please provide your name:</label>
+      <label for="nameRegister">Please provide your name:</label>
       <input type="text"  id="nameRegister" name="" value="">
-      <label for="">your email:</label>
+      <label for="emailRegister">your email:</label>
       <input type="text" id="emailRegister" name="" value="">
-      <label for="">and your password:</label>
+      <label for="passwordRegister">and your password:</label>
       <input type="password" id="passwordRegister" name="" value="">
     </div>
     <div class="footerRegister">

@@ -5,10 +5,10 @@
       <img id="closeLogin" src="../../public/img/global/login/close.png" alt="">
     </div>
     <div class="bodyLogin">
-      <label for="">Please provide your email:</label>
-      <input type="text" name="" value="">
-      <label for="">and your password:</label>
-      <input type="password" name="" value="">
+      <label for="nameLogin">Please provide your email:</label>
+      <input id="nameLogin" type="text" name="" value="">
+      <label for="passwordLogin">and your password:</label>
+      <input id="passwordLogin" type="password" name="" value="">
     </div>
     <div class="footerLogin">
       <button type="button" name="button"><strong class="fontWeightButtonLogin">Start</strong></button>

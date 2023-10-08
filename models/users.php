@@ -33,7 +33,7 @@ class Users {
    */
   public function checkIfUserExistsByEmail() {
     try {
-      echo json_encode("pp");exit;
+    //  echo json_encode("pp");exit;
 
       // Prepare the SQL query with placeholders
       $sql = $this->connection->getConnection()->prepare("SELECT COUNT(*) FROM `Users` WHERE `emailUser` = :email");

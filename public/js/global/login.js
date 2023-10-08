@@ -5,7 +5,7 @@ class Login {
     closeLogin.addEventListener("click", function () {
       // Call the closeLogin method of the Login class
       loginClass.closeLogin();
-      // Call the closeRegister method of the Register class (assuming there's a Register class)
+      // Call the closeRegister method of the Register class 
       registerClass.closeRegister();
       // Show the login form with a sliding animation
       loginClass.showLogin(700);

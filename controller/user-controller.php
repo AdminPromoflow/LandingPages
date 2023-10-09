@@ -54,7 +54,8 @@ class ApiHandler {
 
        if (!!$var) {
             // Este bloque se ejecutará si $var no es igual a false
-            $response = array("message" => "Registration in process").echo json_encode($response). json_encode($var);
+            $response = array("message" => "Registration in process");
+            echo json_encode($response);
         } else {
             $response = array("message" => "Registration no successful. User already exist");
             echo json_encode($response);

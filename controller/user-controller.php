@@ -54,6 +54,14 @@ class ApiHandler {
 
        if (!!$var) {
             // Este bloque se ejecutará si $var no es igual a false
+            $connection = new Database();
+            $user = new Users($connection);
+            $user->setName($var['username']);
+            $user->setEmail($var['email']);
+            $user->setPassword($var['password']);
+            $user->createUser();
+
+
             $response = array("message" => "Registration in process");
             echo json_encode($response);
         } else {
@@ -62,10 +70,6 @@ class ApiHandler {
         }
 
 
-      /* $user = new Users($connection);
-       $user->setName($data->action);
-       $user->setEmail($data->action);
-       $user->setPassword($data->action);*/
 
         // You should implement your registration logic here and handle any errors appropriately.
       //  $response = array("message" => "Registration successful");

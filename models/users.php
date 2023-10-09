@@ -60,7 +60,7 @@ class Users {
   public function createUser() {
     try {
       // Prepare the SQL query with placeholders
-      $sql = $this->connection->getConnection()->prepare("INSERT INTO `Users` (`name`, `email`, `password`) VALUES (:name, :email, :password)");
+      $sql = $this->connection->getConnection()->prepare("INSERT INTO `Users` (`nameUser`, `emailUser`, `passwordUser`) VALUES (:name, :email, :password)");
 
       // Bind parameters
       $sql->bindParam(':name', $this->name, PDO::PARAM_STR);

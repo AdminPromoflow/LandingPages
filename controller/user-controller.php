@@ -54,10 +54,10 @@ class ApiHandler {
 
        if (!!$var) {
             // Este bloque se ejecutará si $var no es igual a false
-            echo "La variable \$var no es igual a false.". json_encode($var);
+            $response = array("message" => "Registration in process").echo json_encode($response). json_encode($var);
         } else {
-            // Este bloque se ejecutará si $var es igual a false o está indefinida
-            echo "La variable \$var es igual a false o está indefinida.". json_encode($var);
+            $response = array("message" => "Registration no successful. User already exist");
+            echo json_encode($response);
         }
 
 

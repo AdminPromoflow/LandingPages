@@ -33,9 +33,9 @@ class Security {
       $connection = new Database();
       $user = new Users($connection);
       $user->setEmail($email);
-      $value = $user->checkIfUserExistsByEmail()['COUNT(*)'];
+      $var = $user->checkIfUserExistsByEmail()['COUNT(*)'];
 
-      if ($value == "0") {
+      if ($var == "0") {
         return false;
       }
       return true;

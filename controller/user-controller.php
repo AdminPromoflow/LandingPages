@@ -49,10 +49,17 @@ class ApiHandler {
        $password = $data->passwordRegister;
 
        $security = new Security();
-
        $var =  $security-> validateUserData($name, $email, $password);
 
-       echo json_encode($var);
+
+       if (!!$var) {
+            // Este bloque se ejecutará si $var no es igual a false
+            echo "La variable \$var no es igual a false.". json_encode($var);
+        } else {
+            // Este bloque se ejecutará si $var es igual a false o está indefinida
+            echo "La variable \$var es igual a false o está indefinida.". json_encode($var);
+        }
+
 
       /* $user = new Users($connection);
        $user->setName($data->action);

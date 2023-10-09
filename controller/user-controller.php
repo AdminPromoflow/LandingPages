@@ -62,7 +62,7 @@ class ApiHandler {
             $user->createUser();
 
 
-            $response = array("message" => "Registration in process");
+            $response = array("message" => "Registration successful");
             echo json_encode($response);
         } else {
             $response = array("message" => "Registration no successful. User already exist");

@@ -1,13 +1,14 @@
 <?php
 class ApiHandler {
+    // Function to handle incoming requests
     public function handleRequest() {
         // Check if a POST request was received
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            // Get the action type from the JSON data
+            // Get the raw JSON data from the request body
             $rawData = file_get_contents("php://input");
-
             $data = json_decode($rawData);
 
+            // Check if JSON data is valid and contains an "action" field
             if ($data !== null && isset($data->action)) {
                 // Get the action from the JSON data
                 $action = $data->action;
@@ -41,54 +42,55 @@ class ApiHandler {
         }
     }
 
-    // Function to handle registration
+    // Function to handle user registration
     private function handleRegistration($data) {
-        // Logic to process registration
-       $name = $data->nameRegister;
-       $email = $data->emailRegister;
-       $password = $data->passwordRegister;
+        // Extract user registration data from JSON
+        $name = $data->nameRegister;
+        $email = $data->emailRegister;
+        $password = $data->passwordRegister;
 
-       $security = new Security();
-       $var =  $security-> validateUserData($name, $email, $password);
+        // Validate user data using the Security class
+        $security = new Security();
+        $var = $security->validateUserData($name, $email, $password);
 
-
-       if (!!$var) {
-            // Este bloque se ejecutará si $var no es igual a false
+        if (!!$var) {
+            // Create a database connection
             $connection = new Database();
+
+            // Create a new Users instance and set user data
             $user = new Users($connection);
             $user->setName($var['username']);
             $user->setEmail($var['email']);
             $user->setPassword($var['password']);
+
+            // Create the user in the database
             $user->createUser();
 
-
+            // Send a success response
             $response = array("message" => "Registration successful");
             echo json_encode($response);
         } else {
-            $response = array("message" => "Registration no successful. User already exist");
+            // User data validation failed, user may already exist
+            $response = array("message" => "Registration not successful. User already exists");
             echo json_encode($response);
         }
-
-
-
-        // You should implement your registration logic here and handle any errors appropriately.
-      //  $response = array("message" => "Registration successful");
-      //  echo json_encode($response);
     }
 
-    // Function to handle login
+    // Function to handle user login
     private function handleLogin() {
-        // Logic to process login
-        // You should implement your login logic here and handle any errors appropriately.
+        // Logic to process user login
+        // Implement your login logic here and handle any errors appropriately.
         $response = array("message" => "Login successful");
         echo json_encode($response);
     }
 }
+
+// Include required files
 require_once '../config/database.php';
 require_once '../config/security.php';
 require_once '../models/users.php';
 
-// Create an instance of the class and handle the request
+// Create an instance of the ApiHandler class and handle the request
 $apiHandler = new ApiHandler();
 $apiHandler->handleRequest();
 ?>

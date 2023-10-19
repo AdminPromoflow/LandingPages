@@ -18,7 +18,7 @@ class Database {
         } catch (PDOException $e) {
             // Handle connection errors
             echo "Connection failed: " . $e->getMessage();
-        }
+        } 
     }
 
     // Method to get the database connection

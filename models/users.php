@@ -6,7 +6,7 @@ class Users {
   private $email;     // User's email
   private $password;  // User's password
 
-  // Constructor that initializes the connection
+  // Constructor that initializes the connection.
   function __construct($connection) {
     $this->connection = $connection;
   }
@@ -16,12 +16,16 @@ class Users {
     $this->name = $name;
   }
 
-  // Set the user's email
+  // Set the user's email.
   public function setEmail($email) {
     $this->email = $email;
   }
 
-  // Set the user's password
+  /** Set the user's password.
+  *
+  * @param password  the password.
+  *
+  **/
   public function setPassword($password) {
     $this->password = $password;
   }
@@ -56,10 +60,10 @@ class Users {
    */
   public function createUser() {
     try {
-      // Prepare the SQL query with placeholders
+      // Prepare the SQL query with placeholders.
       $sql = $this->connection->getConnection()->prepare("INSERT INTO `Users` (`nameUser`, `emailUser`, `passwordUser`) VALUES (:name, :email, :password)");
 
-      // Bind parameters
+      // Bind parameters.
       $sql->bindParam(':name', $this->name, PDO::PARAM_STR);
       $sql->bindParam(':email', $this->email, PDO::PARAM_STR);
       $sql->bindParam(':password', $this->password, PDO::PARAM_STR);

@@ -1,4 +1,8 @@
 <?php
+
+require_once '../config/database.php';
+require_once '../models/users.php';
+
 // Define the expected authentication token.
 $expectedToken = "ZaPWPtiQvAjwWBFXvOzu3Cfo4PUZiQ4f"; // Replace this with your real token.
 
@@ -16,13 +20,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Check if the "action" property is present and its value is "getAllLanyardCustomers".
         if (isset($data['action']) && $data['action'] === "getAllLanyardCustomers") {
-            // Process the request and prepare the response in JSON format.
-            $response = array(
 
-                    array('name' => 'User 1', 'email' => 'user1@example.com'),
-                    array('name' => 'User 2', 'email' => 'user2@example.com'),
-                    array('name' => 'User 3', 'email' => 'user3@example.com')
-            );
+            $connection = new Database();
+            // Create a new Users instance and set user data
+            $user = new Users($connection);
+            // Create the user in the database
+            $response = $user->getAllLanyardCustomers();
 
             // Encode the response as JSON.
             $json_response = json_encode($response);
@@ -34,17 +37,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo $json_response;
         } else {
             // Invalid "action" property, send a response with an error.
-            http_response_code(400); // Bad Request
+            http_response_code(400); // Bad Request.
             echo 'The "action" property is not valid or is missing in the JSON.';
         }
     } else {
         // Invalid token, send an unauthorized error response.
-        http_response_code(401); // Unauthorized
+        http_response_code(401); // Unauthorized.
         echo 'Invalid authentication token.';
     }
 } else {
     // If a non-POST request is received, send a response indicating the method is not allowed.
-    http_response_code(405); // Method Not Allowed
+    http_response_code(405); // Method Not Allowed.
     echo 'Only POST requests are allowed in this service.';
 }
 ?>

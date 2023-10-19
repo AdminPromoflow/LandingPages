@@ -78,5 +78,30 @@ class Users {
       echo "Error in the query: " . $e->getMessage();
     }
   }
+
+    /*
+   * Get a list of all customers from the database.
+   *
+   * @return array An array of customer data, or an empty array if no customers are found.
+   */
+  public function getAllLanyardCustomers() {
+      try {
+          // Prepare the SQL query to select all customers
+          $sql = $this->connection->getConnection()->prepare("SELECT `nameUser`, `emailUser` FROM `Users`");
+
+          // Execute the query
+          $sql->execute();
+
+          // Fetch all customer data
+          $customers = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+          return $customers;
+      } catch(PDOException $e) {
+          // Handle any exceptions and provide an error message
+          echo "Error in the query: " . $e->getMessage();
+          throw new Exception("Error in the customer retrieval query.");
+      }
+  }
+
 }
 ?>

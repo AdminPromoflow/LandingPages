@@ -19,9 +19,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Process the request and prepare the response in JSON format.
             $response = array(
 
-                    'user1' => array('name' => 'User 1', 'email' => 'user1@example.com'),
-                    'user2' => array('name' => 'User 2', 'email' => 'user2@example.com'),
-                    'user3' => array('name' => 'User 3', 'email' => 'user3@example.com')
+                    array('name' => 'User 1', 'email' => 'user1@example.com'),
+                    array('name' => 'User 2', 'email' => 'user2@example.com'),
+                    array('name' => 'User 3', 'email' => 'user3@example.com')
             );
 
             // Encode the response as JSON.

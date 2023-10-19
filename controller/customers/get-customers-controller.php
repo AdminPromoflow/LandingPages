@@ -1,7 +1,7 @@
 <?php
 
-require_once '../config/database.php';
-require_once '../models/users.php';
+require_once '../../config/database.php';
+require_once '../../models/users.php';
 
 // Define the expected authentication token.
 $expectedToken = "ZaPWPtiQvAjwWBFXvOzu3Cfo4PUZiQ4f"; // Replace this with your real token.

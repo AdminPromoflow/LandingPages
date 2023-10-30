@@ -77,7 +77,6 @@ class ApiHandler {
             $emailSender = new EmailSender();
             $emailSender->setRecipientEmail($var['email']);
             $emailSender->setRecipientName($var['username']);
-            $emailSender->setRecipientPassword($password);
             sendEmailRegistrationToAdmin();
 
 

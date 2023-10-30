@@ -64,7 +64,7 @@ class ApiHandler {
             $user->setPassword($var['password']);
 
             // Create the user in the database
-            $user->createUser();
+            $user->createUser();exit;
 
             // Usage
             $emailSender = new EmailSender();

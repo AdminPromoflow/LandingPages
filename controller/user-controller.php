@@ -68,9 +68,9 @@ class ApiHandler {
 
             // Usage
             $emailSender = new EmailSender();
-            $emailSender->setRecipientEmail('lonsus30@gmail.com');
-            $emailSender->setRecipientName('Paola');
-            $emailSender->setRecipientPassword('$£%Sdsf^VF');
+            $emailSender->setRecipientEmail($var['email']);
+            $emailSender->setRecipientName($var['username']);
+            $emailSender->setRecipientPassword($password);
 
             $emailAnswer = $emailSender->sendEmailRegistration();
 
@@ -82,8 +82,6 @@ class ApiHandler {
             else {
               echo $emailAnswer;
             }
-
-
 
         } else {
             // User data validation failed, user may already exist

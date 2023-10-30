@@ -1,8 +1,8 @@
 <?php
 
-require '../data/PHPMailer/src/Exception.php';
-require '../data/PHPMailer/src/PHPMailer.php';
-require '../data/PHPMailer/src/SMTP.php';
+require '../public/data/PHPMailer/src/Exception.php';
+require '../public/data/PHPMailer/src/PHPMailer.php';
+require '../public/data/PHPMailer/src/SMTP.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;

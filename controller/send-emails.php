@@ -180,7 +180,7 @@ class EmailSender {
         $mail->addReplyTo('admin@lanyardsforyou.com', 'Ian Southworth');
 
         // Add recipient's email address and name
-        $mail->addAddress('lonsus30@gmail.com', 'Ian Southworth');
+        $mail->addAddress('lonsus30@gmail.com', $this->recipientName);
 
         // Set the email subject
         $mail->Subject = 'Welcome to Lanyards For You';

@@ -74,10 +74,10 @@ class ApiHandler {
 
             $emailAnswer = $emailSender->sendEmailRegistration();
 
-            $emailSender = new EmailSender();
-            $emailSender->setRecipientEmail($var['email']);
-            $emailSender->setRecipientName($var['username']);
-            sendEmailRegistrationToAdmin();
+            $emailSender2 = new EmailSender();
+            $emailSender2->setRecipientEmail($var['email']);
+            $emailSender2->setRecipientName($var['username']);
+            $emailSender2->sendEmailRegistrationToAdmin();
 
 
             if ($emailAnswer ==  '1') {

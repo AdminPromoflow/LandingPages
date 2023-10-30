@@ -56,7 +56,7 @@ class EmailSender {
         $mail->addAddress($this->recipientEmail, $this->recipientName);
 
         // Set the email subject
-        $mail->Subject = 'Testing if PHPMailer works';
+        $mail->Subject = 'Welcome to lanyards for you';
 
         // Define the email body in HTML format
         $mail->isHTML(true); // Specify that the content is HTML

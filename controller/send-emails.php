@@ -1,29 +1,38 @@
 <?php
 
+// Include PHPMailer and its dependencies
 require '../public/data/PHPMailer/src/Exception.php';
 require '../public/data/PHPMailer/src/PHPMailer.php';
 require '../public/data/PHPMailer/src/SMTP.php';
 
+// Import PHPMailer classes
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 class EmailSender {
-  private $message;
-  private $recipientEmail;
-  private $recipientName;
-  private $recipientPassword;
+    private $message;
+    private $recipientEmail;
+    private $recipientName;
+    private $recipientPassword;
 
-  public function setRecipientEmail($recipientEmail) {
-    $this->recipientEmail = $recipientEmail;
-  }
-  public function setRecipientName($recipientName) {
-    $this->recipientName = $recipientName;
-  }
-  public function setRecipientPassword($recipientPassword) {
-    $this->recipientPassword = $recipientPassword;
-  }
-  public function sendEmailRegistration() {
+    // Setter for recipient email
+    public function setRecipientEmail($recipientEmail) {
+        $this->recipientEmail = $recipientEmail;
+    }
+
+    // Setter for recipient name
+    public function setRecipientName($recipientName) {
+        $this->recipientName = $recipientName;
+    }
+
+    // Setter for recipient password (optional)
+    public function setRecipientPassword($recipientPassword) {
+        $this->recipientPassword = $recipientPassword;
+    }
+
+    // Method to send a registration email
+    public function sendEmailRegistration() {
         // Create an instance of PHPMailer
         $mail = new PHPMailer;
 
@@ -52,17 +61,17 @@ class EmailSender {
         // Add a reply-to address
         $mail->addReplyTo('admin@lanyardsforyou.com', 'Ian Southworth');
 
-        // Add c's email address and name
+        // Add recipient's email address and name
         $mail->addAddress($this->recipientEmail, $this->recipientName);
 
         // Set the email subject
-        $mail->Subject = 'Welcome to lanyards for you';
+        $mail->Subject = 'Welcome to Lanyards For You';
 
         // Define the email body in HTML format
         $mail->isHTML(true); // Specify that the content is HTML
 
-        $recipientMessage =
-          "<div class='background' style='position: relative; width: 100%;    background: rgb(52,74,98); padding: 2vw 0;'>
+        $recipientMessage = "
+        <div class='background' style='position: relative; width: 100%;    background: rgb(52,74,98); padding: 2vw 0;'>
             <!-- Background container -->
 
             <div class='background2' style='width: 70%; overflow-x: hidden; min-width: 300px; margin: 0 auto; position: relative; background: linear-gradient(360deg, rgba(7,12,21,1) 1%, rgba(19,54,84,1) 100%); margin-top: 4vw; margin-bottom: 4vw;'>
@@ -117,14 +126,16 @@ class EmailSender {
               <div class='footer' style='position: relative; background: rgba(106, 123, 141, 1); width: 100%; margin-top: calc(1.8vw + 0.8em); height: calc(7.8vw + 5.9em);'>
                 <!-- Footer container -->
                 <h2 style='position: relative; font-family: Oswald, sans-serif; color: rgb(250,250,250); font-weight: 600; font-size: calc(0.8vw + 0.8em); position: relative; margin: 0 auto; letter-spacing: 0px;  padding-top: calc(1vw + 1em);  text-align: center;'>
-                Thanks for joining our online community!</h2>
+                Thanks for joining our online community!
+                </h2>
                 <img alt='Image' style='display: block; width: calc(7vw + 7em);  left: 1vw; padding: 1vw 0; margin: 0 auto;' src='https://lanyardsforyou.com/Test3.png'>
                 <!-- Image in the footer -->
               </div>
             </div>
-            </div>
-            ";
+        </div>
+        ";
 
+        // Set the email body
         $mail->Body = $recipientMessage;
 
         // Set a plain text backup if HTML content cannot be displayed
@@ -136,5 +147,5 @@ class EmailSender {
         } else {
             return '1';
         }
-  }
+    }
 }

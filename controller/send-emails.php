@@ -1,105 +1,140 @@
 <?php
+
+require 'PHPMailer/src/Exception.php';
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/SMTP.php';
+
 use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-//https://www.hostinger.com/tutorials/send-emails-using-php-mail#How_to_Use_PHPMailer_to_Send_Emails
-
-require 'vendor/autoload.php'; // Asegúrate de incluir el archivo de autoload de PHPMailer
-
 class EmailSender {
-    private $to;
-    private $subject;
-    private $message;
+  private $message;
+  private $recipientEmail;
+  private $recipientName;
+  private $recipientPassword;
 
-    public function __construct($to, $subject, $message) {
-        $this->to = $to;
-        $this->subject = $subject;
-        $this->message = $message;
-    }
+  public function setRecipientEmail($recipientEmail) {
+    $this->recipientEmail = $recipientEmail;
+  }
+  public function setRecipientName($recipientName) {
+    $this->recipientName = $recipientName;
+  }
+  public function setRecipientPassword($recipientPassword) {
+    $this->recipientPassword = $recipientPassword;
+  }
+  public function sendEmailRegistration() {
+        // Create an instance of PHPMailer
+        $mail = new PHPMailer;
 
-    public function sendEmail() {
-        $mail = new PHPMailer(true);
+        // Configure PHPMailer to use SMTP
+        $mail->isSMTP();
 
-        try {
-            // Configurar el servidor SMTP
-            $mail->isSMTP();
-            $mail->Host = 'smtp.example.com'; // Configura el servidor SMTP que deseas usar
-            $mail->SMTPAuth = true;
-            $mail->Username = 'your_username'; // Tu nombre de usuario SMTP
-            $mail->Password = 'your_password'; // Tu contraseña SMTP
-            $mail->SMTPSecure = 'tls'; // TLS o SSL según corresponda
-            $mail->Port = 587; // Puerto SMTP
+        // Enable SMTP debugging (set to 0 in production)
+        $mail->SMTPDebug = 2;
 
-            // Configurar el remitente y el destinatario
-            $mail->setFrom('your_email@example.com', 'Your Name'); // Tu dirección de correo y nombre
-            $mail->addAddress($this->to); // Dirección de correo del destinatario
+        // Set the Hostinger SMTP server
+        $mail->Host = 'smtp.hostinger.com';
 
-            // Configurar el asunto y el contenido del correo
-            $mail->Subject = $this->subject;
-            $mail->isHTML(true); // Habilitar contenido HTML
-            $mail->Body = $this->message;
+        // Configure the SMTP port (587 for STARTTLS, 465 for SSL)
+        $mail->Port = 587;
 
-            // Enviar el correo electrónico
-            $mail->send();
+        // Enable SMTP authentication
+        $mail->SMTPAuth = true;
 
-            return true; // El correo se envió con éxito
-        } catch (Exception $e) {
-            return false; // Hubo un error en el envío del correo
+        // Set your SMTP username and password
+        $mail->Username = 'admin@lanyardsforyou.com';
+        $mail->Password = '32skiff32!CI';
+
+        // Set the sender's email address and name
+        $mail->setFrom('admin@lanyardsforyou.com', 'Ian Southworth');
+
+        // Add a reply-to address
+        $mail->addReplyTo('admin@lanyardsforyou.com', 'Ian Southworth');
+
+        // Add c's email address and name
+        $mail->addAddress($this->recipientEmail, $this->recipientName);
+
+        // Set the email subject
+        $mail->Subject = 'Testing if PHPMailer works';
+
+        // Define the email body in HTML format
+        $mail->isHTML(true); // Specify that the content is HTML
+
+        $recipientMessage =
+          "<div class='background' style='position: relative; width: 100%;    background: rgb(52,74,98); padding: 2vw 0;'>
+            <!-- Background container -->
+
+            <div class='background2' style='width: 70%; overflow-x: hidden; min-width: 300px; margin: 0 auto; position: relative; background: linear-gradient(360deg, rgba(7,12,21,1) 1%, rgba(19,54,84,1) 100%); margin-top: 4vw; margin-bottom: 4vw;'>
+              <!-- Secondary background container -->
+
+              <div class='header' style='position: relative; height: calc(3em + 3vw); background: rgba(255,255,255, .4);'>
+                <!-- Header with a background image -->
+                <img  alt='Image' style='display: block; height: 100%; width: auto; margin-left: 2vw;' src='https://lanyardsforyou.com/Test3.png'>
+                <!-- Image in the header -->
+              </div>
+              <div class='titleContainer' style='position: relative; width: 85%; margin: 0 auto; margin-top: calc(2.0vw + 1.0em);'>
+                <!-- Container for titles -->
+                <h1 style='font-family: Oswald, sans-serif; font-size: calc(1.2vw + 0.8em); position: relative; margin: 0 auto; letter-spacing: 0px; color: rgb(240,240,240); text-align: center;'>
+                  <!-- Main title -->
+                  HELLO AND WELCOME TO LANYARDS FOR YOU
+                </h1>
+                <h2 style='font-family: Oswald, sans-serif; font-weight: 300; font-size: calc(1.1vw + 0.7em); position: relative; margin: 0 auto; letter-spacing: 0px; color: rgb(232,232,232); text-align: center; margin-top: calc(0.2vw + 0.2em);'>
+                  <!-- Subtitle -->
+                  $this->recipientName we're glad to have you here
+                </h2>
+              </div>
+              <div class='imgEmail' style='position: relative; width: 85%; margin: 0 auto; margin-top: calc(0.8vw + 0.8em);'>
+                <!-- Image container -->
+                <img style='position: relative; width: 100%;' alt='' src='https://lanyardsforyou.com/Test2.jpg'>
+                <!-- Image in the email -->
+              </div>
+              <div class='titleContainer' style='position: relative; width: 85%; margin: 0 auto; margin-top: calc(1.4vw + 0.4em);'>
+                <!-- Container for titles -->
+                <h3 style='font-family: Oswald, sans-serif; color: rgb(232,232,232); font-weight: 500; font-size: calc(1vw + 0.6em); position: relative; margin: 0 auto; letter-spacing: 0px;  text-align: center;'>
+                  <!-- Title welcoming to the community -->
+                  We welcome you to our community
+                </h3>
+                <h4 style='font-family: Oswald, sans-serif; color: rgb(185,185,185); font-weight: 200; font-size: calc(0.9vw + 0.5em); position: relative; margin: 0 auto; letter-spacing: 0px;  text-align: center; width: 60%;'>
+                  <!-- Subtitle about account info -->
+                  Please make a note of your account info to access:
+                </h4>
+                <!-- User Info Section -->
+                <h4 style='font-family: Oswald, sans-serif; color: rgb(232,232,232); font-weight: 400; font-size: calc(0.9vw + 0.5em); position: relative; margin: 0 auto; letter-spacing: 0px;  text-align: center; margin-top: calc(0.3vw + 0.3em);'>
+                  <!-- User's username -->
+                  email: $this->recipientEmail
+                </h4>
+                <h4 style='font-family: Oswald, sans-serif; color: rgb(232,232,232); font-weight: 400; font-size: calc(0.9vw + 0.5em); position: relative; margin: 0 auto; letter-spacing: 0px;  text-align: center; margin-top: calc(0.2vw + 0.2em);'>
+                  <!-- User's password -->
+                  password: $this->recipientPassword
+                </h4>
+                <h3 style='font-family: Oswald, sans-serif; color: rgb(185,185,185); font-weight: 300; font-size: calc(1vw + 0.6em); position: relative; margin: 0 auto; letter-spacing: 0px;  text-align: center; margin-top: calc(0.4vw + 0.4em);'>
+                  <!-- Another subtitle -->
+                  Your registration is greatly appreciated
+                </h3>
+              </div>
+              <!-- Footer Section -->
+              <div class='footer' style='position: relative; background: rgba(106, 123, 141, 1); width: 100%; margin-top: calc(1.8vw + 0.8em); height: calc(7.8vw + 5.9em);'>
+                <!-- Footer container -->
+                <h2 style='position: relative; font-family: Oswald, sans-serif; color: rgb(250,250,250); font-weight: 600; font-size: calc(0.8vw + 0.8em); position: relative; margin: 0 auto; letter-spacing: 0px;  padding-top: calc(1vw + 1em);  text-align: center;'>
+                Thanks for joining our online community!</h2>
+                <img alt='Image' style='display: block; width: calc(7vw + 7em);  left: 1vw; padding: 1vw 0; margin: 0 auto;' src='https://lanyardsforyou.com/Test3.png'>
+                <!-- Image in the footer -->
+              </div>
+            </div>
+            </div>
+            ";
+
+        $mail->Body = $recipientMessage;
+
+        // Set a plain text backup if HTML content cannot be displayed
+        $mail->AltBody = 'If you cannot view the HTML, here is the plain text message.';
+
+        // Send the email and check if it was sent successfully
+        if (!$mail->send()) {
+            echo 'Sender Error: ' . $mail->ErrorInfo;
+        } else {
+            echo '1';
         }
-    }
+  }
 }
-
-// Uso de la clase EmailSender
-$css = "<style>@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;700&display=swap');
-body { font-family: 'Oswald', 'sans-serif'; }</style>";
-
-$message = $css . "
-<html>
-<head>
-    <title>Lanyards for you</title>
-    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1\">
-</head>
-<body>
-<div class='background' style='position: relative; width: 100%; background: rgb(245,245,245); padding: 2vw 0;'>
-<div class='background2' style='width: 70%; overflow-x: hidden; min-width: 300px; margin: 0 auto; position: relative; background: white; margin-top: 4vw; margin-bottom: 4vw;'>
-
-  <div class='header' style='position: relative; background: rgb(63,152,237); background: linear-gradient(90deg, rgba(63,152,237,0.9) 0%, rgba(69,79,177,0.9) 53%, rgba(69,79,177,0.9) 75%, rgb(196, 56, 149) 100%);'>
-    <img  alt='Imagen' style='display: block; width: 40%; margin-left: 2vw;' src='https://lanyardsforyou.com/Pages/General/Menu/Logo.png'>
-  </div>
-
-  <div class='titleContainer' style='position: relative; width: 85%; margin: 0 auto; margin-top: calc(2.0vw + 1.0em);'>
-    <h1 style='font-family: Oswald, sans-serif; font-size: calc(1.2vw + 0.8em); position: relative; margin: 0 auto; letter-spacing: 0px; color: #664A99; text-align: center;'>HELLO AND WELCOME TO LANYARDS FOR YOU</h1>
-    <h2 style='font-family: Oswald, sans-serif; font-weight: 300; font-size: calc(1.1vw + 0.7em); position: relative; margin: 0 auto; letter-spacing: 0px; color: #664A99; text-align: center; margin-top: calc(0.2vw + 0.2em);'>We're glad to have you here</h2>
-  </div>
-
-  <div class='imgEmail' style='position: relative; width: 85%; margin: 0 auto; margin-top: calc(0.8vw + 0.8em);'>
-    <img style='position: relative; width: 100%;' alt='' src='https://lanyardsforyou.com/Pages/Index/Slider/Slide2.png'>
-  </div>
-
-  <div class='titleContainer' style='position: relative; width: 85%; margin: 0 auto; margin-top: calc(1.4vw + 0.4em);'>
-    <h3 style='font-family: Oswald, sans-serif; font-weight: 500; font-size: calc(1vw + 0.6em); position: relative; margin: 0 auto; letter-spacing: 0px; color: black; text-align: center;'>We welcome you to our community</h3>
-    <h4 style='font-family: Oswald, sans-serif; font-weight: 200; font-size: calc(0.9vw + 0.5em); position: relative; margin: 0 auto; letter-spacing: 0px; color: black; text-align: center; width: 60%;'>Please make a note of your account info to access:</h4>
-
-    <h4 style='font-family: Oswald, sans-serif; font-weight: 400; font-size: calc(0.9vw + 0.5em); position: relative; margin: 0 auto; letter-spacing: 0px; color: black; text-align: center; margin-top: calc(0.3vw + 0.3em);'>username: XXXXX</h4>
-    <h4 style='font-family: Oswald, sans-serif; font-weight: 400; font-size: calc(0.9vw + 0.5em); position: relative; margin: 0 auto; letter-spacing: 0px; color: black; text-align: center; margin-top: calc(0.2vw + 0.2em);'>password: XXXXX </h4>
-
-    <h3 style='font-family: Oswald, sans-serif; font-weight: 300; font-size: calc(1vw + 0.6em); position: relative; margin: 0 auto; letter-spacing: 0px; color: black; text-align: center; margin-top: calc(0.4vw + 0.4em);'>lanyardsforyou</h3>
-  </div>
-
-  <div class='footer' style='position: relative; background: #555FA8; width: 100%; margin-top: calc(1.8vw + 0.8em); height: calc(7.8vw + 5.9em);'>
-    <img alt='Imagen' style='display: block; width: calc(4.8vw + 2.9em); position: absolute; top: 1vw; left: 1vw; padding: 1vw 0; margin: 0 auto;' src='https://lanyardsforyou.com/Pages/General/Menu/Logo.png'>
-  </div>
-
-    </div>
-</div>
-</body>
-</html>";
-
-// Uso de la clase EmailSender
-$email = new EmailSender('recipient@example.com', 'Subject of the Email', $message);
-if ($email->sendEmail()) {
-    echo 'Email sent successfully!';
-} else {
-    echo 'Email sending failed.';
-}
-?>

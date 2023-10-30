@@ -66,9 +66,25 @@ class ApiHandler {
             // Create the user in the database
             $user->createUser();
 
-            // Send a success response
-            $response = array("message" => "Registration successful");
-            echo json_encode($response);
+            // Usage
+            $emailSender = new EmailSender();
+            $emailSender->setRecipientEmail('lonsus30@gmail.com');
+            $emailSender->setRecipientName('Paola');
+            $emailSender->setRecipientPassword('$£%Sdsf^VF');
+
+            $emailAnswer = $emailSender->sendEmailRegistration();
+
+            if ($emailAnswer ==  '1') {
+              // Send a success response
+              $response = array("message" => "Registration successful");
+              echo json_encode($response);
+            }
+            else {
+              echo $emailAnswer;
+            }
+
+
+
         } else {
             // User data validation failed, user may already exist
             $response = array("message" => "Registration not successful. User already exists");
@@ -89,6 +105,7 @@ class ApiHandler {
 require_once '../config/database.php';
 require_once '../config/security.php';
 require_once '../models/users.php';
+require_once '../controller/send-emails.php';
 
 // Create an instance of the ApiHandler class and handle the request
 $apiHandler = new ApiHandler();

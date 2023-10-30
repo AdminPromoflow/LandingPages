@@ -132,9 +132,9 @@ class EmailSender {
 
         // Send the email and check if it was sent successfully
         if (!$mail->send()) {
-            echo 'Sender Error: ' . $mail->ErrorInfo;
+            return 'Sender Error: ' . $mail->ErrorInfo;
         } else {
-            echo '1';
+            return '1';
         }
   }
 }

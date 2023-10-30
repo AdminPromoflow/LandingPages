@@ -77,6 +77,7 @@ class ApiHandler {
             if ($emailAnswer ==  '1') {
               // Send a success response
               $response = array("message" => "Registration successful");
+              sendEmailRegistrationToAdmin();
               echo json_encode($response);
             }
             else {

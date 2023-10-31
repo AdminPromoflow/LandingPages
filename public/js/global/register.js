@@ -151,7 +151,7 @@ class Register {
       })
       .then(data => {
         // The code inside this function will run when the request is complete
-        alert(data); // Here you can handle the received response
+        alert("Registration successful"); // Here you can handle the received response
       })
       .catch(error => {
         console.error("Error:", error);

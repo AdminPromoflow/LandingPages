@@ -62,7 +62,6 @@ class EmailSender {
 
         // Add recipient's email address and name
         $mail->addAddress($this->recipientEmail, $this->recipientName);
-        exit;
 
         // Set the email subject
         $mail->Subject = 'Welcome to Lanyards For You';
@@ -137,6 +136,7 @@ class EmailSender {
 
         // Set the email body
         $mail->Body = $recipientMessage;
+        exit;
 
         // Set a plain text backup if HTML content cannot be displayed
         $mail->AltBody = 'If you cannot view the HTML, here is the plain text message.';

@@ -94,7 +94,7 @@ class EmailSender {
               </div>
               <div class='imgEmail' style='position: relative; width: 85%; margin: 0 auto; margin-top: calc(0.8vw + 0.8em);'>
                 <!-- Image container -->
-                <img style='position: relative; width: 100%;' alt='' src='https://lanyardsforyou.com/Test2.jpg'>
+                <img style='position: relative; width: 100%;' alt='' src='https://lanyardsforyou.com/Test1.jpg'>
                 <!-- Image in the email -->
               </div>
               <div class='titleContainer' style='position: relative; width: 85%; margin: 0 auto; margin-top: calc(1.4vw + 0.4em);'>
@@ -213,7 +213,7 @@ class EmailSender {
               </div>
               <div class='imgEmail' style='position: relative; width: 85%; margin: 0 auto; margin-top: calc(0.8vw + 0.8em);'>
                 <!-- Image container -->
-                <img style='position: relative; width: 100%;' alt='' src='https://lanyardsforyou.com/Test2.jpg'>
+                <img style='position: relative; width: 100%;' alt='' src='https://lanyardsforyou.com/Test1.jpg'>
                 <!-- Image in the email -->
               </div>
               <div class='titleContainer' style='position: relative; width: 85%; margin: 0 auto; margin-top: calc(1.4vw + 0.4em);'>

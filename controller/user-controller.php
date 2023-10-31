@@ -73,7 +73,7 @@ class ApiHandler {
             $emailSender->setRecipientPassword($password);
 
             $emailAnswer = $emailSender->sendEmailRegistration();
-            $emailSender->sendEmailRegistrationToAdmin();exit;
+            $emailSender->sendEmailRegistrationToAdmin();
 
 
             if ($emailAnswer ==  '1') {

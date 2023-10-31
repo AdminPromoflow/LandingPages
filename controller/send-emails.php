@@ -147,7 +147,6 @@ class EmailSender {
         } else {
             return '1';
         }
-        exit;
     }
 
     // Method to send a registration email

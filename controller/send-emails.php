@@ -141,12 +141,13 @@ class EmailSender {
         $mail->AltBody = 'If you cannot view the HTML, here is the plain text message.';
 
         // Send the email and check if it was sent successfully
-        if (!$mail->send()) {        exit;
+        if (!$mail->send()) {
 
             return 'Sender Error: ' . $mail->ErrorInfo;
         } else {
             return '1';
         }
+        exit;
     }
 
     // Method to send a registration email

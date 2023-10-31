@@ -208,7 +208,7 @@ class EmailSender {
                 </h1>
                 <h2 style='font-family: Oswald, sans-serif; font-weight: 300; font-size: calc(1.1vw + 0.7em); position: relative; margin: 0 auto; letter-spacing: 0px; color: rgb(232,232,232); text-align: center; margin-top: calc(0.2vw + 0.2em);'>
                   <!-- Subtitle -->
-                  Hi Ian we hope you are well
+                  Hello Ian and Cat we hope you are well
                 </h2>
               </div>
               <div class='imgEmail' style='position: relative; width: 85%; margin: 0 auto; margin-top: calc(0.8vw + 0.8em);'>
@@ -224,7 +224,7 @@ class EmailSender {
                 </h3>
                 <h4 style='font-family: Oswald, sans-serif; color: rgb(185,185,185); font-weight: 200; font-size: calc(0.9vw + 0.5em); position: relative; margin: 0 auto; letter-spacing: 0px;  text-align: center; width: 60%;'>
                   <!-- Subtitle about account info -->
-                  This email is for inform you that a new user has been registered on lanyards for you,  with this information:
+                  This email is to inform you that a new user has registered on Lanyards For You with the following information:
                 </h4>
                 <!-- User Info Section -->
                 <h4 style='font-family: Oswald, sans-serif; color: rgb(232,232,232); font-weight: 400; font-size: calc(0.9vw + 0.5em); position: relative; margin: 0 auto; letter-spacing: 0px;  text-align: center; margin-top: calc(0.3vw + 0.3em);'>
@@ -237,14 +237,14 @@ class EmailSender {
                 </h4>
                 <h3 style='font-family: Oswald, sans-serif; color: rgb(185,185,185); font-weight: 300; font-size: calc(1vw + 0.6em); position: relative; margin: 0 auto; letter-spacing: 0px;  text-align: center; margin-top: calc(0.4vw + 0.4em);'>
                   <!-- Another subtitle -->
-                  This registration is greatly appreciated
+                  We greatly appreciate this registration.
                 </h3>
               </div>
               <!-- Footer Section -->
               <div class='footer' style='position: relative; background: rgba(106, 123, 141, 1); width: 100%; margin-top: calc(1.8vw + 0.8em); height: calc(7.8vw + 5.9em);'>
                 <!-- Footer container -->
                 <h2 style='position: relative; font-family: Oswald, sans-serif; color: rgb(250,250,250); font-weight: 600; font-size: calc(0.8vw + 0.8em); position: relative; margin: 0 auto; letter-spacing: 0px;  padding-top: calc(1vw + 1em);  text-align: center;'>
-                One more use joining our online community!
+                One more user joining our online community!
                 </h2>
                 <img alt='Image' style='display: block; width: calc(7vw + 7em);  left: 1vw; padding: 1vw 0; margin: 0 auto;' src='https://lanyardsforyou.com/Test3.png'>
                 <!-- Image in the footer -->

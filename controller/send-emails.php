@@ -50,7 +50,7 @@ class EmailSender {
 
         // Enable SMTP authentication
         $mail->SMTPAuth = true;
-
+exit;
         // Set your SMTP username and password
         $mail->Username = 'admin@lanyardsforyou.com';
         $mail->Password = '32skiff32!CI';
@@ -150,7 +150,7 @@ class EmailSender {
     }
 
     // Method to send a registration email
-    public function sendEmailRegistrationToAdmin() {
+/*    public function sendEmailRegistrationToAdmin() {
         // Create an instance of PHPMailer
         $mail = new PHPMailer;
 
@@ -266,6 +266,6 @@ class EmailSender {
             return '1';
         }
     }
-
+*/
 
 }

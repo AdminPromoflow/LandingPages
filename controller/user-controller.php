@@ -73,7 +73,7 @@ class ApiHandler {
             $emailSender->setRecipientPassword($password);
 
             $emailAnswer = $emailSender->sendEmailRegistration();
-exit;
+
           /*  $emailSender2 = new EmailSender();
             $emailSender2->setRecipientEmail($var['email']);
             $emailSender2->setRecipientName($var['username']);

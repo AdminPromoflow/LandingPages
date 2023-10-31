@@ -150,7 +150,7 @@ class EmailSender {
     }
 
     // Method to send a registration email
-/*    public function sendEmailRegistrationToAdmin() {
+   public function sendEmailRegistrationToAdmin() {
         // Create an instance of PHPMailer
         $mail = new PHPMailer;
 
@@ -183,7 +183,7 @@ class EmailSender {
         $mail->addAddress($this->recipientEmail, $this->recipientName);
 
         // Set the email subject
-        $mail->Subject = 'Welcome to Lanyards For You';
+        $mail->Subject = 'Welcome to Lanyards For You EEEEEEEEE';
 
         // Define the email body in HTML format
         $mail->isHTML(true); // Specify that the content is HTML
@@ -266,6 +266,6 @@ class EmailSender {
             return '1';
         }
     }
-*/
+
 
 }

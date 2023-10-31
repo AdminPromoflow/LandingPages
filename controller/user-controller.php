@@ -76,7 +76,7 @@ class ApiHandler {
 
 
 
-            $emailSender2->sendEmailRegistrationToAdmin();exit;
+            $emailSender->sendEmailRegistrationToAdmin();exit;
 
 
             if ($emailAnswer ==  '1') {

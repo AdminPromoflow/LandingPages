@@ -64,13 +64,13 @@ class ApiHandler {
             $user->setPassword($var['password']);
 
             // Create the user in the database
-            $user->createUser();exit;
+            $user->createUser();
 
             // Usage
             $emailSender = new EmailSender();
             $emailSender->setRecipientEmail($var['email']);
             $emailSender->setRecipientName($var['username']);
-            $emailSender->setRecipientPassword($password);
+            $emailSender->setRecipientPassword($password);exit;
 
             $emailAnswer = $emailSender->sendEmailRegistration();
 

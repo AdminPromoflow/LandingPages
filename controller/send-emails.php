@@ -50,7 +50,6 @@ class EmailSender {
 
         // Enable SMTP authentication
         $mail->SMTPAuth = true;
-exit;
         // Set your SMTP username and password
         $mail->Username = 'admin@lanyardsforyou.com';
         $mail->Password = '32skiff32!CI';
@@ -63,6 +62,7 @@ exit;
 
         // Add recipient's email address and name
         $mail->addAddress($this->recipientEmail, $this->recipientName);
+        exit;
 
         // Set the email subject
         $mail->Subject = 'Welcome to Lanyards For You';

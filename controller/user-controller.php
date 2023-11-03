@@ -65,7 +65,7 @@ class ApiHandler {
 
             // Create the user in the database
             $user->createUser();
-            ob_start();  // Inicia el búfer de salida
+            ob_start();  
 
             // Usage
             $emailSender = new EmailSender();
@@ -75,8 +75,6 @@ class ApiHandler {
 
             $emailAnswer = $emailSender->sendEmailRegistration();
             $emailSender->sendEmailRegistrationToAdmin();
-
-            echo "Esto se almacena en el búfer y no se muestra directamente al usuario.";
             $output = ob_get_clean();
 
 

@@ -152,6 +152,9 @@ class Register {
       .then(data => {
         // The code inside this function will run when the request is complete
         alert(data); // Here you can handle the received response
+        loginClass.showLogin(700);
+        // Hide the register form with a sliding animation
+        registerClass.hideRegister(700);
       })
       .catch(error => {
         console.error("Error:", error);

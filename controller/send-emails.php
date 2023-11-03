@@ -1,5 +1,4 @@
 <?php
-
 // Include PHPMailer and its dependencies
 require '../public/data/PHPMailer/src/Exception.php';
 require '../public/data/PHPMailer/src/PHPMailer.php';
@@ -181,8 +180,9 @@ class EmailSender {
 
         // Add recipient's email address and name
       //  $mail->addAddress('lonsus30@gmail.com', 'Admin Ale');
-        $mail->addAddress('ian@kan-do-it.com', 'Ian');
-        $mail->addAddress('catrina@kan-do-it.com', 'Cat');
+      //  $mail->addAddress('ian@kan-do-it.com', 'Ian');
+      //  $mail->addAddress('catrina@kan-do-it.com', 'Cat');
+          $mail->addAddress('lonsus30@gmail.com', 'Aleja');
 
         // Set the email subject
         $mail->Subject = 'New customer on Lanyards For You';
@@ -268,6 +268,5 @@ class EmailSender {
             return '1';
         }
     }
-
 
 }

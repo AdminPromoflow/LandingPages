@@ -80,7 +80,7 @@ class ApiHandler {
 
             if ($emailAnswer ==  '1') {
               // Send a success response
-              $response = array("message" => "1");
+              $response = array("message" => "1"); 
               echo json_encode($response);
             }
             else {

@@ -159,8 +159,8 @@ class Register {
         }
         else if  (data["message"] == -1) {
           alert('Successful registration. We welcome you to our community');
-          loginClass.showLogin(700);
-          registerClass.hideRegister(700);
+          loginClass.showLogin(100);
+          registerClass.hideRegister(100);
         }
         else if  (data["message"] == 0) {
           alert('No successful registration. The user already exists');

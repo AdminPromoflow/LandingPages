@@ -65,7 +65,7 @@ class ApiHandler {
 
             // Create the user in the database
             $user->createUser();
-            ob_start();  
+            ob_start();
 
             // Usage
             $emailSender = new EmailSender();
@@ -80,16 +80,16 @@ class ApiHandler {
 
             if ($emailAnswer ==  '1') {
               // Send a success response
-              $response = array("message" => "Registration successful");
+              $response = array("message" => "1");
               echo json_encode($response);
             }
             else {
-              echo $emailAnswer;
-            }
+              $response = array("message" => "-1");
+              echo json_encode($response);            }
 
         } else {
             // User data validation failed, user may already exist
-            $response = array("message" => "Registration not successful. User already exists");
+            $response = array("message" => "0");
             echo json_encode($response);
         }
     }

@@ -150,8 +150,9 @@ class Register {
         throw new Error("Network error.");
       })
       .then(data => {
+        JSON.parse(data);
         // The code inside this function will run when the request is complete
-        alert(data); // Here you can handle the received response
+        alert(data["message"]); // Here you can handle the received response
     //    loginClass.showLogin(700);
         // Hide the register form with a sliding animation
       //  registerClass.hideRegister(700);

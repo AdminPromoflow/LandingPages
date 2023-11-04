@@ -153,10 +153,18 @@ class Register {
         data = JSON.parse(data);
 
         if (data["message"] == 1) {
-          alert('hahahha');
+          alert('Successful registration\nWe welcome you to our community\nWe have sent user and password information to your email account');
+        }
+        else if  (data["message"] == -1) {
+          alert('Successful registration.\nWe welcome you to our community');
+        }
+        else if  (data["message"] == 0) {
+          alert('No successful registration\nThe user already exists');
+        }
+        else {
+          alert('An error has occurred\nPlease try again');
         }
         // The code inside this function will run when the request is complete
-        alert(data["message"]); // Here you can handle the received response
     //    loginClass.showLogin(700);
         // Hide the register form with a sliding animation
       //  registerClass.hideRegister(700);

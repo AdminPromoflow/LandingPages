@@ -153,7 +153,7 @@ class Register {
         data = JSON.parse(data);
 
         if (data["message"] == 1) {
-          alert('Successful registration. We welcome you to our community\nWe have sent user and password information to your email account');
+          alert('Successful registration. We welcome you to our community');
         }
         else if  (data["message"] == -1) {
           alert('Successful registration. We welcome you to our community');

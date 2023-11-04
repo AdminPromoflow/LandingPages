@@ -150,6 +150,8 @@ class Register {
         throw new Error("Network error.");
       })
       .then(data => {
+        alert(data);
+
         JSON.parse(data);
         // The code inside this function will run when the request is complete
         alert(data["message"]); // Here you can handle the received response

@@ -153,16 +153,16 @@ class Register {
         data = JSON.parse(data);
 
         if (data["message"] == 1) {
-          alert('Successful registration\nWe welcome you to our community\nWe have sent user and password information to your email account');
+          alert('Successful registration. We welcome you to our community\nWe have sent user and password information to your email account');
         }
         else if  (data["message"] == -1) {
-          alert('Successful registration.\nWe welcome you to our community');
+          alert('Successful registration. We welcome you to our community');
         }
         else if  (data["message"] == 0) {
-          alert('No successful registration\nThe user already exists');
+          alert('No successful registration. The user already exists');
         }
         else {
-          alert('An error has occurred\nPlease try again');
+          alert('An error has occurred. Please try again');
         }
         // The code inside this function will run when the request is complete
     //    loginClass.showLogin(700);

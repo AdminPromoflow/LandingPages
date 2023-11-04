@@ -150,9 +150,11 @@ class Register {
         throw new Error("Network error.");
       })
       .then(data => {
-        alert(data);
-
         data = JSON.parse(data);
+
+        if (data["message"] == 1) {
+          alert('hahahha');
+        }
         // The code inside this function will run when the request is complete
         alert(data["message"]); // Here you can handle the received response
     //    loginClass.showLogin(700);

@@ -154,9 +154,13 @@ class Register {
 
         if (data["message"] == 1) {
           alert('Successful registration. We welcome you to our community');
+          loginClass.showLogin(700);
+          registerClass.hideRegister(700);
         }
         else if  (data["message"] == -1) {
           alert('Successful registration. We welcome you to our community');
+          loginClass.showLogin(700);
+          registerClass.hideRegister(700);
         }
         else if  (data["message"] == 0) {
           alert('No successful registration. The user already exists');
@@ -165,9 +169,7 @@ class Register {
           alert('An error has occurred. Please try again');
         }
         // The code inside this function will run when the request is complete
-    //    loginClass.showLogin(700);
         // Hide the register form with a sliding animation
-      //  registerClass.hideRegister(700);
       })
       .catch(error => {
         console.error("Error:", error);

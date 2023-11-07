@@ -13,7 +13,7 @@
       <input type="password" id="passwordRegister" name="" value="">
     </div>
     <div class="footerRegister">
-      <button type="button" id="submitBtnRegister" name="button"><strong class="fontWeightButtonRegister">Start</strong></button>
+      <button type="button" id="submitBtnRegister" name="button"><strong class="fontWeightButtonRegister">Register</strong></button>
       <h4 id="openLoginFromRegister">No account yet? Register here.</h4>
     </div>
   </div>

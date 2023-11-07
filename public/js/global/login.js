@@ -5,7 +5,7 @@ class Login {
     closeLogin.addEventListener("click", function () {
       // Call the closeLogin method of the Login class
       loginClass.closeLogin();
-      // Call the closeRegister method of the Register class 
+      // Call the closeRegister method of the Register class
       registerClass.closeRegister();
       // Show the login form with a sliding animation
       loginClass.showLogin(700);
@@ -19,6 +19,12 @@ class Login {
       loginClass.showLogin(0);
       // Hide the register form with a sliding animation
       registerClass.hideRegister(0);
+    });
+
+
+    // Event listener to open the register form from the login screen
+    loginButton.addEventListener("click", function () {
+      alert(nameLogin.value + passwordLogin.value);
     });
   }
 
@@ -65,6 +71,16 @@ const openLoginFromRegister = document.getElementById("openLoginFromRegister");
 const login = document.getElementById("login");
 const closeLogin = document.getElementById("closeLogin"); // Button to close the login form
 var containerLogin = document.getElementById("containerLogin");
+
+
+
+var nameLogin = document.getElementById("nameLogin");
+var passwordLogin = document.getElementById("passwordLogin");
+var loginButton = document.getElementById("loginButton");
+
+
+
+
 
 var closeLoginSide = "left";
 

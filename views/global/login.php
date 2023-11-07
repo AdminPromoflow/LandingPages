@@ -11,7 +11,7 @@
       <input id="passwordLogin" type="password" name="" value="">
     </div>
     <div class="footerLogin">
-      <button id="" type="button" name="button"><strong class="fontWeightButtonLogin">Login</strong></button>
+      <button id="loginButton" type="button" name="button"><strong class="fontWeightButtonLogin">Login</strong></button>
       <h4 id="openRegisterFromLogin">No account yet? Register here.</h4>
     </div>
   </div>

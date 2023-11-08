@@ -41,8 +41,8 @@ class ApiHandlerLogin {
 
     // Function to handle user login
     private function handleLogin($data){
-      $email = $data->emailRegister;
-      $password = $data->passwordRegister;
+      $email = $data->emailLogin;
+      $password = $data->passwordLogin;
 
       // Create a database connection
       $connection = new Database();

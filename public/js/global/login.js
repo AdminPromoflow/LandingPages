@@ -24,9 +24,11 @@ class Login {
 
     // Event listener to open the register form from the login screen
     loginButton.addEventListener("click", function () {
-      alert(emailLogin.value + passwordLogin.value);
       // Call validation functions and display error or success messages
       if (loginClass.validateEmail() && loginClass.validatePassword()) {
+
+        alert(emailLogin.value + passwordLogin.value);
+
         // Define the URL and the JSON data you want to send
         const url = "../../controller/users/login.php"; // Replace with your API endpoint URL
         const data = {

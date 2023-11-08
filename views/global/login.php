@@ -6,7 +6,7 @@
     </div>
     <div class="bodyLogin">
       <label for="nameLogin">Please provide your email:</label>
-      <input id="nameLogin" type="text" name="" value="">
+      <input id="emailLogin" type="text" name="" value="">
       <label for="passwordLogin">and your password:</label>
       <input id="passwordLogin" type="password" name="" value="">
     </div>

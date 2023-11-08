@@ -44,6 +44,8 @@ class ApiHandlerLogin {
       $email = $data->emailLogin;
       $password = $data->passwordLogin;
 
+      echo "string".$password.$email;
+
       // Create a database connection
       $connection = new Database();
 

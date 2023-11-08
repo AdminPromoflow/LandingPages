@@ -45,7 +45,7 @@ class Login {
 
 
   // Function to make the AJAX request
-  makeAjaxRequestRegister(url, data) {
+  makeAjaxRequestLogin(url, data) {
     // Make the request using the Fetch API
     fetch(url, {
       method: "POST", // HTTP POST method to send data

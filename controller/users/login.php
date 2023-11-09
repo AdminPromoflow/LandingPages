@@ -56,6 +56,8 @@ class ApiHandlerLogin {
           // Create the user in the database
           $storedHash = $user->getPasswordUserByEmail();
 
+
+
           if (password_verify($password, $storedHash)) {
               $response = array("message" => true);
               session_start();

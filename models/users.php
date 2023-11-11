@@ -20,8 +20,6 @@ class Users {
   public function setEmail($email) {
     $this->email = $email;
 
-    echo "Buenas3".$this->email;
-
   }
 
   /** Set the user's password.

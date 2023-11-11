@@ -50,7 +50,7 @@ class ApiHandlerLogin {
 
       // Create a new Users instance and set user data
       $user = new Users($connection);
-      $user->setEmail($data->email);
+      $user->setEmail($email;
 
           // Create the user in the database
           $storedHash = $user->getPasswordUserByEmail();

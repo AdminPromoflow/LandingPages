@@ -19,7 +19,6 @@ class Users {
   // Set the user's email.
   public function setEmail($email) {
     $this->email = $email;
-
   }
 
   /** Set the user's password.
@@ -70,14 +69,10 @@ class Users {
            $sql->execute();
 
            // Fetch the password
-           $password = $sql->fetch(PDO::FETCH_ASSOC);
-
+           $password = $sql->fetchColumn(); // Retrieve the password as a single value
 
            // Close the database connection
            $this->connection->closeConnection();
-
-
-
 
            return $password;
 

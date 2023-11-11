@@ -76,7 +76,7 @@ class Users {
            $this->connection->closeConnection();
 
 
-           echo json_encode($password)."Buenas".$email;
+           echo json_encode($password)."Buenas2".$email;
 
 
            return $password;

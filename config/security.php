@@ -19,7 +19,7 @@ class Security {
 
         // Escape data before storing it in the database
 
-        $hashedPassword = password_hash($password, PASSWORD_DEFAULT); // Hash the password
+        $hashedPassword = hash('sha256', $password) // Hash the password
 
         // If everything is fine, return the secure data
         return [

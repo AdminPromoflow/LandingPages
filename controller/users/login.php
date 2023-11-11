@@ -57,7 +57,8 @@ class ApiHandlerLogin {
           $storedHash = $user->getPasswordUserByEmail();
 
 
-          if (hash_equals($password, $storedHash)) {
+
+          if (password_verify($password, $storedHash)) {
               $response = array("message" => true);
               session_start();
               $_SESSION['logged_in'] = true;

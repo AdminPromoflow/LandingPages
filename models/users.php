@@ -19,6 +19,9 @@ class Users {
   // Set the user's email.
   public function setEmail($email) {
     $this->email = $email;
+
+    echo "Buenas3".$this->email;
+
   }
 
   /** Set the user's password.
@@ -76,7 +79,6 @@ class Users {
            $this->connection->closeConnection();
 
 
-           echo json_encode($password)."Buenas2".$this->email;
 
 
            return $password;

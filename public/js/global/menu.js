@@ -32,7 +32,7 @@ class Menu {
     closeMenuMobile.style.display = "none";
     menuMobile.style.left = "calc(100%)";
     openMenuMobile.style.display = "block";
-  }
+  } 
 
   // Method to handle clicks outside the menu
   handleClickOutside(event) {

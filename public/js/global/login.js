@@ -62,7 +62,17 @@ class Login {
         data = JSON.parse(data);
 
         if (data["message"]) {
+
           alert("Login successful");
+          // Call the closeLogin method of the Login class
+          loginClass.closeLogin();
+          // Call the closeRegister method of the Register class
+          registerClass.closeRegister();
+          // Show the login form with a sliding animation
+          loginClass.showLogin(700);
+          // Hide the register form with a sliding animation
+          registerClass.hideRegister(700);
+
         }
         else {
           alert("Login unsuccessful, please check your credentials.");

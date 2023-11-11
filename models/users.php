@@ -69,7 +69,8 @@ class Users {
            $sql->execute();
 
            // Fetch the password
-           $password = $sql->fetchColumn(); // Retrieve the password as a single value
+           $password = $sql->fetch(PDO::FETCH_ASSOC);
+
 
            // Close the database connection
            $this->connection->closeConnection();

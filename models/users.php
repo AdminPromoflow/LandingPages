@@ -75,6 +75,10 @@ class Users {
            // Close the database connection
            $this->connection->closeConnection();
 
+
+           echo json_encode($password)."Buenas".$email;
+
+
            return $password;
 
        } catch (PDOException $e) {

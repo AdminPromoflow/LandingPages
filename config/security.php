@@ -41,6 +41,8 @@ class Security {
       return true;
     }
 }
+echo json_encode("string2");exit;
+
 require_once '../models/users.php';
 require_once '../config/database.php';
 

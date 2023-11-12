@@ -104,7 +104,6 @@ class ApiHandler {
 }
 // Include required files
 require_once '../../config/database.php';
-echo json_encode("string2");exit;
 
 require_once '../../config/security.php';
 

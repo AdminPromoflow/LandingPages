@@ -43,8 +43,5 @@ class Security {
 }
 
 require_once '../../models/users.php';
-
 require_once '../../config/database.php';
-echo json_encode("string2");exit;
-
 ?>

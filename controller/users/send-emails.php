@@ -1,8 +1,8 @@
 <?php
 // Include PHPMailer and its dependencies
-require '../public/data/PHPMailer/src/Exception.php';
-require '../public/data/PHPMailer/src/PHPMailer.php';
-require '../public/data/PHPMailer/src/SMTP.php';
+require '../../public/lib/PHPMailer/src/Exception.php';
+require '../../public/lib/PHPMailer/src/PHPMailer.php';
+require '../../public/lib/PHPMailer/src/SMTP.php';
 
 // Import PHPMailer classes
 use PHPMailer\PHPMailer\PHPMailer;

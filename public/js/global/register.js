@@ -26,7 +26,7 @@ class Register {
       // Call validation functions and display error or success messages
       if (registerClass.validateName() && registerClass.validateEmail() && registerClass.validatePassword()) {
         // Define the URL and the JSON data you want to send
-        const url = "../../controller/user-controller.php"; // Replace with your API endpoint URL
+        const url = "../../controller/users/register.php"; // Replace with your API endpoint URL
         const data = {
           action: "register",
           nameRegister: nameRegister.value,

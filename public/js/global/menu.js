@@ -10,7 +10,7 @@ class Menu {
       });
     }
 
-    menuClass.showItemsLoginMenu();
+    this.showItemsLoginMenu();
 
     // Add click event to open the mobile menu
     openMenuMobileButton.addEventListener("click", this.openMenuMobile.bind(this));

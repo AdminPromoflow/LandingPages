@@ -10,7 +10,13 @@ class Menu {
       });
     }
 
-    this.showItemsLoginMenu();
+
+    // Define the URL and the JSON data you want to send
+    const url = "../../controller/users/session-login.php"; // Replace with your API endpoint URL
+    const data = {
+      action: "checkSessionLogin"
+    };
+    this.makeAjaxRequestCheckSessionLogin();
 
     // Add click event to open the mobile menu
     openMenuMobileButton.addEventListener("click", this.openMenuMobile.bind(this));
@@ -44,6 +50,32 @@ class Menu {
         this.closeMenuMobile();
       }
     }
+  }
+  makeAjaxRequestCheckSessionLogin(url, data){
+    // Make the request using the Fetch API
+    fetch(url, {
+      method: "POST", // HTTP POST method to send data
+      headers: {
+        "Content-Type": "application/json" // Indicate that you're sending JSON
+      },
+      body: JSON.stringify(data) // Convert the JSON object to a JSON string and send it
+    })
+      .then(response => {
+        if (response.ok) {
+          return response.text(); // or response.json() if you expect a JSON response
+        }
+        throw new Error("Network error.");
+      })
+      .then(data => {
+        alert(data);
+        //data = JSON.parse(data);
+
+        // The code inside this function will run when the request is complete
+        // Hide the register form with a sliding animation
+      })
+      .catch(error => {
+        console.error("Error:", error);
+      });
   }
   showItemsLoginMenu(){
     alert("hhhh");

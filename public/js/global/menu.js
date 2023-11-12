@@ -12,7 +12,7 @@ class Menu {
         const data = {
           action: "checkSessionLogout"
         };
-        this.makeAjaxRequestCheckSessionLogout(url, data);
+        menuClass.makeAjaxRequestCheckSessionLogout(url, data);
       });
     }
 

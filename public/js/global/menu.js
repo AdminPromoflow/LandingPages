@@ -106,9 +106,9 @@ const openMenuMobileButton = document.getElementById("openMenuMobile"); // Butto
 const closeMenuMobileButton = document.getElementById("closeMenuMobile"); // Button to close mobile menu
 const menuMobile = document.getElementById("menuMobile"); // Mobile menu container
 
-const showItemsMenuLoginFalse = document.querySelectorAll("showItemsMenuLoginFalse");
+const showItemsMenuLoginFalse = document.querySelectorAll(".showItemsMenuLoginFalse");
 
-const showItemsMenuLoginTrue = document.querySelectorAll("showItemsMenuLoginTrue");
+const showItemsMenuLoginTrue = document.querySelectorAll(".showItemsMenuLoginTrue");
 
 
 // Create an instance of the Menu class

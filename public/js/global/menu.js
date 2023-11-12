@@ -68,7 +68,7 @@ class Menu {
       })
       .then(data => {
         data = JSON.parse(data);
-        this.showItemsLoginMenu(data["message"]);
+        this.showItemsLoginMenu(false);
 
 
         // The code inside this function will run when the request is complete

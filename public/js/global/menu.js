@@ -67,8 +67,9 @@ class Menu {
         throw new Error("Network error.");
       })
       .then(data => {
-        alert(data);
-        //data = JSON.parse(data);
+        data = JSON.parse(data);
+        showItemsLoginMenu(data["message"]);
+
 
         // The code inside this function will run when the request is complete
         // Hide the register form with a sliding animation
@@ -78,7 +79,7 @@ class Menu {
       });
   }
   showItemsLoginMenu(action){
-    alert("hhhh");
+    alert(action);
   }
 
 }

@@ -6,6 +6,15 @@ class Menu {
         registerClass.openRegister();
       });
     }
+    for (let i = 0; i < logoutButtons.length; i++) {
+      logoutButtons[i].addEventListener("click", function() {
+        const url = "../../controller/users/session-logout.php";
+        const data = {
+          action: "checkSessionLogout"
+        };
+        this.makeAjaxRequestCheckSessionLogout(url, data);
+      });
+    }
 
     const url = "../../controller/users/session-login.php";
     const data = {
@@ -61,6 +70,30 @@ class Menu {
       });
   }
 
+  makeAjaxRequestCheckSessionLogout(url, data){
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+      .then(response => {
+        if (response.ok) {
+          return response.text();
+        }
+        throw new Error("Network error.");
+      })
+      .then(data => {
+        alert(data);
+        data = JSON.parse(data);
+      //  this.showItemsLoginMenu(data["message"]);
+      })
+      .catch(error => {
+        console.error("Error:", error);
+      });
+  }
+
   showItemsLoginMenu(action){
     if (action) {
       for (var i = 0; i < showItemsMenuLoginFalse.length; i++) {
@@ -82,6 +115,7 @@ class Menu {
 }
 
 const openLoginButtons = document.querySelectorAll('.openLogin');
+const logoutButtons = document.querySelectorAll('.logoutButtons');
 const openMenuMobileButton = document.getElementById("openMenuMobile");
 const closeMenuMobileButton = document.getElementById("closeMenuMobile");
 const menuMobile = document.getElementById("menuMobile");

@@ -20,7 +20,7 @@
     <img class="showItemsMenuLoginTrue"  src="../../public/img/global/menu/checkout.png" alt="">
     <h3  class="showItemsMenuLoginFalse">Register</h3>
     <h3  class="openLogin showItemsMenuLoginFalse">Login</h3>
-    <h3  class="showItemsMenuLoginTrue">Logout</h3>
+    <h3  class="logoutButtons showItemsMenuLoginTrue">Logout</h3>
   </div>
 
   <!-- Container for mobile menu icons -->

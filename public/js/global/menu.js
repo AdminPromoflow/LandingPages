@@ -85,9 +85,15 @@ class Menu {
         throw new Error("Network error.");
       })
       .then(data => {
-        alert(data);
         data = JSON.parse(data);
-        this.showItemsLoginMenu(!data["message"]);
+
+        if (data["message"]) {
+          this.showItemsLoginMenu(!data["message"]);
+          alert("Come back soon!");
+        }
+        else {
+          alert("Network error. Trying again");
+        }
       })
       .catch(error => {
         console.error("Error:", error);

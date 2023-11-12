@@ -14,7 +14,7 @@
     <img class="showItemsMenuLoginTrue"  src="../../public/img/global/menu/checkout.png" alt="">
     <h3  class="openLogin showItemsMenuLoginFalse">Register</h3>
     <h3  class="openLogin showItemsMenuLoginFalse">Login</h3>
-    <h3  class="openLogin showItemsMenuLoginTrue">Login out</h3>
+    <h3  class="openLogin showItemsMenuLoginTrue">Logout</h3>
 
   </div>
   <div class="containerItems3">

@@ -47,9 +47,6 @@
     </div>
   </section>
 
-
-
-
   <!-- Add the JS file -->
   <script src="../../public/js/global/login.js"></script>
   <script src="../../public/js/home/app.js"></script>

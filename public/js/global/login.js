@@ -73,9 +73,13 @@ class Login {
           // Hide the register form with a sliding animation
           registerClass.hideRegister(700);
 
+          menuClass.showItemsLoginMenu(true);
+
         }
         else {
           alert("Login unsuccessful, please check your credentials.");
+          menuClass.showItemsLoginMenu(false);
+
         }
 
       })

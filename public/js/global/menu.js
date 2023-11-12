@@ -79,7 +79,24 @@ class Menu {
       });
   }
   showItemsLoginMenu(action){
-    alert(action);
+    //alert(action);
+    if (action) {
+      for (var i = 0; i < showItemsMenuLoginFalse.length; i++) {
+        showItemsMenuLoginFalse[i].style.display = "none";
+      }
+      for (var i = 0; i < showItemsMenuLoginTrue.length; i++) {
+        showItemsMenuLoginTrue[i].style.display = "block";
+      }
+    }
+    else {
+      for (var i = 0; i < showItemsMenuLoginFalse.length; i++) {
+        showItemsMenuLoginFalse[i].style.display = "block";
+      }
+      for (var i = 0; i < showItemsMenuLoginTrue.length; i++) {
+        showItemsMenuLoginTrue[i].style.display = "none";
+      }
+    }
+
   }
 
 }

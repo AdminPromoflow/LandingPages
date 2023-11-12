@@ -87,7 +87,7 @@ class Menu {
       .then(data => {
         alert(data);
         data = JSON.parse(data);
-      //  this.showItemsLoginMenu(data["message"]);
+        this.showItemsLoginMenu(!data["message"]);
       })
       .catch(error => {
         console.error("Error:", error);

@@ -151,3 +151,6 @@
 .menuMobile h3:hover{
   text-shadow: 1px 1px 0px rgba(34, 61, 67, 1);
 }
+.showItemsMenuLoginTrue{
+  display: none;
+}

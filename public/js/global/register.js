@@ -150,8 +150,6 @@ class Register {
         throw new Error("Network error.");
       })
       .then(data => {
-        alert(data);
-
         data = JSON.parse(data);
 
         if (data["message"] == 1) {
@@ -187,6 +185,7 @@ const register = document.getElementById("register");
 const nameRegister = document.getElementById("nameRegister");
 const emailRegister = document.getElementById("emailRegister");
 const passwordRegister = document.getElementById("passwordRegister");
+
 
 
 // Set the initial position of the "register" element

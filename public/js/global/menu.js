@@ -10,6 +10,8 @@ class Menu {
       });
     }
 
+    menuClass.showItemsLoginMenu();
+
     // Add click event to open the mobile menu
     openMenuMobileButton.addEventListener("click", this.openMenuMobile.bind(this));
 
@@ -32,7 +34,7 @@ class Menu {
     closeMenuMobile.style.display = "none";
     menuMobile.style.left = "calc(100%)";
     openMenuMobile.style.display = "block";
-  } 
+  }
 
   // Method to handle clicks outside the menu
   handleClickOutside(event) {
@@ -43,6 +45,9 @@ class Menu {
       }
     }
   }
+  showItemsLoginMenu(){
+    alert("hhhh");
+  }
 
 }
 // Get elements and buttons related to the menu
@@ -50,5 +55,11 @@ const openLoginButtons = document.querySelectorAll('.openLogin'); // Buttons to 
 const openMenuMobileButton = document.getElementById("openMenuMobile"); // Button to open mobile menu
 const closeMenuMobileButton = document.getElementById("closeMenuMobile"); // Button to close mobile menu
 const menuMobile = document.getElementById("menuMobile"); // Mobile menu container
+
+const showItemsMenuLoginFalse = document.querySelectorAll("showItemsMenuLoginFalse");
+
+const showItemsMenuLoginTrue = document.querySelectorAll("showItemsMenuLoginTrue");
+
+
 // Create an instance of the Menu class
 const menuClass = new Menu();

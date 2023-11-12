@@ -15,6 +15,7 @@
   <link rel="stylesheet" type="text/css" href="../../public/css/home/style.css">
   <link rel="stylesheet" href="../../public/css/global/menu.css">
   <link rel="stylesheet" href="../../public/css/home/sectons/section-1-slider.css">
+    <link rel="stylesheet" href="../../public/css/home/sectons/section-2-choose-create-lanyard.css">
   <link rel="stylesheet" href="../../public/css/global/login.css">
   <link rel="stylesheet" href="../../public/css/global/register.css">
 </head>
@@ -54,6 +55,7 @@
   <script src="../../public/js/home/app.js"></script>
   <script src="../../public/js/global/menu.js"></script>
   <script src="../../public/js/home/sectons/section-1-slider.js"></script>
+  <script src="../../public/js/home/sectons/section-2-choose-create-lanyard.js"></script>
   <script src="../../public/js/global/register.js"></script>
 </body>
 </html>

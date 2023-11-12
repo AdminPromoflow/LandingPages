@@ -7,13 +7,13 @@
             <button class="buttonColor1" type="button" name="button"><strong  class="width300">Start</strong></button>
       </div>
       <div class="imageSlider">
-        <img src="../../public/img/home/secton-1-slider/slider1.png" alt="">
+        <img src="../../public/img/home/section-1-slider/slider1.png" alt="">
       </div>
 
     </div>
     <div class="slider">
       <div class="imageSlider">
-        <img src="../../public/img/home/secton-1-slider/slider2.png" alt="">
+        <img src="../../public/img/home/section-1-slider/slider2.png" alt="">
       </div>
       <div class="messageSlider">
         <h2>Begin with Material Selection for Unique Lanyards</h2>
@@ -24,7 +24,7 @@
     <div class="slider">
 
       <div class="imageSlider">
-        <img src="../../public/img/home/secton-1-slider/slider3.png" alt="">
+        <img src="../../public/img/home/section-1-slider/slider3.png" alt="">
       </div>
       <div class="messageSlider">
         <h2>Start customizing with our most popular lanyard</h2>
@@ -33,7 +33,7 @@
     </div>
     <div class="slider">
       <div class="imageSlider">
-        <img src="../../public/img/home/secton-1-slider/slider4.png" alt="">
+        <img src="../../public/img/home/section-1-slider/slider4.png" alt="">
       </div>
       <div class="messageSlider">
         <h2>Personalize: Start Your Lanyard Adventure Fresh</h2>

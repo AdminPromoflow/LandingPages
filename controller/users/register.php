@@ -102,7 +102,7 @@ class ApiHandler {
         echo json_encode($response);
     }
 }
-echo "string";exit;
+echo json_encode("string");exit;
 // Include required files
 require_once '../../config/database.php';
 require_once '../../config/security.php';

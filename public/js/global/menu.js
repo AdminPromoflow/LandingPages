@@ -77,7 +77,7 @@ class Menu {
         console.error("Error:", error);
       });
   }
-  showItemsLoginMenu(){
+  showItemsLoginMenu(action){
     alert("hhhh");
   }
 

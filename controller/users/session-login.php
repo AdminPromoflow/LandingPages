@@ -41,6 +41,7 @@ class HandlerSessionLogin {
 
     // Function to handle user login
     private function handleSessionLogin(){
+
       session_start();
           if ($_SESSION['logged_in']) {
               $response = array("message" => true);
@@ -52,7 +53,7 @@ class HandlerSessionLogin {
           }
     }
 }
-
+echo json_encode("string3");
 // Include required files
 require_once '../../config/database.php';
 require_once '../../models/users.php';

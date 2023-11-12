@@ -31,6 +31,9 @@
 
           <!-- Include the slider component for the index page -->
           <?php include "../../views/home/sections/section-1-slider.php" ?>
+
+          <?php include "../../views/home/sections/section-2-choose-create-lanyard.php" ?>
+
         </div>
 
         <!-- Include the login component -->

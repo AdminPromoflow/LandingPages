@@ -53,7 +53,7 @@ class HandlerSessionLogin {
           }
     }
 }
-echo json_encode("string3");exit;
+//echo json_encode("string3");exit;
 // Include required files
 
 

@@ -102,10 +102,12 @@ class ApiHandler {
         echo json_encode($response);
     }
 }
-echo json_encode("string");exit;
 // Include required files
 require_once '../../config/database.php';
 require_once '../../config/security.php';
+
+echo json_encode("string2");exit;
+
 require_once '../../models/users.php';
 require_once '../../controller/users/send-emails.php';
 

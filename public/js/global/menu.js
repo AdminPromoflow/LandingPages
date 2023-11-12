@@ -16,7 +16,7 @@ class Menu {
     const data = {
       action: "checkSessionLogin"
     };
-    this.makeAjaxRequestCheckSessionLogin();
+    this.makeAjaxRequestCheckSessionLogin(url, data);
 
     // Add click event to open the mobile menu
     openMenuMobileButton.addEventListener("click", this.openMenuMobile.bind(this));

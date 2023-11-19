@@ -28,6 +28,7 @@
     <img id="openMenuMobile" src="../../public/img/global/menu/menu.png" alt="">
     <img id="closeMenuMobile" src="../../public/img/global/menu/close.png" alt="">
   </div>
+  
 
   <!-- Mobile menu section with duplicated menu items -->
   <section id="menuMobile" class="menuMobile">

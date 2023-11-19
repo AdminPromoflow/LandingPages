@@ -5,7 +5,7 @@
   overflow: hidden;
   background: rgb(7,12,21);
   background: linear-gradient(360deg, rgba(7,12,21,1) 1%, rgba(19,54,84,1) 100%);
-  border-bottom: 20px solid #071E36;
+/*  border-bottom: 20px solid #071E36;*/
 }
 .sliderLong{
   position: relative;

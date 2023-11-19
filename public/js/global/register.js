@@ -1,6 +1,8 @@
 // Define a class called "Register"
 class Register {
   constructor() {
+    this.closeRegister();
+    this.hideRegister(0);
     // Event listener to close the register form
     closeRegister.addEventListener("click", function () {
       // Call the closeRegister method of the Register class

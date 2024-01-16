@@ -9,7 +9,8 @@
 }
 .price h3{
   color: white;
-
+  margin: 0;
+  padding: 2px;
 }
 
 .price h3:nth-child(1){

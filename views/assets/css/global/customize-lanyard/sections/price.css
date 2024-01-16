@@ -11,6 +11,7 @@
   color: white;
   margin: 0;
   padding: 2px;
+  font-weight: 300;
 }
 
 .price h3:nth-child(1){

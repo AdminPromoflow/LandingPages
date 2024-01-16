@@ -1,6 +1,6 @@
 <?php
 // Include necessary files for database configuration and model.
-require_once '../../config/database.php';
+require_once '../config/database.php';
 require_once '../../models/users.php';
 
 // Define the expected authentication token.

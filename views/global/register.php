@@ -2,7 +2,7 @@
   <div id="containerRegister" class="containerRegister">
     <div class="headRegister">
       <h1>Register</h1>
-      <img id="closeRegister" src="../../public/img/global/register/close.png" alt="">
+      <img id="closeRegister" src="../assets/img/global/register/close.png" alt="">
     </div>
     <div class="bodyRegister">
       <label for="nameRegister">Please provide your name:</label>
@@ -18,3 +18,4 @@
     </div>
   </div>
 </section>
+<script src="../assets/js/global/register.js"></script>

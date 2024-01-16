@@ -2,7 +2,7 @@
   <div id="containerLogin"  class="containerLogin">
     <div class="headLogin">
       <h1>Login</h1>
-      <img id="closeLogin" src="../../public/img/global/login/close.png" alt="">
+      <img id="closeLogin" src="../assets/img/global/login/close.png" alt="">
     </div>
     <div class="bodyLogin">
       <label for="nameLogin">Please provide your email:</label>

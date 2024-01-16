@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../../assets/css/global/customize-lanyard/sections/price.css">
+<link rel="stylesheet" href="../assets/css/global/customize-lanyard/style.css">
 
 
 <section class="customize-lanyard">

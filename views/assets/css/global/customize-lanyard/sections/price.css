@@ -1,8 +1,8 @@
 .price{
   position: relative;
-  padding: 10px;
+  padding: 0px;
   display: flex;
-  justify-content: center;
+  justify-content: right;
   align-items: center;
   flex-direction: row;
   background: orange;

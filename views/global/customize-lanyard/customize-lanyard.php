@@ -9,6 +9,7 @@
 
     </div>
     <div class="options-customize-lanyard">
+      <h2>Custom Lanyards</h2>
       <?php include "../../views/global/customize-lanyard/sections/price.php"?>
     </div>
   </div>

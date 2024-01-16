@@ -11,6 +11,12 @@
   align-items: center;
 
 }
+.customize-lanyard h2{
+  position: relative;
+  text-align: center;
+  font-weight: 400;
+  color: white
+}
 .customize-lanyard-container{
   position: relative;
   height: 80%;

@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../../views/assets/css/customize-lanyard/style.css">
+<link rel="stylesheet" href="../../assets/css/global/customize-lanyard/sections/price.css">
 
 
 <section class="customize-lanyard">
@@ -9,7 +9,7 @@
 
     </div>
     <div class="options-customize-lanyard">
-
+      <?php include "../../views/global/customize-lanyard/sections/price.php"?>
     </div>
   </div>
 </section>

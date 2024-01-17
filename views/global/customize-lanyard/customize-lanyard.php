@@ -11,6 +11,8 @@
     <div class="options-customize-lanyard">
       <h2>Custom Lanyards</h2>
       <?php include "../../views/global/customize-lanyard/sections/price.php"?>
+      <?php include "../../views/global/customize-lanyard/sections/material.php"?>
+
     </div>
   </div>
 </section>

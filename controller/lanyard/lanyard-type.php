@@ -1,9 +1,9 @@
 <?php
-class HandlerGetMaterials {
+class LanyardType {
+  private $infoLanyardType;
 
     // Function to handle incoming requests
     public function handleRequest() {
-
 
         // Check if a POST request was received
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -18,8 +18,14 @@ class HandlerGetMaterials {
 
                 // Perform actions based on the request
                 switch ($action) {
-                    case "getMaterials":
-                        $this->handleGetMaterials($data);
+                    case "setTypeLanyardSelected":
+                        $this->handleSetLanyardTypesSelected($data);
+                        $this->handleSearchLanyardTypesAttributes($data);
+
+                        $response = array('lanyardType' => $this->infoLanyardType);
+
+                        echo json_encode($response);
+
                         break;
 
                     default:
@@ -43,26 +49,49 @@ class HandlerGetMaterials {
 
 
     // Function to handle user login
-    private function handleGetMaterials($data){
-      
+    private function handleSetLanyardTypesSelected($data){
+      session_start();
+      if (!isset($_SESSION['LanyardTypeSelected'])) {
+        $_SESSION['LanyardTypeSelected'] = 'one-end';
+      }
+      else {
+        $_SESSION['LanyardTypeSelected'] = $data->optionSelected;
+      }
+
+      //  echo json_encode($_SESSION['LanyardTypeSelected']);exit;
+
+    }
+
+    private function handleSearchLanyardTypesAttributes($data){
       // Create a database connection
       $connection = new Database();
 
       // Create a new Users instance and set user data
-      $lanyards = new Lanyards($connection);
+      $lanyardsTypes = new LanyardTypes($connection);
 
-      $response = $lanyards->getAllLanyardMaterials();
 
-      echo json_encode($response);
+      session_start();
+
+      $lanyardsTypes->setIdMaterial($_SESSION['IdmaterialSelected']);
+
+     $lanyardsTypes->setLanyardType($_SESSION['LanyardTypeSelected']);
+
+      $response = $lanyardsTypes->getInfoLanyardTypeByIdMaterial();
+
+
+      $this->infoLanyardType = array('price' => $response['price'] ,
+                                     'type' => $response['type']);
+
+      return json_encode($this->infoLanyardType);
     }
 }
 
 // Include required files
-require_once '../../config/database.php';
-require_once '../../../models/lanyards.php';
+require_once '../config/database.php';
+require_once '../../models/lanyards.php';
+require_once '../../models/lanyard-types.php';
 
-// Create an instance of the ApiHandler class and handle the request
 
-$handlerGetMaterials = new HandlerGetMaterials();
-$handlerGetMaterials->handleRequest();
+$lanyardType = new LanyardType();
+$lanyardType->handleRequest();
 ?>

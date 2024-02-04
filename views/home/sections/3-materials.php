@@ -40,7 +40,7 @@
         <img src="../assets/img/home/3-materials/Material-3-Natural-Bamboo.jpg" alt="">
       </div>
       <div class="containerTextMaterialsBox">
-        <h3 class="material-for-select">Bamboo</h3>
+        <h3 class="material-for-select">RPET Polyester</h3>
       </div>
       <div class="buttonMaterialsBox">
         <button  class="openCustomizeLanyardFromMaterials" type="button" name="button">Start</button>

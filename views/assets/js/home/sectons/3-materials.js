@@ -11,7 +11,7 @@ class MaterialHome {
     for (let i = 0; i < openCustomizeLanyardFromMaterials.length; i++) {
       openCustomizeLanyardFromMaterials[i].addEventListener("click", function(){
 
-        const url = "../../controller/lanyard/materials/set-material-selected.php";
+        const url = "../../controller/lanyard/material.php";
         const data = {
           action: "setMaterialSelected",
           optionSelected: materialForSelect[i].textContent
@@ -22,6 +22,9 @@ class MaterialHome {
         customizeLanyard.openCustomizeLanyard(true);
 
       })
+
+
+
     }
 
 

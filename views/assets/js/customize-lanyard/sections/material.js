@@ -1,6 +1,6 @@
 class Material {
   constructor() {
-    const url = "../../controller/lanyard/materials/get-materials.php";
+    const url = "../../controller/lanyard/material.php";
     const data = {
       action: "getMaterials"
     };
@@ -26,6 +26,7 @@ class Material {
         throw new Error("Network error.");
       })
       .then(data => {
+        alert(data);
         data = JSON.parse(data);
         containersBoxesMaterial.innerHTML = "";
 
@@ -48,7 +49,7 @@ class Material {
     ;
   }
   setMaterialSelected(material){
-    const url = "../../controller/lanyard/materials/set-material-selected.php";
+    const url = "../../controller/lanyard/material.php";
     const data = {
       action: "setMaterialSelected",
       optionSelected: material
@@ -73,9 +74,8 @@ class Material {
         throw new Error("Network error.");
       })
       .then(data => {
-        //alert(data);
+        alert(data);
        data = JSON.parse(data);
-    //   alert(JSON.stringify(data["lanyardType"]));
         material.showSelectedMaterial(data["material"]);
         previewMaterial.showSelectedPreviewtMaterial(data["material"]);
       //  oneTwoEndsClass.showSelectedOneTwoEnds(data["lanyardType"]);

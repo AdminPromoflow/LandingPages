@@ -56,14 +56,11 @@ class LanyardTypes {
           // Prepare the SQL query with placeholders
           $sql = $this->connection->getConnection()->prepare("SELECT DISTINCT `type`, `price`  FROM `LanyardTypes`");
 
-
-        //  echo json_encode($this->material);exit;
-
           // Execute the query
           $sql->execute();
 
           // Fetch the password
-          $response = $sql->fetch(); // Retrieve the password as a single value
+          $response = $sql->fetchAll(PDO::FETCH_ASSOC);
 
           // Close the database connection
           $this->connection->closeConnection();

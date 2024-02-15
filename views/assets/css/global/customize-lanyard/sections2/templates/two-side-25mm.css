@@ -1,7 +1,7 @@
 .two-side-25mm{
   position: relative;
   width: 90%;
-  height: 80%;
+  height: 91%;
   padding: 15px 0;
   left: 50%;
   transform: translateX(-50%);
@@ -38,7 +38,7 @@
   height: auto;
   left: 50%;
   transform: translateX(-50%);
-  width: 34%;
+  width: 30%;
   opacity: 1;
   z-index: -1;
 }

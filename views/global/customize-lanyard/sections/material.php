@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="../../views/assets/css/global/customize-lanyard/sections/material.css">
 <section class="material section active">
-  <h2>Material</h2>
+  <h2 class="name-section-customize-lanyard">Material</h2>
   <br>
   <p>Select the type of lanyard</p>
   <br>

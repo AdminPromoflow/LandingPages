@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="../../views/assets/css/global/customize-lanyard/sections/one-two-ends.css">
 <section class="one_two_ends  section ">
-  <h2>Lanyard type</h2>
+  <h2 class="name-section-customize-lanyard">Lanyard type</h2>
   <br>
   <p>Select the the type of lanyard</p>
   <br>

@@ -30,9 +30,9 @@ class LanyardType {
 
                     default:
                         // Unknown action
-                        http_response_code(400); // Bad Request
-                        $response = array("message" => "Unknown action");
-                        echo json_encode($response);
+                      //  http_response_code(400); // Bad Request
+                      //  $response = array("message" => "Unknown action");
+                        //echo json_encode($response);
                         break;
                 }
             } else {
@@ -42,8 +42,8 @@ class LanyardType {
             }
         } else {
             // The request is not a valid POST request
-            http_response_code(405); // Method Not Allowed
-            echo json_encode(array("message" => "Method not allowed"));
+          //  http_response_code(405); // Method Not Allowed
+          //  echo json_encode(array("message" => "Method not allowed"));
         }
     }
 
@@ -84,18 +84,13 @@ class LanyardType {
 
       return json_encode($this->infoLanyardType);
     }
-    private function getAllLanyardsType(){
+     function getAllLanyardsType(){
       // Create a database connection
       $connection = new Database();
 
       // Create a new Users instance and set user data
       $lanyardsTypes = new LanyardTypes($connection);
-
-
-      session_start();
-
       $response = $lanyardsTypes->getAllLanyardsType();
-
 
       return ($response);
     }

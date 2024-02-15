@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="../../views/assets/css/global/customize-lanyard/sections2/preview-material.css">
 
-<section id="preview-material" class="preview-material">
+<section id="preview-material-container" class="preview-material-container">
   <!-- <h3>Tubular</h3>
 
   <div class="img-preview-material">

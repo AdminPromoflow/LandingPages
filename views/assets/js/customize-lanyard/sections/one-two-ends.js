@@ -3,7 +3,7 @@ class OneTwoEnds {
     for (let i = 0; i < containerBoxesOneTwoEnds.length; i++) {
       containerBoxesOneTwoEnds[i].addEventListener("click", function(){
 
-        const url = "../../controller/lanyard/lanyard-type/set-lanyard-type-selected.php";
+        const url = "../../controller/lanyard/lanyard-type.php";
         const data = {
           action: "setTypeLanyardSelected",
           optionSelected: dataOneTwoEnds[i].textContent
@@ -34,8 +34,7 @@ class OneTwoEnds {
       //  alert(data);
        data = JSON.parse(data);
        oneTwoEndsClass.showSelectedOneTwoEnds(data["lanyardType"]);
-
-       templates.showSelectedPreviewtTemplate(data["lanyardType"]["type"])
+       previewLanyardType.showSelectedPreviewtTemplate(data["lanyardType"]["type"], "25mm");
 
       })
       .catch(error => {

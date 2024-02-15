@@ -19,7 +19,7 @@ class MaterialHome {
         };
         material.makeAjaxRequestSetMaterialSelected(url, data);
 
-        customizeLanyard.openCustomizeLanyard(true);
+        customizeLanyard.openCustomizeLanyard("block");
 
       })
 

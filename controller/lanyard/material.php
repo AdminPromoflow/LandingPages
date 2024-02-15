@@ -2,6 +2,8 @@
 // Include required files for database connection and model manipulation
 require_once '../config/database.php'; // Path to database configuration
 require_once '../../models/lanyards.php'; // Path to lanyards model
+require_once 'lanyard-type.php';
+require_once 'width.php';
 
 // Define the Material class
 class Material {
@@ -22,23 +24,26 @@ class Material {
                     case "getMaterials":
                         // Handle the retrieval of materials
                         $materials = $this->getMaterials($data);
-                        $lanyardType = new LanyardType();
-                        $lanyardsType  = $lanyardType->getAllLanyardsType();
-                        echo json_encode($lanyardsType);exit;
 
-                        $response = array('materials' => $materials);
+                        $materialSelected = $this->selectMaterial($materials);
 
-
-
-                        $materialSelected  = array_rand($response['materials']);
-                        $materialSelected = ($response['materials'][$materialSelected]["material"]);
-                        $materialSelected =  array("optionSelected" => $materialSelected);
                         $this->setSessionMaterial((object)$materialSelected);
 
+                        $lanyardType = new LanyardType();
+                        $lanyardsType  = $lanyardType->getAllLanyardsType();
 
+                        $width = new Width();
+                        $allWidthByMaterial  = $width->getWidthByMaterial($_SESSION['materialSelected']);
 
-                      //  echo json_encode($response);
+                        $width->setSessionWidth($allWidthByMaterial[0]['width']);
+
+                        $response = array('materials' => $materials,
+                                           'lanyardsType' => $lanyardsType,
+                                           'width' => $allWidthByMaterial);
+
+                        echo json_encode($response);
                         break;
+
                     case "setMaterialSelected":
                         // Handle setting the selected material and searching its attributes
                         $this->setSessionMaterial($data);
@@ -79,6 +84,14 @@ class Material {
         $_SESSION['materialSelected'] = $data->optionSelected; // Store the selected material option in the session
 
       //  echo json_encode($_SESSION['materialSelected']);
+    }
+    // Private function to handle the action of setting the selected material
+    private function selectMaterial($materials) {
+      $materialSelected  = array_rand($materials);
+      $materialSelected = ($materials[$materialSelected]["material"]);
+      $materialSelected =  array("optionSelected" => $materialSelected);
+
+      return $materialSelected;
     }
 
     // Private function to handle the action of getting the selected material

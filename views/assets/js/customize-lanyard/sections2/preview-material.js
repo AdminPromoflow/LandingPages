@@ -1,6 +1,6 @@
 class PreviewMaterial {
   constructor() {
-
+    //  this.showMaterialPreview("flex");
   }
   showSelectedPreviewtMaterial(data){
     previewMaterialContainer.innerHTML = "";
@@ -16,10 +16,14 @@ class PreviewMaterial {
     '</div>'
     ;
   }
+  showMaterialPreview(action){
+    //alert("material preview = " + action);
 
-
+    previewMaterialContainer.style.display = action;
+  }
 
 
 }
-const previewMaterialContainer = document.getElementById("preview-material");
+
+const previewMaterialContainer = document.getElementById("preview-material-container");
 const  previewMaterial = new PreviewMaterial();

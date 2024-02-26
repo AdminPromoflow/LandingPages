@@ -19,7 +19,7 @@ class Width_Model {
 
 
 
-  public function getWidthByMaterial() {
+  public function getAllWidthByMaterial() {
     try {
 
         // Prepare the SQL query with placeholders

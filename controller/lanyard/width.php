@@ -40,7 +40,7 @@ class Width {
           //  echo json_encode(array("message" => "Method not allowed"));
         }
     }
-    function getWidthByMaterial($materialSelected){
+    function getAllWidthByMaterial($materialSelected){
      // Create a database connection
      $connection = new Database();
 
@@ -48,7 +48,7 @@ class Width {
      $width = new Width_Model($connection);
      $width->setMaterial($materialSelected);
 
-     $response = $width->getWidthByMaterial();
+     $response = $width->getAllWidthByMaterial();
 
      return($response);
    }

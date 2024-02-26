@@ -48,10 +48,12 @@ class Material {
                         // Handle setting the selected material and searching its attributes
                         $this->setSessionMaterial($data);
 
-                        $infoMaterial  = $this->handleSearchMaterialAttributes($data);
+                        $infoMaterial  = $this->getAttributesMaterial($data);
+                        //$allWidth = $width->getAllWithByMaterial($data->optionSelected);
 
                         // Prepare and send the response with material information
                         $response = array('material' => $infoMaterial);
+                        //,  'allWidth' => $allWidth
                         echo json_encode($response);
                         break;
                       case "getMaterialSelected":
@@ -101,7 +103,7 @@ class Material {
     }
 
     // Private function to handle searching for attributes of the selected material
-    private function handleSearchMaterialAttributes($data) {
+    private function getAttributesMaterial($data) {
         $connection = new Database(); // Create a new database connection
 
         $lanyards = new Lanyards($connection); // Instantiate the Lanyards model

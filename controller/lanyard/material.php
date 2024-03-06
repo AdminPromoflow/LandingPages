@@ -4,7 +4,8 @@ require_once '../config/database.php'; // Path to database configuration
 require_once '../../models/lanyards.php'; // Path to lanyards model
 require_once 'lanyard-type.php';
 require_once 'width.php';
-
+require_once 'width.php';
+require_once 'sidePrinted.php';
 // Define the Material class
 class Material {
     // Public function to handle incoming HTTP requests
@@ -33,7 +34,7 @@ class Material {
                         $lanyardsType  = $lanyardType->getAllLanyardsType();
 
                         $width = new Width();
-                        $allWidthByMaterial  = $width->getWidthByMaterial($_SESSION['materialSelected']);
+                        $allWidthByMaterial  = $width->getAllWidthByMaterial($_SESSION['materialSelected']);
 
                         $width->setSessionWidth($allWidthByMaterial[0]['width']);
 
@@ -49,10 +50,18 @@ class Material {
                         $this->setSessionMaterial($data);
 
                         $infoMaterial  = $this->getAttributesMaterial($data);
-                        //$allWidth = $width->getAllWithByMaterial($data->optionSelected);
+                        $width = new Width();
+                        $allWidth =  ($width->getAllWidthByMaterial($data->optionSelected));
+                        $widthSelected = $width->selectWidth($allWidth);
+                        $width-> setSessionWidth($widthSelected);
 
+                        $sidePrinted = new SidePrinted();
+                        $sidePrinted->getAllSidePrintedByWidth($widthSelected);
+                        //echo json_encode($allWidth);  exit;
                         // Prepare and send the response with material information
-                        $response = array('material' => $infoMaterial);
+                        $response = array('material' => $infoMaterial,
+                                          'allWidth' => $allWidth,
+                                          'widthSelected' => $widthSelected);
                         //,  'allWidth' => $allWidth
                         echo json_encode($response);
                         break;

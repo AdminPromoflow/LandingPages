@@ -1,8 +1,8 @@
 <?php
-class Width_Model {
+class SidePrinted_Model {
   // Private variables
   private $connection; // The database connection
-  private $manterial;
+  private $width;
 
 
   // Constructor that initializes the connection.
@@ -11,24 +11,25 @@ class Width_Model {
   }
 
   // Set the user's name
-  public function setMaterial($material) {
+  public function setWidth($width) {
 
-    $this->material = $material;
+    $this->width = $width;
 
   }
 
 
 
-  public function getAllWidthByMaterial() {
-    //echo json_encode($this->material."hola");  exit;
+  public function getAllSidePrintedByWidth() {
+    //echo json_encode($this->width."hola");  exit;
     try {
 
         // Prepare the SQL query with placeholders
-        $sql = $this->connection->getConnection()->prepare("SELECT  `Width`.`width` FROM `Lanyards` JOIN `Width` ON `Lanyards`.`idLanyard` = `Width`.`idLanyard` WHERE  `Lanyards`.`material`   =  :material");
+        $sql = $this->connection->getConnection()->prepare("SELECT `SidePrinted`.*
+          FROM `Lanyards` JOIN `Width` ON `Lanyards`.`idLanyard` = `Width`.`idLanyard` JOIN `SidePrinted` ON `Width`.`idWidth` = `SidePrinted`.`idWidth` WHERE `Lanyards`.`material` = 'Tubular' AND `Width`.`width` = '10mm' ");
 
         // Bind the email parameter
-        $sql->bindParam(':material', $this->material, PDO::PARAM_STR);
-      //  echo json_encode($this->material);exit;
+        $sql->bindParam(':width', $this->width, PDO::PARAM_STR);
+      //  echo json_encode($this->width);exit;
 
         // Execute the query
         $sql->execute();

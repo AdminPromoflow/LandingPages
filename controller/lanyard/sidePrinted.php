@@ -1,5 +1,5 @@
 <?php
-class Width {
+class SidePrinted {
 
     // Function to handle incoming requests
     public function handleRequest() {
@@ -40,17 +40,17 @@ class Width {
           //  echo json_encode(array("message" => "Method not allowed"));
         }
     }
-    function getAllWidthByMaterial($materialSelected){
-      //echo json_encode($materialSelected);  exit;
+    function getAllSidePrintedByWidth($widthSelected){
+      echo json_encode($widthSelected);
 
      // Create a database connection
      $connection = new Database();
 
      // Create a new Users instance and set user data
-     $width = new Width_Model($connection);
-     $width->setMaterial($materialSelected);
+     $sidePrinted = new SidePrinted_Model($connection);
+     $sidePrinted->setWidth($widthSelected);
 
-     $response = $width->getAllWidthByMaterial();
+     $response = $width->getAllSidePrintedByWidth();
      return $response;
    }
    function selectWidth($allWidth){
@@ -89,6 +89,6 @@ require_once '../config/database.php';
 require_once '../../models/width.php';
 
 
-$width = new Width();
-$width->handleRequest();
+$sidePrinted = new SidePrinted();
+$sidePrinted->handleRequest();
 ?>

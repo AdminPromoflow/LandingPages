@@ -56,12 +56,16 @@ class Material {
                         $width-> setSessionWidth($widthSelected);
 
                         $sidePrinted = new SidePrinted();
-                        $sidePrinted->getAllSidePrintedByWidth($widthSelected);
+                        $allSidePrinted = $sidePrinted->getAllSidePrintedByWidth($widthSelected, $data->optionSelected);
+                        $sidePrintedSelected =  $sidePrinted->selectSidePrinted($allSidePrinted);
+                        $sidePrinted->setSessionSidePrinted($sidePrintedSelected);
                         //echo json_encode($allWidth);  exit;
                         // Prepare and send the response with material information
                         $response = array('material' => $infoMaterial,
                                           'allWidth' => $allWidth,
-                                          'widthSelected' => $widthSelected);
+                                          'widthSelected' => $widthSelected,
+                                          'allSidePrinted' => $allSidePrinted,
+                                          'sidePrintedSelected' => $sidePrintedSelected);
                         //,  'allWidth' => $allWidth
                         echo json_encode($response);
                         break;

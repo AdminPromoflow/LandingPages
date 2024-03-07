@@ -40,8 +40,8 @@ class SidePrinted {
           //  echo json_encode(array("message" => "Method not allowed"));
         }
     }
-    function getAllSidePrintedByWidth($widthSelected){
-      echo json_encode($widthSelected);
+    function getAllSidePrintedByWidth($widthSelected, $materialSelected){
+
 
      // Create a database connection
      $connection = new Database();
@@ -49,35 +49,38 @@ class SidePrinted {
      // Create a new Users instance and set user data
      $sidePrinted = new SidePrinted_Model($connection);
      $sidePrinted->setWidth($widthSelected);
-
-     $response = $width->getAllSidePrintedByWidth();
+     $sidePrinted->setMaterial($materialSelected);
+     $response = $sidePrinted->getAllSidePrintedByWidth();
+     //echo json_encode($response); exit;
      return $response;
    }
-   function selectWidth($allWidth){
-     session_start(); // Iniciar la sesión si no está iniciada aún
 
-      if (isset($_SESSION['widthSelected'])) {
-        return $_SESSION['widthSelected'];
+   function selectSidePrinted($allSidePrinted){
+     session_start(); // Iniciar la sesión si no está iniciada aún
+     //echo json_encode($allSidePrinted); exit;
+      if (isset($_SESSION['sidePrintedSelected'])) {
+        return $_SESSION['sidePrintedSelected'];
       } else {
         $array = [];
-        foreach ($allWidth as $key) {
-          $array[] = (int)$key["width"];
+        foreach ($allSidePrinted as $key) {
+          $array[] = $key["noSides"];
         }
-        $widthSelected = min($array);
-        return $widthSelected;
+
+        $sidePrintedSelected = $array[0];
+        return $sidePrintedSelected;
       }
 
 
    }
 
    // Private function to handle the action of setting the selected material
-   function setSessionWidth($widthSelected) {
+   function setSessionSidePrinted($sidePrintedSelected) {
        session_start(); // Start or resume a session
-       $_SESSION['widthSelected'] = $widthSelected; // Store the selected material option in the session
+       $_SESSION['sidePrintedSelected'] = $sidePrintedSelected; // Store the selected material option in the session
    }
-   function getSessionWidth() {
+   function getSessionSidePrinted() {
        session_start(); // Start or resume a session
-       return $_SESSION['widthSelected'] ; // Store the selected material option in the session
+       return $_SESSION['$sidePrintedSelected'] ; // Store the selected material option in the session
    }
 
 
@@ -86,7 +89,7 @@ class SidePrinted {
 
 // Include required files
 require_once '../config/database.php';
-require_once '../../models/width.php';
+require_once '../../models/sidePrinted.php';
 
 
 $sidePrinted = new SidePrinted();

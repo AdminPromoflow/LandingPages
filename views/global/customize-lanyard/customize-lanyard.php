@@ -9,6 +9,10 @@
       <br>
       <?php include "../../views/global/customize-lanyard/sections2/preview-material.php"?>
       <?php include "../../views/global/customize-lanyard/sections2/preview-lanyard-type.php"?>
+      <?php include "../../views/global/customize-lanyard/sections2/preview-side-printed.php"?>
+
+
+
 
     </div>
     <div class="options-customize-lanyard">
@@ -19,6 +23,9 @@
       <?php include "../../views/global/customize-lanyard/sections/material.php"?>
       <?php include "../../views/global/customize-lanyard/sections/one-two-ends.php"?>
       <?php  include "../../views/global/customize-lanyard/sections/width.php"?>
+      <?php  include "../../views/global/customize-lanyard/sections/side-printed.php"?>
+
+
 
       <div class="container_buttons_next_preview">
         <button id="preview" type="button" name="button">Preview</button>

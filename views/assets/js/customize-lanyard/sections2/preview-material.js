@@ -17,12 +17,8 @@ class PreviewMaterial {
     ;
   }
   showMaterialPreview(action){
-    //alert("material preview = " + action);
-
     previewMaterialContainer.style.display = action;
   }
-
-
 }
 
 const previewMaterialContainer = document.getElementById("preview-material-container");

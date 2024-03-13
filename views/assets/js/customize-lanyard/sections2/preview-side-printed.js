@@ -4,7 +4,6 @@ class PreviewSidePrinted {
   }
   showSelectedPreviewtTemplate(){
 
-
   }
   showTypeLanyardPreview(action){
   //  alert("lanyard type = " + action);
@@ -13,7 +12,4 @@ class PreviewSidePrinted {
 }
 
 const previewLanyardTypeContainer2 = document.getElementById("preview-lanyard-type-container");
-
-
-
 const previewSidePrinted = new PreviewSidePrinted();

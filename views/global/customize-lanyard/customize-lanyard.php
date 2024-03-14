@@ -10,19 +10,20 @@
       <br>
 
       <?php include "../../views/global/customize-lanyard/sections2/preview-price.php"?>
+      <?php// include "../../views/global/customize-lanyard/sections2/preview-material.php"?>
+      <?php// include "../../views/global/customize-lanyard/sections2/preview-lanyard-type.php"?>
+      <?php //include "../../views/global/customize-lanyard/sections2/preview-width.php"?>
+      <?php// include "../../views/global/customize-lanyard/sections2/preview-side-printed.php"?>
 
-      <?php include "../../views/global/customize-lanyard/sections2/preview-acccessories.php"?>
-      <?php include "../../views/global/customize-lanyard/sections2/preview-amount.php"?>
-      <?php include "../../views/global/customize-lanyard/sections2/preview-artwork.php"?>
-      <?php include "../../views/global/customize-lanyard/sections2/preview-attachment.php"?>
-      <?php include "../../views/global/customize-lanyard/sections2/preview-clip.php"?>
-      <?php include "../../views/global/customize-lanyard/sections2/preview-colour.php"?>
-      <?php include "../../views/global/customize-lanyard/sections2/preview-image.php"?>
-      <?php include "../../views/global/customize-lanyard/sections2/preview-lanyard-type.php"?>
-      <?php include "../../views/global/customize-lanyard/sections2/preview-material.php"?>
-      <?php include "../../views/global/customize-lanyard/sections2/preview-side-printed.php"?>
-      <?php include "../../views/global/customize-lanyard/sections2/preview-text.php"?>
-      <?php include "../../views/global/customize-lanyard/sections2/preview-width.php"?>
+
+      <?php //include "../../views/global/customize-lanyard/sections2/preview-acccessories.php"?>
+      <?php //include "../../views/global/customize-lanyard/sections2/preview-amount.php"?>
+      <?php //include "../../views/global/customize-lanyard/sections2/preview-artwork.php"?>
+      <?php //include "../../views/global/customize-lanyard/sections2/preview-attachment.php"?>
+      <?php //include "../../views/global/customize-lanyard/sections2/preview-clip.php"?>
+      <?php //include "../../views/global/customize-lanyard/sections2/preview-colour.php"?>
+      <?php //include "../../views/global/customize-lanyard/sections2/preview-image.php"?>
+      <?php //include "../../views/global/customize-lanyard/sections2/preview-text.php"?>
 
     </div>
 
@@ -31,20 +32,21 @@
       <div id="close-customize-lanyard" class="close-customize-lanyard">
         <img src="../../views/assets/img/global/customize-lanyard/close.png" alt="">
       </div>
-      <?php include "../../views/global/customize-lanyard/sections/price.php"?>
+      <?php// include "../../views/global/customize-lanyard/sections/price.php"?>
+      <?php //include "../../views/global/customize-lanyard/sections/material.php"?>
+      <?php// include "../../views/global/customize-lanyard/sections/one-two-ends.php"?>
+      <?php// include "../../views/global/customize-lanyard/sections/width.php"?>
+      <?php// include "../../views/global/customize-lanyard/sections/side-printed.php"?>
 
-      <?php include "../../views/global/customize-lanyard/sections/accessories.php"?>
-      <?php include "../../views/global/customize-lanyard/sections/amount.php"?>
-      <?php include "../../views/global/customize-lanyard/sections/artwork.php"?>
-      <?php include "../../views/global/customize-lanyard/sections/attachment.php"?>
-      <?php include "../../views/global/customize-lanyard/sections/clip.php"?>
-      <?php include "../../views/global/customize-lanyard/sections/colour.php"?>
-      <?php include "../../views/global/customize-lanyard/sections/image.php"?>
-      <?php include "../../views/global/customize-lanyard/sections/material.php"?>
-      <?php include "../../views/global/customize-lanyard/sections/one-two-ends.php"?>
-      <?php include "../../views/global/customize-lanyard/sections/side-printed.php"?>
-      <?php include "../../views/global/customize-lanyard/sections/text.php"?>
-      <?php include "../../views/global/customize-lanyard/sections/width.php"?>
+
+      <?php //include "../../views/global/customize-lanyard/sections/accessories.php"?>
+      <?php //include "../../views/global/customize-lanyard/sections/amount.php"?>
+      <?php //include "../../views/global/customize-lanyard/sections/artwork.php"?>
+      <?php //include "../../views/global/customize-lanyard/sections/attachment.php"?>
+      <?php //include "../../views/global/customize-lanyard/sections/clip.php"?>
+      <?php //include "../../views/global/customize-lanyard/sections/colour.php"?>
+      <?php //include "../../views/global/customize-lanyard/sections/image.php"?>
+      <?php //include "../../views/global/customize-lanyard/sections/text.php"?>
 
       <div class="container_buttons_next_preview">
         <button id="preview" type="button" name="button">Preview</button>

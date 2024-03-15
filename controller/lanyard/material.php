@@ -38,7 +38,7 @@ class Material {
                         $this->setSessionMaterial((object)$materialSelected);
 
                         // Retrieve all lanyard types
-                        $lanyardType = new LanyardType();
+                        $lanyardType = new TypeLanyards();
                         $lanyardsType  = $lanyardType->getAllLanyardsType();
 
                         // Retrieve all widths based on the selected material
@@ -47,6 +47,10 @@ class Material {
 
                         // Set the first width as the session width
                         $width->setSessionWidth($allWidthByMaterial[0]['width']);
+
+
+                        //$sidePrinted = new SidePrinted();
+
 
                         // Prepare response with materials, lanyard types, and widths
                         $response = array('materials' => $materials,
@@ -57,19 +61,33 @@ class Material {
                         break;
 
                     case "setMaterialSelected":
+
+
+
                         // Handle setting the selected material and searching its attributes
                         $this->setSessionMaterial($data);
 
                         // Retrieve attributes of the selected material
                         $infoMaterial  = $this->getAttributesMaterial($data);
 
+
+                        $lanyardType = new TypeLanyards();
+                        $lanyardType ->setMaterial($data->optionSelected);
+                        $allLanyardType =  $lanyardType->getAllLanyardsTypesByMaterial();
+
+
+
+
                         // Retrieve all widths for the selected material
                         $width = new Width();
-                        $allWidth =  ($width->getAllWidthByMaterial($data->optionSelected));
+                        $allWidth =  $width->getAllWidthByMaterial($data->optionSelected);
 
                         // Select the first width and set it as the session width
                         $widthSelected = $width->selectWidth($allWidth);
                         $width-> setSessionWidth($widthSelected);
+
+
+
 
                         // Retrieve all side printed options based on the selected width and material
                         $sidePrinted = new SidePrinted();
@@ -78,6 +96,9 @@ class Material {
                         // Select a side printed option and set it as the session side printed
                         $sidePrintedSelected =  $sidePrinted->selectSidePrinted($allSidePrinted);
                         $sidePrinted->setSessionSidePrinted($sidePrintedSelected);
+
+
+
 
                         // Prepare and send the response with material information
                         $response = array('material' => $infoMaterial,

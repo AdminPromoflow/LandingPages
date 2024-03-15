@@ -1,5 +1,8 @@
 <?php
 class TypeLanyards {
+  private $infoLanyardType;
+
+  private $material;
 
     // Function to handle incoming requests
     public function handleRequest() {
@@ -18,12 +21,18 @@ class TypeLanyards {
                 // Perform actions based on the request
                 switch ($action) {
                     case "setTypeLanyardSelected":
+                        $this->handleSetLanyardTypesSelected($data);
+                        $this->handleSearchLanyardTypesAttributes($data);
 
+                        $response = array('lanyardType' => $this->infoLanyardType);
+
+                        echo json_encode($response);
 
                         break;
 
                     default:
-                        // Unknown action
+
+                      // Unknown action
                       //  http_response_code(400); // Bad Request
                       //  $response = array("message" => "Unknown action");
                         //echo json_encode($response);
@@ -40,56 +49,80 @@ class TypeLanyards {
           //  echo json_encode(array("message" => "Method not allowed"));
         }
     }
-    function getAllTypeLanyardsByMaterial($MaterialSelected, $materialSelected){
+
+    public function setMaterial($material) {
+      $this->material = $material;
+    }
 
 
+    // Function to handle user login
+    private function handleSetLanyardTypesSelected($data){
+      session_start();
+      if (!isset($_SESSION['LanyardTypeSelected'])) {
+        $_SESSION['LanyardTypeSelected'] = 'one-end';
+      }
+      else {
+        $_SESSION['LanyardTypeSelected'] = $data->optionSelected;
+      }
+
+      //  echo json_encode($_SESSION['LanyardTypeSelected']);exit;
+
+    }
+
+    private function handleSearchLanyardTypesAttributes($data){
+      // Create a database connection
+      $connection = new Database();
+
+      // Create a new Users instance and set user data
+      $lanyardsTypes = new LanyardTypes($connection);
+
+
+      session_start();
+
+      $lanyardsTypes->setIdMaterial($_SESSION['IdmaterialSelected']);
+
+     $lanyardsTypes->setLanyardType($_SESSION['LanyardTypeSelected']);
+
+      $response = $lanyardsTypes->getInfoLanyardTypeByIdMaterial();
+
+
+      $this->infoLanyardType = array('price' => $response['price'] ,
+                                     'type' => $response['type']);
+
+      return json_encode($this->infoLanyardType);
+    }
+     function getAllLanyardsType(){
+      // Create a database connection
+      $connection = new Database();
+
+      // Create a new Users instance and set user data
+      $lanyardsTypes = new LanyardTypes($connection);
+      $response = $lanyardsTypes->getAllLanyardsType();
+
+      return ($response);
+    }
+
+    function getAllLanyardsTypesByMaterial(){
      // Create a database connection
      $connection = new Database();
 
      // Create a new Users instance and set user data
-     $typeLanyards = new TypeLanyards_Model($connection);
-     /*$typeLanyards->setMaterial($MaterialSelected);
-     $typeLanyards->setMaterial($materialSelected);
-     $response = $typeLanyards->getAllTypeLanyardsByMaterial();
-     //echo json_encode($response); exit;
-     return $response;*/
+     $lanyardsTypes = new LanyardTypes($connection);
+
+     
+
+     //$response = $lanyardsTypes->getAllLanyardsTypesByMaterial();
+
+     return ($response);
    }
-
-   function selectTypeLanyards($allTypeLanyards){
-     session_start(); // Iniciar la sesión si no está iniciada aún
-     //echo json_encode($allTypeLanyards); exit;
-      if (isset($_SESSION['typeLanyardsSelected'])) {
-        return $_SESSION['typeLanyardsSelected'];
-      } else {
-        $array = [];
-        foreach ($allTypeLanyards as $key) {
-          $array[] = $key["noSides"];
-        }
-
-        $typeLanyardsSelected = $array[0];
-        return $typeLanyardsSelected;
-      }
-
-
-   }
-
-   // Private function to handle the action of setting the selected material
-   function setSessionTypeLanyards($typeLanyardsSelected) {
-       session_start(); // Start or resume a session
-       $_SESSION['typeLanyardsSelected'] = $typeLanyardsSelected; // Store the selected material option in the session
-   }
-   function getSessionTypeLanyards() {
-       session_start(); // Start or resume a session
-       return $_SESSION['$typeLanyardsSelected'] ; // Store the selected material option in the session
-   }
-
-
-
 }
 
 // Include required files
+// Include required files
 require_once '../config/database.php';
-require_once '../../models/typeLanyards.php';
+require_once '../../models/lanyards.php';
+require_once '../../models/lanyard-types.php';
+
 
 
 $typeLanyards = new TypeLanyards();

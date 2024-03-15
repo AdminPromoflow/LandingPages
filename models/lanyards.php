@@ -46,7 +46,7 @@ class Lanyards {
       try {
 
           // Prepare the SQL query with placeholders
-          $sql = $this->connection->getConnection()->prepare("SELECT `idLanyard`,  `material`,  `linkImg`, `description` ,`idLanyard`  FROM `Lanyards` WHERE `material`  =  :material");
+          $sql = $this->connection->getConnection()->prepare("SELECT *   FROM `Lanyards` WHERE `material`  =  :material");
 
           // Bind the email parameter
           $sql->bindParam(':material', $this->material, PDO::PARAM_STR);

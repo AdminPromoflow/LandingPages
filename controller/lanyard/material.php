@@ -4,8 +4,15 @@ require_once '../config/database.php'; // Path to database configuration
 require_once '../../models/lanyards.php'; // Path to lanyards model
 require_once 'lanyard-type.php';
 require_once 'width.php';
-require_once 'width.php';
+require_once 'width.php'; // Double inclusion of the 'width.php' file. This might be an error.
 require_once 'sidePrinted.php';
+require_once 'noColours.php';
+require_once 'typeLanyards.php';
+require_once 'clips.php';
+require_once 'amount.php';
+require_once 'extras.php';
+
+
 // Define the Material class
 class Material {
     // Public function to handle incoming HTTP requests
@@ -26,18 +33,22 @@ class Material {
                         // Handle the retrieval of materials
                         $materials = $this->getMaterials($data);
 
+                        // Randomly select a material and set it as the session material
                         $materialSelected = $this->selectMaterial($materials);
-
                         $this->setSessionMaterial((object)$materialSelected);
 
+                        // Retrieve all lanyard types
                         $lanyardType = new LanyardType();
                         $lanyardsType  = $lanyardType->getAllLanyardsType();
 
+                        // Retrieve all widths based on the selected material
                         $width = new Width();
                         $allWidthByMaterial  = $width->getAllWidthByMaterial($_SESSION['materialSelected']);
 
+                        // Set the first width as the session width
                         $width->setSessionWidth($allWidthByMaterial[0]['width']);
 
+                        // Prepare response with materials, lanyard types, and widths
                         $response = array('materials' => $materials,
                                            'lanyardsType' => $lanyardsType,
                                            'width' => $allWidthByMaterial);
@@ -49,17 +60,25 @@ class Material {
                         // Handle setting the selected material and searching its attributes
                         $this->setSessionMaterial($data);
 
+                        // Retrieve attributes of the selected material
                         $infoMaterial  = $this->getAttributesMaterial($data);
+
+                        // Retrieve all widths for the selected material
                         $width = new Width();
                         $allWidth =  ($width->getAllWidthByMaterial($data->optionSelected));
+
+                        // Select the first width and set it as the session width
                         $widthSelected = $width->selectWidth($allWidth);
                         $width-> setSessionWidth($widthSelected);
 
+                        // Retrieve all side printed options based on the selected width and material
                         $sidePrinted = new SidePrinted();
                         $allSidePrinted = $sidePrinted->getAllSidePrintedByWidth($widthSelected, $data->optionSelected);
+
+                        // Select a side printed option and set it as the session side printed
                         $sidePrintedSelected =  $sidePrinted->selectSidePrinted($allSidePrinted);
                         $sidePrinted->setSessionSidePrinted($sidePrintedSelected);
-                        //echo json_encode($allWidth);  exit;
+
                         // Prepare and send the response with material information
                         $response = array('material' => $infoMaterial,
                                           'allWidth' => $allWidth,
@@ -70,10 +89,10 @@ class Material {
                         echo json_encode($response);
                         break;
                       case "getMaterialSelected":
-                        $materialSelecteed = $this->handleGetMaterialSelected($data);
-                        $response = array('getMaterial' => $materialSelecteed);
+                        // Handle the retrieval of the selected material
+                        $materialSelected = $this->handleGetMaterialSelected($data);
+                        $response = array('getMaterial' => $materialSelected);
                         break;
-
 
                     default:
                         // Respond with an error for unknown actions

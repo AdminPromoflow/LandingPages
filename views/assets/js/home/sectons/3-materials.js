@@ -17,6 +17,7 @@ class MaterialHome {
           optionSelected: materialForSelect[i].textContent
 
         };
+
         material.makeAjaxRequestSetMaterialSelected(url, data);
 
         customizeLanyard.openCustomizeLanyard("block");

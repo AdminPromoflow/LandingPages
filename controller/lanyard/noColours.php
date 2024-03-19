@@ -1,5 +1,8 @@
 <?php
 class NoColours {
+  private $noSides;
+  private $width;
+  private $material;
 
     // Function to handle incoming requests
     public function handleRequest() {
@@ -40,46 +43,85 @@ class NoColours {
           //  echo json_encode(array("message" => "Method not allowed"));
         }
     }
-    function getAllNoColoursBySidePrinted($SidePrintedSelected, $materialSelected){
+
+
+
+      public function setMaterial($material){
+        $this->material = $material;
+      }
+
+      public function setWidth($width) {
+        $this->width = $width;
+      }
+      public function setNoSides($noSides) {
+        $this->noSides = $noSides;
+      }
+
+
+    function getAllNoColoursBySidePrinted(){
 
 
      // Create a database connection
      $connection = new Database();
 
      // Create a new Users instance and set user data
-     $noColours = new NoColours_Model($connection);
-     /*$noColours->setSidePrinted($SidePrintedSelected);
-     $noColours->setMaterial($materialSelected);
+     $noColours = new NoColours_Models($connection);
+     $noColours->setMaterial($this->material);
+     $noColours->setWidth($this->width);
+     $noColours->setNoSides($this->noSides);
+
+
      $response = $noColours->getAllNoColoursBySidePrinted();
-     //echo json_encode($response); exit;
-     return $response;*/
+     return $response;
    }
 
-   function selectNoColours($allNoColours){
-     session_start(); // Iniciar la sesión si no está iniciada aún
-     //echo json_encode($allNoColours); exit;
-      if (isset($_SESSION['noColoursSelected'])) {
+   function selectNoColour($allNoColours){
+    // echo json_encode($allNoColours);exit;
+     if (session_status() === PHP_SESSION_NONE) {// Iniciar la sesión si no está iniciada aún
+    // Si no hay una sesión activa, inicia una
+    session_start();
+    }
+    /*  if (isset($_SESSION['noColoursSelected'])) {
         return $_SESSION['noColoursSelected'];
       } else {
         $array = [];
         foreach ($allNoColours as $key) {
-          $array[] = $key["noSides"];
+          $array[] = $key["option"];
         }
+      //echo json_encode($allNoColours);
 
         $noColoursSelected = $array[0];
         return $noColoursSelected;
+      }*/
+
+
+      $array = [];
+      foreach ($allNoColours as $key) {
+        $array[] = $key["option"];
       }
+    //echo json_encode($allNoColours);
+
+      $noColoursSelected = $array[0];
+
+    // echo json_encode($noColoursSelected );exit;
+      return $noColoursSelected;
 
 
    }
 
    // Private function to handle the action of setting the selected material
-   function setSessionNoColours($noColoursSelected) {
-       session_start(); // Start or resume a session
+   function setSessionNoColour($noColoursSelected) {
+     if (session_status() === PHP_SESSION_NONE) {// Iniciar la sesión si no está iniciada aún
+    // Si no hay una sesión activa, inicia una
+    session_start();
+    }
        $_SESSION['noColoursSelected'] = $noColoursSelected; // Store the selected material option in the session
    }
    function getSessionNoColours() {
-       session_start(); // Start or resume a session
+     if (session_status() === PHP_SESSION_NONE) {// Iniciar la sesión si no está iniciada aún
+    // Si no hay una sesión activa, inicia una
+    session_start();
+    }
        return $_SESSION['$noColoursSelected'] ; // Store the selected material option in the session
    }
 

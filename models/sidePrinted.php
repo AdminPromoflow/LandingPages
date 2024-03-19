@@ -30,7 +30,7 @@ class SidePrinted_Model {
 
         // Prepare the SQL query with placeholders
         $sql = $this->connection->getConnection()->prepare("SELECT `SidePrinted`. `noSides`
-          FROM `Lanyards` JOIN `Width` ON `Lanyards`.`idLanyard` = `Width`.`idLanyard` JOIN `SidePrinted` ON `Width`.`idWidth` = `SidePrinted`.`idWidth` WHERE `Lanyards`.`material` = :material AND `Width`.`width` = :width ");
+          FROM `Lanyards` JOIN `Width` ON `Lanyards`.`idLanyard` = `Width`.`idLanyard` JOIN `SidePrinted` ON `Width`.`idWidth` = `SidePrinted`.`idWidth` WHERE `Lanyards`.`material` = :material AND `Width`.`width` = :width ORDER BY `SidePrinted`. `noSides` ASC");
 
         // Bind the email parameter
         $sql->bindParam(':material', $this->material, PDO::PARAM_STR);
@@ -45,6 +45,7 @@ class SidePrinted_Model {
 
         // Close the database connection
         $this->connection->closeConnection();
+
         return $response;
 
     } catch (PDOException $e) {

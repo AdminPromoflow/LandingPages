@@ -64,49 +64,68 @@ class Material {
 
 
 
-
                         // Handle setting the selected material and searching its attributes
                         $this->setSessionMaterial($data);
-                        // Retrieve attributes of the selected material
                         $infoMaterial  = $this->getAttributesMaterial($data);
 
 
                         $lanyardTypes = new TypeLanyards();
                         $lanyardTypes ->setIdMaterial($infoMaterial["idMaterial"]);
                         $allLanyardTypes =  $lanyardTypes->getAllLanyardsTypesByIdMaterial();
-              //          $lanyardTypes-> setSessionTypeLanyards($allLanyardTypes);
-
+                        $lanyardTypesSelected = $lanyardTypes-> selectTypeLanyards($allLanyardTypes);
+                        $lanyardTypes-> setSessionTypeLanyards($lanyardTypesSelected);
 
 
                         // Retrieve all widths for the selected material
                         $width = new Width();
                         $allWidth =  $width->getAllWidthByMaterial($data->optionSelected);
-
-                        // Select the first width and set it as the session width
                         $widthSelected = $width->selectWidth($allWidth);
                         $width-> setSessionWidth($widthSelected);
-
-
 
 
                         // Retrieve all side printed options based on the selected width and material
                         $sidePrinted = new SidePrinted();
                         $allSidePrinted = $sidePrinted->getAllSidePrintedByWidth($widthSelected, $data->optionSelected);
-
-                        // Select a side printed option and set it as the session side printed
                         $sidePrintedSelected =  $sidePrinted->selectSidePrinted($allSidePrinted);
                         $sidePrinted->setSessionSidePrinted($sidePrintedSelected);
 
 
+                        $noColour = new NoColours();
+                        $noColour->setMaterial($data->optionSelected);
+                        $noColour->setWidth($widthSelected);
+                        $noColour->setNoSides($sidePrintedSelected);
+                        $allNoColours =  $noColour->getAllNoColoursBySidePrinted();
+                        $noColourSelected = $noColour-> selectNoColour($allNoColours);
+                        $noColour-> setSessionNoColour($noColourSelected);
+
+
+                        $amount = new Amount();
+                        $amount->setMaterial($data->optionSelected);
+                        $amount->setWidth($widthSelected);
+                        $amount->setNoSides($sidePrintedSelected);
+                        $amount->setNoColour($noColourSelected);
+                        $allAmount =  $amount->getAllAmountByNoColour();
+                        $amountSelected = $amount-> selectAmount($allAmount);
+                        $amount-> setSessionAmount($amountSelected);
 
 
                         // Prepare and send the response with material information
                         $response = array('material' => $infoMaterial,
                                           'allLanyardTypes' => $allLanyardTypes,
+                                          'lanyardTypesSelected' => $lanyardTypesSelected,
                                           'allWidth' => $allWidth,
                                           'widthSelected' => $widthSelected,
                                           'allSidePrinted' => $allSidePrinted,
-                                          'sidePrintedSelected' => $sidePrintedSelected);
+                                          'sidePrintedSelected' => $sidePrintedSelected,
+                                          'allNoColours' => $allNoColours,
+                                          'noColourSelected' => $noColourSelected,
+                                          //'allAmount' => $allAmount,
+                                          'amountPriceSelected' => $amountSelected
+
+
+
+
+                                        );
                         //,  'allWidth' => $allWidth
                         echo json_encode($response);
                         break;

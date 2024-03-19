@@ -118,8 +118,36 @@ class TypeLanyards {
      return ($response);
    }
 
-   public function setSessionTypeLanyards($allLanyardTypes){
-     echo json_encode($allLanyardTypes);
+   public function selectTypeLanyards($allLanyardTypes){
+     // Start or resume a session
+     if (session_status() === PHP_SESSION_NONE) {
+       // Si no hay una sesión activa, inicia una
+       session_start();
+       }
+
+      if (isset($_SESSION['typeLanyardSelected'])) {
+        return $_SESSION['typeLanyardSelected'];
+      } else {
+        $array = [];
+        foreach ($allLanyardTypes as $key) {
+          $array[] = $key["type"];
+        }
+
+
+
+
+        $LanyardTypesSelected = $array[0];
+        return $LanyardTypesSelected;
+      }
+
+   }
+   // Private function to handle the action of setting the selected material
+   function setSessionTypeLanyards($lanyardTypesSelected) {
+     if (session_status() === PHP_SESSION_NONE) {// Iniciar la sesión si no está iniciada aún
+    // Si no hay una sesión activa, inicia una
+    session_start();
+    }
+       $_SESSION['sidePrintedSelected'] = $lanyardTypesSelected; // Store the selected material option in the session
    }
 
 }

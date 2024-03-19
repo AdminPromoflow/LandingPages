@@ -1,6 +1,13 @@
 <?php
 class Amount {
 
+  private $noSides;
+  private $width;
+  private $material;
+  private $noColour;
+
+
+
     // Function to handle incoming requests
     public function handleRequest() {
 
@@ -35,30 +42,51 @@ class Amount {
                 echo json_encode(array("message" => "Incomplete JSON data or missing action"));
             }
         } else {
-            // The request is not a valid POST request
+          // The request is not a valid POST request
           //  http_response_code(405); // Method Not Allowed
           //  echo json_encode(array("message" => "Method not allowed"));
         }
     }
-    function getAllAmountByMaterial($MaterialSelected, $materialSelected){
+
+    public function setMaterial($material){
+      $this->material = $material;
+    }
+    public function setWidth($width) {
+      $this->width = $width;
+    }
+    public function setNoSides($noSides) {
+      $this->noSides = $noSides;
+    }
+    public function setNoColour($noColour) {
+      $this->noColour = $noColour;
+    }
+
+
+
+    public function getAllAmountByNoColour(){
 
 
      // Create a database connection
      $connection = new Database();
 
      // Create a new Users instance and set user data
-     $amount = new Amount_Model($connection);
-     /*$amount->setMaterial($MaterialSelected);
-     $amount->setMaterial($materialSelected);
-     $response = $amount->getAllAmountByMaterial();
-     //echo json_encode($response); exit;
-     return $response;*/
+     $amount = new Amount_Models($connection);
+     $amount->setMaterial($this->material);
+     $amount->setWidth($this->width );
+     $amount->setNoSides($this->noSides);
+     $amount->setNoColour($this->noColour);
+
+
+     $response = $amount->getAllAmountByNoColour();
+     return $response;
    }
 
    function selectAmount($allAmount){
-     session_start(); // Iniciar la sesión si no está iniciada aún
-     //echo json_encode($allAmount); exit;
-      if (isset($_SESSION['amountSelected'])) {
+     if (session_status() === PHP_SESSION_NONE) {// Iniciar la sesión si no está iniciada aún
+    // Si no hay una sesión activa, inicia una
+    session_start();
+    }
+    /*  if (isset($_SESSION['amountSelected'])) {
         return $_SESSION['amountSelected'];
       } else {
         $array = [];
@@ -68,19 +96,33 @@ class Amount {
 
         $amountSelected = $array[0];
         return $amountSelected;
+      }*/
+
+      $array = [];
+
+      foreach ($allAmount as $key) {
+        $array[] = $key["price"];
       }
+
+      $amountSelected = $array[0];
+
+      return $amountSelected;
 
 
    }
 
    // Private function to handle the action of setting the selected material
    function setSessionAmount($amountSelected) {
-       session_start(); // Start or resume a session
-       $_SESSION['amountSelected'] = $amountSelected; // Store the selected material option in the session
+     if (session_status() === PHP_SESSION_NONE) {// Iniciar la sesión si no está iniciada aún
+    // Si no hay una sesión activa, inicia una
+    session_start();
+    }       $_SESSION['amountSelected'] = $amountSelected; // Store the selected material option in the session
    }
    function getSessionAmount() {
-       session_start(); // Start or resume a session
-       return $_SESSION['$amountSelected'] ; // Store the selected material option in the session
+     if (session_status() === PHP_SESSION_NONE) {// Iniciar la sesión si no está iniciada aún
+    // Si no hay una sesión activa, inicia una
+    session_start();
+    }       return $_SESSION['$amountSelected'] ; // Store the selected material option in the session
    }
 
 

@@ -56,23 +56,40 @@ class SidePrinted {
    }
 
    function selectSidePrinted($allSidePrinted){
+
+    // echo json_encode($allSidePrinted);exit;
+
+
      if (session_status() === PHP_SESSION_NONE) {// Iniciar la sesión si no está iniciada aún
     // Si no hay una sesión activa, inicia una
     session_start();
     }
 
      //echo json_encode($allSidePrinted); exit;
-      if (isset($_SESSION['sidePrintedSelected'])) {
-        return $_SESSION['sidePrintedSelected'];
+    /*  if (isset($_SESSION['sidePrintedSelected'])) {
+      //  return $_SESSION['sidePrintedSelected'];
       } else {
         $array = [];
         foreach ($allSidePrinted as $key) {
           $array[] = $key["noSides"];
         }
 
+
+
         $sidePrintedSelected = $array[0];
-        return $sidePrintedSelected;
+      //  return $sidePrintedSelected;
+    }*/
+      $array = [];
+      foreach ($allSidePrinted as $key) {
+        $array[] = $key["noSides"];
       }
+
+
+
+      $sidePrintedSelected = $array[0];
+
+      return $sidePrintedSelected;
+
 
 
    }

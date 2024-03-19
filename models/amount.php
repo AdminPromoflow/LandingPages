@@ -2,39 +2,54 @@
 class Amount_Models {
   // Private variables
   private $connection; // The database connection
+  private $noSides;
   private $width;
   private $material;
+  private $noColour;
+
+
 
 
   // Constructor that initializes the connection.
   function __construct($connection) {
     $this->connection = $connection;
   }
-
-  function setMaterial($material){
+  public function setMaterial($material){
     $this->material = $material;
   }
-
-  // Set the user's name
   public function setWidth($width) {
-
     $this->width = $width;
-
+  }
+  public function setNoSides($noSides) {
+    $this->noSides = $noSides;
+  }
+  public function setNoColour($noColour) {
+    $this->noColour = $noColour;
   }
 
 
 
-  public function getAllSidePrintedByWidth() {
+
+  public function getAllAmountByNoColour() {
     //echo json_encode($this->width."hola");  exit;
     try {
 
         // Prepare the SQL query with placeholders
-        $sql = $this->connection->getConnection()->prepare("SELECT `SidePrinted`. `noSides`
-          FROM `Lanyards` JOIN `Width` ON `Lanyards`.`idLanyard` = `Width`.`idLanyard` JOIN `SidePrinted` ON `Width`.`idWidth` = `SidePrinted`.`idWidth` WHERE `Lanyards`.`material` = :material AND `Width`.`width` = :width ");
+        $sql = $this->connection->getConnection()->prepare("SELECT `Amount`.* FROM  `Lanyards`
+        JOIN `Width` ON `Lanyards`.`idLanyard` = `Width`.`idLanyard`
+        JOIN `SidePrinted` ON `Width`.`idWidth` = `SidePrinted`.`idWidth`
+        JOIN `noColours` ON `SidePrinted`.`idSidePrinted` = `noColours`.`idSidePrinted`
+        JOIN `Amount` ON `noColours`.`idNoColour` = `Amount`.`idNoColour`
+        WHERE  `Lanyards`.`material` = :material
+        AND `Width`.`width` = :width AND `SidePrinted`.`noSides` = :noSides
+        AND `noColours`.`option` = :noColours ORDER BY `Amount`.`min-amount` ASC" );
 
         // Bind the email parameter
         $sql->bindParam(':material', $this->material, PDO::PARAM_STR);
         $sql->bindParam(':width', $this->width, PDO::PARAM_STR);
+        $sql->bindParam(':noSides', $this->noSides, PDO::PARAM_STR);
+        $sql->bindParam(':noColours', $this->noColour, PDO::PARAM_STR);
+
       //  echo json_encode($this->width);exit;
 
         // Execute the query

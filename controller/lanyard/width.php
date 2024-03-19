@@ -54,7 +54,11 @@ class Width {
      return $response;
    }
    function selectWidth($allWidth){
-     session_start(); // Iniciar la sesión si no está iniciada aún
+     // Start or resume a session
+     if (session_status() === PHP_SESSION_NONE) {
+       // Si no hay una sesión activa, inicia una
+       session_start();
+       }
 
       if (isset($_SESSION['widthSelected'])) {
         return $_SESSION['widthSelected'];
@@ -72,11 +76,19 @@ class Width {
 
    // Private function to handle the action of setting the selected material
    function setSessionWidth($widthSelected) {
-       session_start(); // Start or resume a session
+     // Start or resume a session
+     if (session_status() === PHP_SESSION_NONE) {
+       // Si no hay una sesión activa, inicia una
+       session_start();
+       }
        $_SESSION['widthSelected'] = $widthSelected; // Store the selected material option in the session
    }
    function getSessionWidth() {
-       session_start(); // Start or resume a session
+     // Start or resume a session
+     if (session_status() === PHP_SESSION_NONE) {
+       // Si no hay una sesión activa, inicia una
+       session_start();
+       }
        return $_SESSION['widthSelected'] ; // Store the selected material option in the session
    }
 

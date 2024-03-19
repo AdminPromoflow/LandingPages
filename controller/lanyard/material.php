@@ -2,7 +2,6 @@
 // Include required files for database connection and model manipulation
 require_once '../config/database.php'; // Path to database configuration
 require_once '../../models/lanyards.php'; // Path to lanyards model
-require_once 'lanyard-type.php';
 require_once 'width.php';
 require_once 'width.php'; // Double inclusion of the 'width.php' file. This might be an error.
 require_once 'sidePrinted.php';
@@ -38,14 +37,15 @@ class Material {
                         $this->setSessionMaterial((object)$materialSelected);
 
                         // Retrieve all lanyard types
-                        $lanyardType = new TypeLanyards();
-                        $lanyardsType  = $lanyardType->getAllLanyardsType();
+                        $lanyardTypes = new TypeLanyards();
+                        $allLanyardTypes  = $lanyardTypes->getAllLanyardsType();
 
                         // Retrieve all widths based on the selected material
                         $width = new Width();
                         $allWidthByMaterial  = $width->getAllWidthByMaterial($_SESSION['materialSelected']);
 
                         // Set the first width as the session width
+
                         $width->setSessionWidth($allWidthByMaterial[0]['width']);
 
 
@@ -54,7 +54,7 @@ class Material {
 
                         // Prepare response with materials, lanyard types, and widths
                         $response = array('materials' => $materials,
-                                           'lanyardsType' => $lanyardsType,
+                                           'lanyardsType' => $allLanyardTypes,
                                            'width' => $allWidthByMaterial);
 
                         echo json_encode($response);
@@ -64,17 +64,17 @@ class Material {
 
 
 
+
                         // Handle setting the selected material and searching its attributes
                         $this->setSessionMaterial($data);
-
                         // Retrieve attributes of the selected material
                         $infoMaterial  = $this->getAttributesMaterial($data);
 
 
-                        $lanyardType = new TypeLanyards();
-                        $lanyardType ->setMaterial($data->optionSelected);
-                        $allLanyardType =  $lanyardType->getAllLanyardsTypesByMaterial();
-
+                        $lanyardTypes = new TypeLanyards();
+                        $lanyardTypes ->setIdMaterial($infoMaterial["idMaterial"]);
+                        $allLanyardTypes =  $lanyardTypes->getAllLanyardsTypesByIdMaterial();
+              //          $lanyardTypes-> setSessionTypeLanyards($allLanyardTypes);
 
 
 
@@ -102,6 +102,7 @@ class Material {
 
                         // Prepare and send the response with material information
                         $response = array('material' => $infoMaterial,
+                                          'allLanyardTypes' => $allLanyardTypes,
                                           'allWidth' => $allWidth,
                                           'widthSelected' => $widthSelected,
                                           'allSidePrinted' => $allSidePrinted,
@@ -135,7 +136,11 @@ class Material {
 
     // Private function to handle the action of setting the selected material
     private function setSessionMaterial($data) {
-        session_start(); // Start or resume a session
+      // Start or resume a session
+      if (session_status() === PHP_SESSION_NONE) {
+        // Si no hay una sesión activa, inicia una
+        session_start();
+        }
         $_SESSION['materialSelected'] = $data->optionSelected; // Store the selected material option in the session
 
       //  echo json_encode($_SESSION['materialSelected']);
@@ -151,7 +156,11 @@ class Material {
 
     // Private function to handle the action of getting the selected material
     private function handleGetMaterialSelected() {
-        session_start(); // Start or resume a session
+         // Start or resume a session
+         if (session_status() === PHP_SESSION_NONE) {
+           // Si no hay una sesión activa, inicia una
+           session_start();
+           }
         return ($_SESSION['materialSelected']) ; // Store the get material option in the session
     }
 
@@ -166,12 +175,18 @@ class Material {
 
         // Store the retrieved material information
         $infoMaterial = array(
+             'idMaterial' => $response['idLanyard'],
             'material' => $response['material'],
             'link' => $response['linkImg'],
             'description' => $response['description']
         );
 
-        session_start(); // Start or resume a session
+        // Start or resume a session
+        if (session_status() === PHP_SESSION_NONE) {
+          // Si no hay una sesión activa, inicia una
+          session_start();
+          }
+
         $_SESSION['IdmaterialSelected'] = $response['idLanyard']; // Store the selected material ID in the session
 
         return $infoMaterial;

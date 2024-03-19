@@ -2,7 +2,7 @@
 class TypeLanyards {
   private $infoLanyardType;
 
-  private $material;
+  private $idMaterial;
 
     // Function to handle incoming requests
     public function handleRequest() {
@@ -50,13 +50,12 @@ class TypeLanyards {
         }
     }
 
-    public function setMaterial($material) {
-      $this->material = $material;
+    public function setIdMaterial($idMaterial) {
+      $this->idMaterial = $idMaterial;
     }
 
-
     // Function to handle user login
-    private function handleSetLanyardTypesSelected($data){
+    public function handleSetLanyardTypesSelected($data){
       session_start();
       if (!isset($_SESSION['LanyardTypeSelected'])) {
         $_SESSION['LanyardTypeSelected'] = 'one-end';
@@ -69,12 +68,12 @@ class TypeLanyards {
 
     }
 
-    private function handleSearchLanyardTypesAttributes($data){
+    public function handleSearchLanyardTypesAttributes($data){
       // Create a database connection
       $connection = new Database();
 
       // Create a new Users instance and set user data
-      $lanyardsTypes = new LanyardTypes($connection);
+      $lanyardsTypes = new TypeLanyards_Models($connection);
 
 
       session_start();
@@ -91,37 +90,45 @@ class TypeLanyards {
 
       return json_encode($this->infoLanyardType);
     }
-     function getAllLanyardsType(){
+
+    public function getAllLanyardsType(){
       // Create a database connection
       $connection = new Database();
 
       // Create a new Users instance and set user data
-      $lanyardsTypes = new LanyardTypes($connection);
+      $lanyardsTypes = new TypeLanyards_Models($connection);
+
       $response = $lanyardsTypes->getAllLanyardsType();
 
       return ($response);
     }
 
-    function getAllLanyardsTypesByMaterial(){
+    public function getAllLanyardsTypesByIdMaterial(){
+
      // Create a database connection
      $connection = new Database();
 
      // Create a new Users instance and set user data
-     $lanyardsTypes = new LanyardTypes($connection);
+     $lanyardTypes = new TypeLanyards_Models($connection);
+     $lanyardTypes -> setIdMaterial($this->idMaterial);
 
-     
 
-     //$response = $lanyardsTypes->getAllLanyardsTypesByMaterial();
+     $response = $lanyardTypes->getAllLanyardsTypesByIdMaterial();
 
      return ($response);
    }
+
+   public function setSessionTypeLanyards($allLanyardTypes){
+     echo json_encode($allLanyardTypes);
+   }
+
 }
 
 // Include required files
 // Include required files
 require_once '../config/database.php';
 require_once '../../models/lanyards.php';
-require_once '../../models/lanyard-types.php';
+require_once '../../models/typeLanyards.php';
 
 
 

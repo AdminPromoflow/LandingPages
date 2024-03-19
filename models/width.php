@@ -2,7 +2,8 @@
 class Width_Model {
   // Private variables
   private $connection; // The database connection
-  private $manterial;
+  private $material;
+
 
 
   // Constructor that initializes the connection.

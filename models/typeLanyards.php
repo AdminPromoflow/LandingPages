@@ -2,7 +2,7 @@
 class TypeLanyards_Models {
   // Private variables
   private $connection; // The database connection
-  private $idManterial;
+  private $idMaterial;
   private $lanyardType;
 
 
@@ -12,8 +12,9 @@ class TypeLanyards_Models {
   }
 
   // Set the user's name
-  public function setIdMaterial($idManterial) {
-    $this->idManterial = $idManterial;
+  public function setIdMaterial($idMaterial) {
+    
+    $this->idMaterial = $idMaterial;
   }
   public function setLanyardType($lanyardType) {
     $this->lanyardType = $lanyardType;
@@ -27,7 +28,7 @@ class TypeLanyards_Models {
 
 
           // Bind the email parameter
-          $sql->bindParam(':idMaterial', $this->idManterial, PDO::PARAM_STR);
+          $sql->bindParam(':idMaterial', $this->idMaterial, PDO::PARAM_STR);
           $sql->bindParam(':lanyardType', $this->lanyardType, PDO::PARAM_STR);
 
         //  echo json_encode($this->material);exit;
@@ -73,4 +74,33 @@ class TypeLanyards_Models {
           throw new Exception("Error in the user verification query.");
       }
     }
+    public function getAllLanyardsTypesByIdMaterial() {
+
+        try {
+
+            // Prepare the SQL query with placeholders
+            $sql = $this->connection->getConnection()->prepare("SELECT `type`  FROM `LanyardTypes` WHERE `idLanyard`  =  :idMaterial");
+
+
+            // Bind the email parameter
+            $sql->bindParam(':idMaterial', $this->idMaterial, PDO::PARAM_STR);
+          //  echo json_encode($this->material);exit;
+
+            // Execute the query
+            $sql->execute();
+
+            // Fetch the password
+            $response = $sql->fetchAll(PDO::FETCH_ASSOC);
+            // Close the database connection
+            $this->connection->closeConnection();
+
+            return $response;
+
+        } catch (PDOException $e) {
+            // Handle any exceptions and provide an error message
+            echo "Error in the query: " . $e->getMessage();
+            throw new Exception("Error in the user verification query.");
+        }
+    }
+  }
 ?>

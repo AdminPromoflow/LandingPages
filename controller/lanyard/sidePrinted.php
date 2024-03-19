@@ -56,7 +56,11 @@ class SidePrinted {
    }
 
    function selectSidePrinted($allSidePrinted){
-     session_start(); // Iniciar la sesión si no está iniciada aún
+     if (session_status() === PHP_SESSION_NONE) {// Iniciar la sesión si no está iniciada aún
+    // Si no hay una sesión activa, inicia una
+    session_start();
+    }
+
      //echo json_encode($allSidePrinted); exit;
       if (isset($_SESSION['sidePrintedSelected'])) {
         return $_SESSION['sidePrintedSelected'];
@@ -75,11 +79,17 @@ class SidePrinted {
 
    // Private function to handle the action of setting the selected material
    function setSessionSidePrinted($sidePrintedSelected) {
-       session_start(); // Start or resume a session
+     if (session_status() === PHP_SESSION_NONE) {// Iniciar la sesión si no está iniciada aún
+    // Si no hay una sesión activa, inicia una
+    session_start();
+    }
        $_SESSION['sidePrintedSelected'] = $sidePrintedSelected; // Store the selected material option in the session
    }
    function getSessionSidePrinted() {
-       session_start(); // Start or resume a session
+     if (session_status() === PHP_SESSION_NONE) {// Iniciar la sesión si no está iniciada aún
+    // Si no hay una sesión activa, inicia una
+    session_start();
+    }
        return $_SESSION['$sidePrintedSelected'] ; // Store the selected material option in the session
    }
 

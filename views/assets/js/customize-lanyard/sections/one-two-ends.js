@@ -62,11 +62,21 @@ class OneTwoEnds {
     }
 
   }
+  createOneTwoEnds(data, index){
+    containersBoxesOneTwoEnds.innerHTML +=
+    '<div class="container_boxes_one_two_ends">'+
+      '<h4 class="data-one-two-ends">'+data["type"]+'</h4>'+
+      '<img src="../../views/assets/img/global/customize-lanyard/sections/one-two-ends/one-end.png" alt="">'+
+    '</div>'
+    ;
+  }
 }
 
 
 const dataOneTwoEnds = document.querySelectorAll(".data-one-two-ends");
 
 const containerBoxesOneTwoEnds = document.querySelectorAll(".container_boxes_one_two_ends");
+
+const containersBoxesOneTwoEnds = document.getElementById('containers_boxes_one_two_ends');
 
 const oneTwoEndsClass = new OneTwoEnds();

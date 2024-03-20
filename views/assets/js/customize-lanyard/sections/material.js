@@ -12,7 +12,7 @@ class Material {
   // Function to make the AJAX request
   makeAjaxRequestGetAllMaterials(url, data) {
     // Make the request using the Fetch API
-    fetch(url, {
+    fetch(url,{
       method: "POST", // HTTP POST method to send data
       headers: {
         "Content-Type": "application/json" // Indicate that you're sending JSON
@@ -26,7 +26,7 @@ class Material {
         throw new Error("Network error.");
       })
       .then(data => {
-      //  alert(data);
+        alert(data);
         data = JSON.parse(data);
         containersBoxesMaterial.innerHTML = "";
 
@@ -38,8 +38,6 @@ class Material {
         console.error("Error:", error);
       });
   }
-
-
 
   createMaterials(data, index){
     containersBoxesMaterial.innerHTML +=
@@ -80,8 +78,14 @@ class Material {
         previewMaterial.showSelectedPreviewtMaterial(data["material"]);
 
         priceClass.changePricePerLanyard(data["amountPriceSelected"]);
-      //  oneTwoEndsClass.showSelectedOneTwoEnds(data["lanyardType"]);
 
+      //  containersBoxesMaterial.innerHTML = "";
+
+        for (var i = 0; i < data["allLanyardTypes"].length; i++) {
+          oneTwoEndsClass.createOneTwoEnds(data["allLanyardTypes"][i], i);
+        }
+
+      //  oneTwoEndsClass.showSelectedOneTwoEnds(data["lanyardType"]);
 
       })
       .catch(error => {

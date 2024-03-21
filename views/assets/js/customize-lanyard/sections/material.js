@@ -78,7 +78,6 @@ class Material {
        data = JSON.parse(data);
         material.showSelectedMaterial(data["material"]);
         previewMaterial.showSelectedPreviewtMaterial(data["material"]);
-
         priceClass.changePricePerLanyard(data["amountPriceSelected"]);
       //  oneTwoEndsClass.showSelectedOneTwoEnds(data["lanyardType"]);
 

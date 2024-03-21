@@ -22,20 +22,29 @@ class SidePrinted_Model {
 
   }
 
-
-
   public function getAllSidePrintedByWidth() {
-    //echo json_encode($this->width."hola");  exit;
+
     try {
 
         // Prepare the SQL query with placeholders
-        $sql = $this->connection->getConnection()->prepare("SELECT `SidePrinted`. `noSides`
-          FROM `Lanyards` JOIN `Width` ON `Lanyards`.`idLanyard` = `Width`.`idLanyard` JOIN `SidePrinted` ON `Width`.`idWidth` = `SidePrinted`.`idWidth` WHERE `Lanyards`.`material` = :material AND `Width`.`width` = :width ORDER BY `SidePrinted`. `noSides` ASC");
+        $sql = $this->connection->getConnection()->prepare("SELECT `SidePrinted`.`noSides`, `Width`.*
+          FROM `Lanyards`
+          JOIN `Width` ON `Lanyards`.`idLanyard` = `Width`.`idLanyard`
+          JOIN `SidePrinted` ON `Width`.`idWidth` = `SidePrinted`.`idWidth`
+          WHERE `Lanyards`.`material` = :material
+          AND `Width`.`width` = :width
+            ");
+
+          /*SELECT `SidePrinted`. `noSides`
+            FROM `Lanyards`
+            JOIN `Width` ON `Lanyards`.`idLanyard` = `Width`.`idLanyard`
+            JOIN `SidePrinted` ON `Width`.`idWidth` = `SidePrinted`.`idWidth`
+            WHERE `Lanyards`.`material` = :material AND `Width`.`width` = :width */
 
         // Bind the email parameter
         $sql->bindParam(':material', $this->material, PDO::PARAM_STR);
         $sql->bindParam(':width', $this->width, PDO::PARAM_STR);
-      //  echo json_encode($this->width);exit;
+
 
         // Execute the query
         $sql->execute();
@@ -45,7 +54,7 @@ class SidePrinted_Model {
 
         // Close the database connection
         $this->connection->closeConnection();
-
+      
         return $response;
 
     } catch (PDOException $e) {

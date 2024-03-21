@@ -13,10 +13,7 @@ INSERT INTO `Lanyards` (`idLanyard`, `material`, `linkImg`, `description`) VALUE
 
   (NULL, 'Dye Sub RPET', 'views/assets/img/global/customize-lanyard/sections/material/Material-5-Dye-sub-Recycled-PET.jpg', 'Made from recycled PET, these lanyards feature vibrant, sublimation-dyed graphics, combining sustainability with high-quality design.'),
 
-  (NULL, 'RPET Polyester', 'views/assets/img/global/customize-lanyard/sections/material/Material-5-Dye-sub-Recycled-PET.jpg', 'Manufactured with recycled plastic from PET bottles, durable, eco-friendly,  and perfect for a sustainable world.'),
-
-  (NULL, 'Bamboo', 'views/assets/img/global/customize-lanyard/sections/material/Material-3-Natural-Bamboo.jpg', 'Crafted from fast-growing, sustainable bamboo fiber, offering strength, softness, and eco-friendliness for comfortable daily use."');
-
+  (NULL, 'RPET Polyester', 'views/assets/img/global/customize-lanyard/sections/material/Material-5-Dye-sub-Recycled-PET.jpg', 'Manufactured with recycled plastic from PET bottles, durable, eco-friendly,  and perfect for a sustainable world.');
 
 /*One end - tow ends*/
 /*Lanyard type*/

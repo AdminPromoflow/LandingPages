@@ -4,8 +4,8 @@
   <br>
   <p>Select the width</p>
   <br>
-  <div class="containers_boxes_width">
-    <div class="container_boxes_width">
+  <div id="containers_boxes_width" class="containers_boxes_width">
+<!-- <div class="container_boxes_width">
       <h4 class="dataWidth">10mm</h4>
       <img src="../../views/assets/img/global/customize-lanyard/sections/width/one-end/one-end-10mm.png" alt="">
     </div>
@@ -24,7 +24,7 @@
     <div class="container_boxes_width">
       <h4 class="dataWidth">30mm</h4>
       <img src="../../views/assets/img/global/customize-lanyard/sections/width/one-end/one-end-30mm.png" alt="">
-    </div>
+    </div>-->
   </div>
 
 

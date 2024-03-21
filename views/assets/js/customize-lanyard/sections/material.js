@@ -26,7 +26,7 @@ class Material {
         throw new Error("Network error.");
       })
       .then(data => {
-        alert(data);
+      //  alert(data);
         data = JSON.parse(data);
         containersBoxesMaterial.innerHTML = "";
 
@@ -79,10 +79,15 @@ class Material {
 
         priceClass.changePricePerLanyard(data["amountPriceSelected"]);
 
-      //  containersBoxesMaterial.innerHTML = "";
+        oneTwoEndsClass.cleanOneTwoEnds();
+        widthClass.cleanWidth();
 
         for (var i = 0; i < data["allLanyardTypes"].length; i++) {
           oneTwoEndsClass.createOneTwoEnds(data["allLanyardTypes"][i], i);
+        }
+
+        for (var i = 0; i < data["allWidth"].length; i++) {
+          widthClass.createWidth(data["allWidth"][i], i);
         }
 
       //  oneTwoEndsClass.showSelectedOneTwoEnds(data["lanyardType"]);

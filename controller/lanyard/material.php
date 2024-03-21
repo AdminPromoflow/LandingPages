@@ -62,12 +62,15 @@ class Material {
                         $width = new Width();
                         $allWidth =  $width->getAllWidthByMaterial($data->optionSelected);
                         $widthSelected = $width->selectWidth($allWidth);
+                          //echo json_encode($widthSelected);exit;
                         $width-> setSessionWidth($widthSelected);
 
 
                         // Retrieve all side printed options based on the selected width and material
                         $sidePrinted = new SidePrinted();
                         $allSidePrinted = $sidePrinted->getAllSidePrintedByWidth($widthSelected, $data->optionSelected);
+
+
                         $sidePrintedSelected =  $sidePrinted->selectSidePrinted($allSidePrinted);
                         $sidePrinted->setSessionSidePrinted($sidePrintedSelected);
 

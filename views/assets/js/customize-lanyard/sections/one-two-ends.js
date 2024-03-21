@@ -66,9 +66,12 @@ class OneTwoEnds {
     containersBoxesOneTwoEnds.innerHTML +=
     '<div class="container_boxes_one_two_ends">'+
       '<h4 class="data-one-two-ends">'+data["type"]+'</h4>'+
-      '<img src="../../views/assets/img/global/customize-lanyard/sections/one-two-ends/one-end.png" alt="">'+
+      '<img src="../../'+data["imgLink"]+'" alt="">'+
     '</div>'
     ;
+  }
+  cleanOneTwoEnds(){
+    containersBoxesOneTwoEnds.innerHTML = "";
   }
 }
 

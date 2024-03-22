@@ -6,8 +6,6 @@ class Material {
     };
     this.makeAjaxRequestGetAllMaterials(url, data);
 
-
-
   }
   // Function to make the AJAX request
   makeAjaxRequestGetAllMaterials(url, data) {
@@ -26,7 +24,7 @@ class Material {
         throw new Error("Network error.");
       })
       .then(data => {
-      //  alert(data);
+        alert(data);
         data = JSON.parse(data);
         containersBoxesMaterial.innerHTML = "";
 
@@ -72,7 +70,7 @@ class Material {
         throw new Error("Network error.");
       })
       .then(data => {
-        alert(data);
+
        data = JSON.parse(data);
         material.showSelectedMaterial(data["material"]);
         previewMaterial.showSelectedPreviewtMaterial(data["material"]);
@@ -90,7 +88,7 @@ class Material {
           widthClass.createWidth(data["allWidth"][i], i);
         }
 
-      //  oneTwoEndsClass.showSelectedOneTwoEnds(data["lanyardType"]);
+        oneTwoEndsClass.showSelectedOneTwoEnds(data["lanyardTypesSelected"]);
 
       })
       .catch(error => {

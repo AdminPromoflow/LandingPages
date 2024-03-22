@@ -79,7 +79,7 @@ class TypeLanyards_Models {
         try {
 
             // Prepare the SQL query with placeholders
-            $sql = $this->connection->getConnection()->prepare("SELECT `type`, `imgLink`  FROM `LanyardTypes` WHERE `idLanyard`  =  :idMaterial ORDER BY `type` ");
+            $sql = $this->connection->getConnection()->prepare("SELECT `type`, `price`, `imgLink`  FROM `LanyardTypes` WHERE `idLanyard`  =  :idMaterial ORDER BY `type` ");
 
 
             // Bind the email parameter

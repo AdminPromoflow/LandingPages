@@ -13,8 +13,9 @@ class Width {
   createWidth(data, index){
     containersBoxesWidth.innerHTML +=
   '  <div class="container_boxes_width">'+
-          '<h4 class="dataWidth">'+data["width"]+'</h4>'+
           '<img src="../../'+data["imgLink"]+'" alt="">'+
+          '<h4 class="dataWidth">'+data["width"]+'</h4>'+
+          '<h3 class="priceWidth">+£'+data["width"]+'per unit</h3>'+
         '</div>'
     ;
   }

@@ -25,7 +25,10 @@ class Width_Model {
     try {
 
         // Prepare the SQL query with placeholders
-        $sql = $this->connection->getConnection()->prepare("SELECT  `Width`.`width`, `Width`.`imgLink` FROM `Lanyards` JOIN `Width` ON `Lanyards`.`idLanyard` = `Width`.`idLanyard` WHERE  `Lanyards`.`material`   =  :material");
+        $sql = $this->connection->getConnection()->prepare("SELECT  `Width`.`width`, `Width`.`imgLink`
+          FROM `Lanyards`
+          JOIN `Width` ON `Lanyards`.`idLanyard` = `Width`.`idLanyard`
+          WHERE  `Lanyards`.`material`   =  :material");
 
         // Bind the email parameter
         $sql->bindParam(':material', $this->material, PDO::PARAM_STR);

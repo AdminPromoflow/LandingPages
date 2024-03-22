@@ -97,6 +97,7 @@ class Material {
                         $response = array('material' => $infoMaterial,
                                           'allLanyardTypes' => $allLanyardTypes,
                                           'allWidth' => $allWidth,
+                                          'lanyardTypesSelected' => $lanyardTypesSelected,
                                           //'allSidePrinted' => $allSidePrinted,
                                           //'sidePrintedSelected' => $sidePrintedSelected,
                                           //'allNoColours' => $allNoColours,

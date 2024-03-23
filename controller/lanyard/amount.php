@@ -5,7 +5,7 @@ class Amount {
   private $width;
   private $material;
   private $noColour;
-
+  private $minAmount;
 
 
     // Function to handle incoming requests
@@ -60,7 +60,9 @@ class Amount {
     public function setNoColour($noColour) {
       $this->noColour = $noColour;
     }
-
+    public function setMinAmount($minAmount){
+      $this->minAmount = $minAmount;
+    }
 
 
     public function getAllAmountByNoColour(){
@@ -80,36 +82,80 @@ class Amount {
      $response = $amount->getAllAmountByNoColour();
      return $response;
    }
-
-   function selectAmount($allAmount){
-     if (session_status() === PHP_SESSION_NONE) {// Iniciar la sesión si no está iniciada aún
-    // Si no hay una sesión activa, inicia una
-    session_start();
-    }
-    /*  if (isset($_SESSION['amountSelected'])) {
-        return $_SESSION['amountSelected'];
-      } else {
-        $array = [];
-        foreach ($allAmount as $key) {
-          $array[] = $key["noSides"];
-        }
-
-        $amountSelected = $array[0];
-        return $amountSelected;
-      }*/
-
-      $array = [];
-
-      foreach ($allAmount as $key) {
-        $array[] = $key["price"];
-      }
-
-      $amountSelected = $array[0];
-
-      return $amountSelected;
+   public function getAllPriceOfWidth(){
 
 
+    // Create a database connection
+    $connection = new Database();
+
+    // Create a new Users instance and set user data
+    $amount = new Amount_Models($connection);
+    $amount->setMaterial($this->material);
+    $amount->setWidth($this->width );
+    $amount->setNoSides($this->noSides);
+    $amount->setNoColour($this->noColour);
+    $amount->setMinAmount($this->minAmount);
+    $response = $amount->getAllPriceOfWidth();
+    return $response;
+  }
+
+  function selectPrice($allAmount){
+    if (session_status() === PHP_SESSION_NONE) {// Iniciar la sesión si no está iniciada aún
+   // Si no hay una sesión activa, inicia una
+   session_start();
    }
+   /*  if (isset($_SESSION['amountSelected'])) {
+       return $_SESSION['amountSelected'];
+     } else {
+       $array = [];
+       foreach ($allAmount as $key) {
+         $array[] = $key["noSides"];
+       }
+
+       $amountSelected = $array[0];
+       return $amountSelected;
+     }*/
+
+     $array = [];
+
+     foreach ($allAmount as $key) {
+       $array[] = $key["price"];
+     }
+
+     $amountSelected = $array[0];
+
+     return $amountSelected;
+
+
+  }function selectAmount($allAmount){
+    if (session_status() === PHP_SESSION_NONE) {// Iniciar la sesión si no está iniciada aún
+   // Si no hay una sesión activa, inicia una
+   session_start();
+   }
+   /*  if (isset($_SESSION['amountSelected'])) {
+       return $_SESSION['amountSelected'];
+     } else {
+       $array = [];
+       foreach ($allAmount as $key) {
+         $array[] = $key["noSides"];
+       }
+
+       $amountSelected = $array[0];
+       return $amountSelected;
+     }*/
+
+     $array = [];
+
+     foreach ($allAmount as $key) {
+       $array[] = $key["min-amount"];
+     }
+
+     $amountSelected = $array[0];
+
+     return $amountSelected;
+
+
+  }
 
    // Private function to handle the action of setting the selected material
    function setSessionAmount($amountSelected) {

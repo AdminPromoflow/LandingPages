@@ -89,14 +89,23 @@ class Material {
                         $amount->setNoSides($sidePrintedSelected);
                         $amount->setNoColour($noColourSelected);
                         $allAmount =  $amount->getAllAmountByNoColour();
-                        $amountSelected = $amount-> selectAmount($allAmount);
+                        $amountSelected = $amount-> selectPrice($allAmount);
                         $amount-> setSessionAmount($amountSelected);
 
+                        $amount = new Amount();
+                        $amount->setMaterial($data->optionSelected);
+                        $amount->setWidth($widthSelected);
+                        $amount->setNoSides($sidePrintedSelected);
+                        $amount->setNoColour($noColourSelected);
+                        $allAmount =  $amount->getAllAmountByNoColour();
+                        $amountSelected = $amount-> selectAmount($allAmount);
+                        $amount->setMinAmount($amountSelected);
+                        $allWidthPrice = $amount-> getAllPriceOfWidth();
 
                         // Prepare and send the response with material information
                         $response = array('material' => $infoMaterial,
                                           'allLanyardTypes' => $allLanyardTypes,
-                                          'allWidth' => $allWidth,
+                                          'allWidth' => $allWidthPrice,
                                           'lanyardTypesSelected' => $lanyardTypesSelected,
                                           //'allSidePrinted' => $allSidePrinted,
                                           //'sidePrintedSelected' => $sidePrintedSelected,

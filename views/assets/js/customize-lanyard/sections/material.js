@@ -24,7 +24,7 @@ class Material {
         throw new Error("Network error.");
       })
       .then(data => {
-        alert(data);
+        //alert(data);
         data = JSON.parse(data);
         containersBoxesMaterial.innerHTML = "";
 
@@ -70,7 +70,7 @@ class Material {
         throw new Error("Network error.");
       })
       .then(data => {
-
+        alert(data);
        data = JSON.parse(data);
         material.showSelectedMaterial(data["material"]);
         previewMaterial.showSelectedPreviewtMaterial(data["material"]);

@@ -18,49 +18,50 @@ INSERT INTO `Lanyards` (`idLanyard`, `material`, `linkImg`, `description`) VALUE
 /*One end - tow ends*/
 /*Lanyard type*/
 
-INSERT INTO `LanyardTypes` (`idLanayardType`, `type`, `price`, `idLanyard`) VALUES
-(1, 'two-end', 2, 5),
-(2, 'two-end', 2, 1),
-(3, 'one-end', 0, 1),
-(4, 'two-end', 2, 2),
-(5, 'one-end', 0, 2),
-(6, 'two-end', 2, 3),
-(7, 'one-end', 0, 3),
-(8, 'two-end', 2, 4),
-(9, 'one-end', 0, 4),
-(10, 'one-end', 0, 5);
-
+INSERT INTO `LanyardTypes` (`idLanayardType`, `type`, `price`, `imgLink`, `idLanyard`) VALUES
+(1, 'two-end', 2.00, 'views/assets/img/global/customize-lanyard/sections/one-two-ends/two-ends.png', 5),
+(2, 'two-end', 2.00, 'views/assets/img/global/customize-lanyard/sections/one-two-ends/two-ends.png', 1),
+(3, 'one-end', 0.00, 'views/assets/img/global/customize-lanyard/sections/one-two-ends/one-end.png', 1),
+(4, 'two-end', 2.00, 'views/assets/img/global/customize-lanyard/sections/one-two-ends/two-ends.png', 2),
+(5, 'one-end', 0.00, 'views/assets/img/global/customize-lanyard/sections/one-two-ends/one-end.png', 2),
+(6, 'two-end', 2.00, 'views/assets/img/global/customize-lanyard/sections/one-two-ends/two-ends.png', 3),
+(7, 'one-end', 0.00, 'views/assets/img/global/customize-lanyard/sections/one-two-ends/one-end.png', 3),
+(8, 'two-end', 2.00, 'views/assets/img/global/customize-lanyard/sections/one-two-ends/two-ends.png', 4),
+(9, 'one-end', 0.00, 'views/assets/img/global/customize-lanyard/sections/one-two-ends/one-end.png', 4),
+(10, 'one-end', 0.00, 'views/assets/img/global/customize-lanyard/sections/one-two-ends/one-end.png', 5);
 
 
 /*Width*/
-INSERT INTO `Width`( `width`, `idLanyard`) SELECT '10mm' , `idLanyard` FROM `Lanyards` WHERE `material` = 'Tubular' OR
+INSERT INTO `Width`( `width`, `imgLink`, `idLanyard`) SELECT '10mm' , 'views/assets/img/global/customize-lanyard/sections/width/one-end/one-end-10mm.png', `idLanyard` FROM `Lanyards` WHERE `material` = 'Tubular' OR
                  `material` = 'Dye Sub polyester' OR
                  `material` = 'Ribbed Polyester' OR
                  `material` = 'Dye Sub RPET' OR
                  `material` = 'RPET Polyester';
 
-INSERT INTO `Width`( `width`, `idLanyard`) SELECT '15mm' , `idLanyard` FROM `Lanyards` WHERE `material` = 'Tubular' OR
+INSERT INTO `Width`( `width`, `imgLink`, `idLanyard`) SELECT '15mm' ,'views/assets/img/global/customize-lanyard/sections/width/one-end/one-end-15mm.png', `idLanyard` FROM `Lanyards` WHERE `material` = 'Tubular' OR
                  `material` = 'Dye Sub polyester' OR
                  `material` = 'Ribbed Polyester' OR
                  `material` = 'Dye Sub RPET' OR
                  `material` = 'RPET Polyester';
 
-INSERT INTO `Width`( `width`, `idLanyard`) SELECT '20mm' , `idLanyard` FROM `Lanyards` WHERE `material` = 'Tubular' OR
+INSERT INTO `Width`( `width`, `imgLink`, `idLanyard`) SELECT '20mm' , 'views/assets/img/global/customize-lanyard/sections/width/one-end/one-end-20mm.png', `idLanyard` FROM `Lanyards` WHERE `material` = 'Tubular' OR
                  `material` = 'Dye Sub polyester' OR
                  `material` = 'Ribbed Polyester' OR
                  `material` = 'Dye Sub RPET' OR
                  `material` = 'RPET Polyester';
 
-INSERT INTO `Width`( `width`, `idLanyard`) SELECT '25mm' , `idLanyard` FROM `Lanyards` WHERE `material` = 'Dye Sub polyester' OR
+INSERT INTO `Width`( `width`, `imgLink`, `idLanyard`) SELECT '25mm' , 'views/assets/img/global/customize-lanyard/sections/width/one-end/one-end-25mm.png',  `idLanyard` FROM `Lanyards` WHERE `material` = 'Dye Sub polyester' OR
                  `material` = 'Ribbed Polyester' OR
                  `material` = 'Dye Sub RPET' OR
                  `material` = 'RPET Polyester';
 
-INSERT INTO `Width`( `width`, `idLanyard`) SELECT '30mm' , `idLanyard` FROM `Lanyards` WHERE `material` = 'Dye Sub polyester' OR
+INSERT INTO `Width`( `width`, `imgLink`, `idLanyard`) SELECT '30mm' , 'views/assets/img/global/customize-lanyard/sections/width/one-end/one-end-30mm.png', `idLanyard` FROM `Lanyards` WHERE `material` = 'Dye Sub polyester' OR
                  `material` = 'Ribbed Polyester' OR
                  `material` = 'Dye Sub RPET' OR
                  `material` = 'RPET Polyester';
 
+
+                 
 
 
 /*Side-printed*/

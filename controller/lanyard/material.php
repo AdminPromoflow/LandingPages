@@ -89,8 +89,8 @@ class Material {
                         $amount->setNoSides($sidePrintedSelected);
                         $amount->setNoColour($noColourSelected);
                         $allAmount =  $amount->getAllAmountByNoColour();
-                        $amountSelected = $amount-> selectPrice($allAmount);
-                        $amount-> setSessionAmount($amountSelected);
+                        $priceSelected = $amount-> selectPrice($allAmount);
+                        $amount-> setSessionAmount($priceSelected);
 
                         $amount = new Amount();
                         $amount->setMaterial($data->optionSelected);
@@ -112,7 +112,7 @@ class Material {
                                           //'allNoColours' => $allNoColours,
                                           //'noColourSelected' => $noColourSelected,
                                           //'allAmount' => $allAmount,
-                                          'amountPriceSelected' => $amountSelected
+                                          'amountPriceSelected' => $priceSelected
                                         );
                         //,  'allWidth' => $allWidth
                         echo json_encode($response);

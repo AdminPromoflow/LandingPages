@@ -41,6 +41,7 @@ class Material {
     containersBoxesMaterial.innerHTML +=
     '<div class="container_boxes_material"  onclick="material.setMaterialSelected(\'' + data['material']  + '\');">'  +
       '<h4 class="dataMaterial">'+data['material']+'</h4>' +
+      '<h3 class="dataMaterial">£'+data['material']+' per unit</h3>' +
     '</div>'
     ;
   }

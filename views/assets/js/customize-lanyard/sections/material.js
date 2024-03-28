@@ -41,7 +41,7 @@ class Material {
     containersBoxesMaterial.innerHTML +=
     '<div class="container_boxes_material"  onclick="material.setMaterialSelected(\'' + data['material']  + '\');">'  +
       '<h4 class="dataMaterial">'+data['material']+'</h4>' +
-      '<h3 class="dataMaterial">£'+data['material']+' per unit</h3>' +
+      //'<h3 class="dataMaterial">£'+data['material']+' per unit</h3>' +
     '</div>'
     ;
   }
@@ -71,7 +71,7 @@ class Material {
         throw new Error("Network error.");
       })
       .then(data => {
-        alert(data);
+        //alert(data);
        data = JSON.parse(data);
         material.showSelectedMaterial(data["material"]);
         previewMaterial.showSelectedPreviewtMaterial(data["material"]);

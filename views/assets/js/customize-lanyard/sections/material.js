@@ -26,13 +26,12 @@ class Material {
       .then(data => {
         //alert(data);
         data = JSON.parse(data);
-        materials = JSON.parse(data);
-        var test = JSON.stringify(materials);
-        alert(test);
+        materials = data;
         containersBoxesMaterial.innerHTML = "";
 
         for (var i = 0; i < data["materials"].length; i++) {
-          material.createMaterials(data["materials"][i], i);
+          material.createMaterials(data["materials"][i], priceClass.calculatePricePerMaterialWithAmount(data["materials"][i], 1000));
+          ;
         }
       })
       .catch(error => {
@@ -40,15 +39,23 @@ class Material {
       });
   }
 
-  createMaterials(data, index){
+  createMaterials(data, price){
     containersBoxesMaterial.innerHTML +=
     '<div class="container_boxes_material"  onclick="material.setMaterialSelected(\'' + data['material']  + '\');">'  +
       '<h4 class="dataMaterial">'+data['material']+'</h4>' +
-      //'<h3 class="dataMaterial">£'+data['material']+' per unit</h3>' +
+      '<h3 class="pricesDataMaterial">£ '+ price +' per unit</h3>' +
     '</div>'
     ;
+    //var test = JSON.stringify(materials);
+    //alert(test);
+  }
+  updatePriceMaterial(price, index){
+    const pricesDataMaterial = document.querySelectorAll(".pricesDataMaterial");
+    //alert(index);
+    //pricesDataMaterial[index].innerHTML = price;
   }
   setMaterialSelected(material){
+
     const url = "../../controller/lanyard/material.php";
     const data = {
       action: "setMaterialSelected",
@@ -76,6 +83,7 @@ class Material {
       .then(data => {
         console.log(data);
        data = JSON.parse(data);
+
         material.showSelectedMaterial(data["material"]);
         previewMaterial.showSelectedPreviewtMaterial(data["material"]);
 
@@ -101,31 +109,24 @@ class Material {
   }
 
 
+  showSelectedMaterial(data) {
+      const containerBoxesMaterial = document.querySelectorAll(".container_boxes_material");
+      const material = data["material"];
 
-  showSelectedMaterial(data){
+      // Reiniciar el estilo de todos los contenedores
+      containerBoxesMaterial.forEach(container => {
+          container.style.border = "2px solid transparent";
+      });
 
-
-    const containerBoxesMaterial = document.querySelectorAll(".container_boxes_material");
-    const dataMaterial = document.querySelectorAll(".dataMaterial");
-
-    var index;
-
-   for (var i = 0; i < dataMaterial.length; i++) {
-     if (dataMaterial[i].textContent == data["material"]) {
-       index = i;
-     }
-   }
-
-    for (var i = 0; i < containerBoxesMaterial.length; i++) {
-      if (index == i) {
-        containerBoxesMaterial[i].style.border = "2px solid white";
-      }
-      else {
-        containerBoxesMaterial[i].style.border = "2px solid transparent";
-      }
-    }
-
+      // Buscar y resaltar el contenedor del material deseado
+      containerBoxesMaterial.forEach(container => {
+          const dataMaterial = container.querySelector(".dataMaterial");
+          if (dataMaterial.textContent === material) {
+              container.style.border = "2px solid white";
+          }
+      });
   }
+
 }
 
 var materials = {};

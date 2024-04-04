@@ -26,6 +26,9 @@ class Material {
       .then(data => {
         //alert(data);
         data = JSON.parse(data);
+        materials = JSON.parse(data);
+        var test = JSON.stringify(materials);
+        alert(test);
         containersBoxesMaterial.innerHTML = "";
 
         for (var i = 0; i < data["materials"].length; i++) {
@@ -71,7 +74,7 @@ class Material {
         throw new Error("Network error.");
       })
       .then(data => {
-        //alert(data);
+        console.log(data);
        data = JSON.parse(data);
         material.showSelectedMaterial(data["material"]);
         previewMaterial.showSelectedPreviewtMaterial(data["material"]);
@@ -122,9 +125,10 @@ class Material {
       }
     }
 
-
   }
 }
+
+var materials = {};
 
 const containersBoxesMaterial = document.getElementById("containers_boxes_material");
 const material = new Material();

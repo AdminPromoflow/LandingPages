@@ -41,5 +41,6 @@
 }
 .priceAmount input[type="text"]{
   position: relative;
-  width: 10%;
+  width: 18%;
+  font-size: 1em;
 }

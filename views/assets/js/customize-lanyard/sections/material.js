@@ -1,11 +1,20 @@
 class Material {
   constructor() {
+    this.materialSelected = "";
+    var jsonMaterials = {};
     const url = "../../controller/lanyard/material.php";
     const data = {
       action: "getMaterials"
     };
     this.makeAjaxRequestGetAllMaterials(url, data);
+  }
+  getMaterialSelected() {
+    return this.materialSelected;
+  }
 
+  // Setter method for amount property
+  setMaterialSelected(value) {
+    this.materialSelected = value;
   }
   // Function to make the AJAX request
   makeAjaxRequestGetAllMaterials(url, data) {
@@ -24,13 +33,17 @@ class Material {
         throw new Error("Network error.");
       })
       .then(data => {
-        //alert(data);
+        alert(data);
         data = JSON.parse(data);
-        materials = data;
+
+        material.setJsonMaterials(data);
         containersBoxesMaterial.innerHTML = "";
 
         for (var i = 0; i < data["materials"].length; i++) {
-          material.createMaterials(data["materials"][i], priceClass.calculatePricePerMaterialWithAmount(data["materials"][i], 1000));
+          material.setMaterialSelected(data["materials"][i]["material"]);
+          priceClass.setAmountSelected(1000);
+
+          material.createMaterials(data["materials"][i], priceClass.calculatePricePerMaterialWithAmount(data["materials"][i]));
           ;
         }
       })
@@ -87,7 +100,7 @@ class Material {
         material.showSelectedMaterial(data["material"]);
         previewMaterial.showSelectedPreviewtMaterial(data["material"]);
 
-        priceClass.changePricePerLanyard(data["amountPriceSelected"]);
+        //priceClass.changePricePerLanyard(data["amountPriceSelected"]);
 
         oneTwoEndsClass.cleanOneTwoEnds();
         widthClass.cleanWidth();
@@ -126,10 +139,16 @@ class Material {
           }
       });
   }
+  setJsonMaterials(jsonMaterials) {
+    this.jsonMaterials = jsonMaterials; // Asigna los valores al objeto JSON
+  }
+  getJsonMaterials() {
+   return this.jsonMaterials; // Retorna el objeto JSON almacenado
+ }
 
 }
 
-var materials = {};
+
 
 const containersBoxesMaterial = document.getElementById("containers_boxes_material");
 const material = new Material();

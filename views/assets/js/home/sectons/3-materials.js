@@ -14,7 +14,8 @@ class MaterialHome {
         const url = "../../controller/lanyard/material.php";
         const data = {
           action: "setMaterialSelected",
-          optionSelected: materialForSelect[i].textContent
+          optionSelected: materialForSelect[i].textContent,
+          amountSelected: priceClass.getAmountSelected()
 
         };
 

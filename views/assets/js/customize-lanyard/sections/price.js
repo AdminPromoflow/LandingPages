@@ -7,6 +7,10 @@ class Price {
       this.value = this.value.replace(/\D/g, '');
       // Update amountLanyardsRange value to match amountLanyards value
       amountLanyardsRange.value = this.value;
+      priceClass.setAmountSelected(amountLanyardsRange.value);
+
+      material.updatePriceMaterial();
+
     });
 
     // Event listener for input changes on amountLanyardsRange element
@@ -15,6 +19,10 @@ class Price {
       if (amountLanyards.value !== 0) {
         // Update amountLanyards value to match amountLanyardsRange value
         amountLanyards.value = this.value;
+
+        priceClass.setAmountSelected(amountLanyards.value);
+        material.updatePriceMaterial();
+
       }
     });
   }
@@ -60,9 +68,7 @@ class Price {
     }
 
     // Update values and inner HTML elements
-    amountLanyardsRange.value = amountSelected;
-    amountLanyards.value = amountSelected;
-    pricePerLanyard.innerHTML = "£" + price;
+
     return price;
   }
 }

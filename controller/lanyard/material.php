@@ -59,32 +59,7 @@ class Material {
                           $allAmount[] =  $amount->getAllAmountByNoColour();
                           $materials[$i] ["allAmount"] = $allAmount[$i];
                           $i ++;
-
                         }
-
-                        /*
-                        $width = new Width();
-                        $allWidth =  $width->getAllWidthByMaterial($data->optionSelected);
-                        $widthSelected = $width->selectWidth($allWidth);
-
-                        $sidePrinted = new SidePrinted();
-                        $allSidePrinted = $sidePrinted->getAllSidePrintedByWidth($widthSelected, $data->optionSelected);
-                        $sidePrintedSelected =  $sidePrinted->selectSidePrinted($allSidePrinted);
-
-                        $noColour = new NoColours();
-                        $noColour->setMaterial($data->optionSelected);
-                        $noColour->setWidth($widthSelected);
-                        $noColour->setNoSides($sidePrintedSelected);
-                        $allNoColours =  $noColour->getAllNoColoursBySidePrinted();
-                        $noColourSelected = $noColour-> selectNoColour($allNoColours);
-
-                        $amount = new Amount();
-                        $amount->setMaterial($data->optionSelected);
-                        $amount->setWidth($widthSelected);
-                        $amount->setNoSides($sidePrintedSelected);
-                        $amount->setNoColour($noColourSelected);
-                        $allAmount =  $amount->getAllAmountByNoColour();
-                        */
 
 
                         // Prepare response with materials, lanyard types, and widths

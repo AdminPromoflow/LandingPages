@@ -11,11 +11,13 @@ class Width {
   }
 
   createWidth(data, index){
+
+    var price = (data["price"] - 6.36).toFixed(2);
     containersBoxesWidth.innerHTML +=
   '  <div class="container_boxes_width">'+
           '<img src="../../'+data["imgLink"]+'" alt="">'+
           '<h4 class="dataWidth">'+data["width"]+'</h4>'+
-          '<h3 class="priceWidth">+£'+data["price"]+' per unit</h3>'+
+          '<h3 class="priceWidth">+£'+ price +' per unit</h3>'+
         '</div>'
     ;
   }

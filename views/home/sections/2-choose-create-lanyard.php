@@ -1,7 +1,7 @@
 <section class="chooseCreateLanyard">
   <!-- Section for choosing or creating lanyards -->
 
-  <h1>What would you like to do?</h1>
+  <h1>1. Explore all the customizable options for your lanyard!</h1>
   <!-- Main heading asking the user's intention -->
 
   <div class="chooseCreateLanyardContainer">

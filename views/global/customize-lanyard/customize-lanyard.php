@@ -2,9 +2,9 @@
 
 
 <section id="customize-lanyard" class="customize-lanyard">
-  <div class="customize-lanyard-container">
+  <div  class="customize-lanyard-container">
 
-    <div class="preview-customize-lanyard">
+    <div id="preview-customize-lanyard" class="preview-customize-lanyard">
 
       <h2>Customize lanyard</h2>
       <br>
@@ -27,7 +27,7 @@
 
     </div>
 
-    <div class="options-customize-lanyard">
+    <div id="options-customize-lanyard" class="options-customize-lanyard">
 
       <div id="close-customize-lanyard" class="close-customize-lanyard">
         <img src="../../views/assets/img/global/customize-lanyard/close.png" alt="">

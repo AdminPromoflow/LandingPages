@@ -1,11 +1,3 @@
-.materials h1{
-  position: relative;
-  text-align: center;
-  color: white;
-  font-size: calc(1.1em + 1.1vw);
-  font-weight: 400;
-  padding-top: calc(1.1em + 1.1vw);
-}
 
 .closeMaterial{
   position: absolute;
@@ -91,7 +83,7 @@
 }
 .containerTextMaterialsBox h3{
   position: relative;
-  font-size: calc(1.5em + 1.5vw);
+  font-size: calc(1.3em + 1.3vw);
   color: white;
   font-weight: 400;
   text-align: center;

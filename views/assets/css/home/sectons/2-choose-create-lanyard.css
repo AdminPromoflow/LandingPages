@@ -2,14 +2,7 @@
   position: relative;
   width: 100%;
 }
-.chooseCreateLanyard h1{
-   position: relative;
-   text-align: center;
-   color: white;
-   font-size: calc(1.1em + 1.1vw);
-   font-weight: 400;
-   padding-top: calc(1.1em + 1.1vw);
-}
+
 .chooseCreateLanyardContainer{
   position: relative;
   width: 90%;

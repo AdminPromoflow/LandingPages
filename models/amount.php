@@ -8,8 +8,6 @@ class Amount_Models {
   private $noColour;
   private $minAmount;
 
-
-
   // Constructor that initializes the connection.
   function __construct($connection) {
     $this->connection = $connection;
@@ -38,7 +36,7 @@ class Amount_Models {
     try {
 
         // Prepare the SQL query with placeholders
-        $sql = $this->connection->getConnection()->prepare("SELECT `Amount`.* FROM  `Lanyards`
+        $sql = $this->connection->getConnection()->prepare("SELECT `Amount`.`min-amount`, `Amount`.`max-amount`, `Amount`.`price`, `Lanyards`.`material` FROM  `Lanyards`
         JOIN `Width` ON `Lanyards`.`idLanyard` = `Width`.`idLanyard`
         JOIN `SidePrinted` ON `Width`.`idWidth` = `SidePrinted`.`idWidth`
         JOIN `noColours` ON `SidePrinted`.`idSidePrinted` = `noColours`.`idSidePrinted`
@@ -63,6 +61,7 @@ class Amount_Models {
 
         // Close the database connection
         $this->connection->closeConnection();
+        
         return $response;
 
     } catch (PDOException $e) {

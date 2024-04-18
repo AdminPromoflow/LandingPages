@@ -14,43 +14,39 @@ class MaterialHome {
         const url = "../../controller/lanyard/material.php";
         const data = {
           action: "setMaterialSelected",
-          optionSelected: materialForSelect[i].textContent
-
+          optionSelected: materialForSelect[i].textContent,
+          amountSelected: priceClass.getAmountSelected()
         };
 
+        material.setMaterialSelected(materialForSelect[i].textContent);
+        priceClass.setAmountSelected(1000);
         material.makeAjaxRequestSetMaterialSelected(url, data);
 
-        customizeLanyard.openCustomizeLanyard("block");
+        
+
+
+
+        customizeLanyard.openCustomizeLanyard(true);
+        customizeLanyard.setStateVisibilityPanelCustomeLanyard (true);
 
       })
-
-
-
     }
 
 
     // Event listener to display containerTextMaterials when itemMaterial is clicked
-    for (let i = 0; i < itemMaterial.length; i++) {
+   for (let i = 0; i < itemMaterial.length; i++) {
       containerTextMaterials[i].style.display = "none";
-      itemMaterial[i].addEventListener("click", function(){
+      itemMaterial[i].addEventListener("mouseover", function(){
         containerTextMaterials[i].style.display = "flex";
         containerTextMaterialsOn = i;
-        materialHome.hideOtherContainerTextMaterials(i);
+      materialHome.hideOtherContainerTextMaterials(i);
+      //  alert("ahah");
       })
     }
 
-    // Event listener to display containerTextMaterials when itemMaterial is hovered
-    for (let i = 0; i < itemMaterial.length; i++) {
-      containerTextMaterials[i].style.display = "none";
-      itemMaterial[i].addEventListener("mouseenter", function(){
-        containerTextMaterials[i].style.display = "flex";
-        containerTextMaterialsOn = i;
-        materialHome.hideOtherContainerTextMaterials(i);
-      })
-    }
 
     // Event listener to hide containerTextMaterials when clicking outside
-    documento.addEventListener('click', this.outContainerTextMaterials);
+    document.addEventListener('click', this.outContainerTextMaterials);
   }
 
   // Method to hide other containerTextMaterials

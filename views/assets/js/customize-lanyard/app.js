@@ -1,7 +1,10 @@
 class CustomizeLanyard {
+
   constructor() {
+
     closeCustomizeLanyard.addEventListener("click" , function(){
       customizeLanyard.openCustomizeLanyard(false);
+
     })
 
     preview.addEventListener("click" , function(){
@@ -12,19 +15,35 @@ class CustomizeLanyard {
     })
 
     next.addEventListener("click" , function(){
-      if (currentIndex  < sections.length -1) {
+      if (currentIndex < sections.length -1) {
         currentIndex++;
         customizeLanyard.showCurrentSection();
       }
     })
 
-
-
-
     this.showCurrentSection();
+    document.addEventListener('click', this.outContainerCustomizeLanyard);
+
+  }
+
+  outContainerCustomizeLanyard(event) {
+
+  /*  const container = document.getElementById("options-customize-lanyard");
+    const containerPreview = document.getElementById("preview-customize-lanyard");
 
 
+      if (!container.contains(event.target) || !containerPreview.contains(event.target)) {
+        if (customizeLanyard.getStateVisibilityPanelCustomeLanyard ()) {
+          customizeLanyard.openCustomizeLanyard(false);
+          customizeLanyard.setStateVisibilityPanelCustomeLanyard (false);
+        }
 
+
+      }
+      else {
+        customizeLanyard.openCustomizeLanyard(true);
+        customizeLanyard.setStateVisibilityPanelCustomeLanyard (true);
+      }*/
   }
 
 
@@ -52,11 +71,18 @@ class CustomizeLanyard {
     }
 
   }
+
   openCustomizeLanyard(action){
-    customizeLanyardPanel.style.display = action;
+    if (action) {
+      customizeLanyardPanel.style.display = "block";
 
+    }
+    else {
+      customizeLanyardPanel.style.display = "none";
 
+    }
   }
+
   changePreviewNextSection(sectionActive){
 
     if (sectionActive == "Material") {
@@ -73,9 +99,17 @@ class CustomizeLanyard {
     else if (sectionActive == "Width") {
 
     }
-
-
   }
+
+  setStateVisibilityPanelCustomeLanyard (value){
+    stateVisibilityPanelCustomeLanyard = value;
+  }
+  getStateVisibilityPanelCustomeLanyard (){
+    return stateVisibilityPanelCustomeLanyard ;
+  }
+
+
+
 }
 
 
@@ -92,6 +126,7 @@ const closeCustomizeLanyard = document.getElementById("close-customize-lanyard")
 const nameSectionCustomizeLanyard = document.getElementsByClassName("name-section-customize-lanyard");
 
 
+var stateVisibilityPanelCustomeLanyard = false;
 
 
 const customizeLanyard = new CustomizeLanyard();

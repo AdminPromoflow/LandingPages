@@ -32,10 +32,35 @@ class Material {
                     case "getMaterials":
                         // Handle the retrieval of materials
                         $materials = $this->getMaterials($data);
-                        // Randomly select a material and set it as the session material
-                      //  $materialSelected = $this->selectMaterial($materials);
+                        $allAmount = array();
+                        $i = 0;
+                        foreach ($materials as $key) {
 
-                    //  $infoMaterial  = $this->getAttributesMaterial($materialSelected["optionSelected"]);
+                          $width = new Width();
+                          $allWidth =  $width->getAllWidthByMaterial($key["material"]);
+                          $widthSelected = $width->selectWidth($allWidth);
+
+                          $sidePrinted = new SidePrinted();
+                          $allSidePrinted = $sidePrinted->getAllSidePrintedByWidth($widthSelected, $key["material"]);
+                          $sidePrintedSelected =  $sidePrinted->selectSidePrinted($allSidePrinted);
+
+                          $noColour = new NoColours();
+                          $noColour->setMaterial($key["material"]);
+                          $noColour->setWidth($widthSelected);
+                          $noColour->setNoSides($sidePrintedSelected);
+                          $allNoColours =  $noColour->getAllNoColoursBySidePrinted();
+                          $noColourSelected = $noColour-> selectNoColour($allNoColours);
+
+                          $amount = new Amount();
+                          $amount->setMaterial($key["material"]);
+                          $amount->setWidth($widthSelected);
+                          $amount->setNoSides($sidePrintedSelected);
+                          $amount->setNoColour($noColourSelected);
+                          $allAmount[] =  $amount->getAllAmountByNoColour();
+                          $materials[$i] ["allAmount"] = $allAmount[$i];
+                          $i ++;
+                        }
+
 
                         // Prepare response with materials, lanyard types, and widths
                         $response = array('materials' => $materials);
@@ -69,8 +94,6 @@ class Material {
                         // Retrieve all side printed options based on the selected width and material
                         $sidePrinted = new SidePrinted();
                         $allSidePrinted = $sidePrinted->getAllSidePrintedByWidth($widthSelected, $data->optionSelected);
-
-
                         $sidePrintedSelected =  $sidePrinted->selectSidePrinted($allSidePrinted);
                         $sidePrinted->setSessionSidePrinted($sidePrintedSelected);
 
@@ -102,8 +125,18 @@ class Material {
                         $amount->setMinAmount($amountSelected);
                         $allWidthPrice = $amount-> getAllPriceOfWidth();
 
+                        $amount = new Amount();
+                        $amount->setMaterial($data->optionSelected);
+                        $amount->setWidth($widthSelected);
+                        $amount->setNoSides($sidePrintedSelected);
+                        $amount->setNoColour($noColourSelected);
+                        $allAmount =  $amount->getAllAmountByNoColour();
+                        // $amountSelected = $amount-> selectAmount($allAmount);
+                        // $amount->setMinAmount($amountSelected);
+                        // $allWidthPrice = $amount-> getAllPriceOfWidth();
+
                         // Prepare and send the response with material information
-                        $response = array('material' => $infoMaterial,
+                        $response = array ('material' => $infoMaterial,
                                           'allLanyardTypes' => $allLanyardTypes,
                                           'allWidth' => $allWidthPrice,
                                           'lanyardTypesSelected' => $lanyardTypesSelected,

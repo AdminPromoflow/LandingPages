@@ -1,5 +1,5 @@
 <section class="materials">
-  <h1>Materials</h1>
+  <h1>2. Get Selected on your lanyard by selecting the material you desire!</h1>
 
 
   <div class="containerMaterials">
@@ -15,9 +15,11 @@
         <h3 class="material-for-select">Ribbed Polyester</h3>
       </div>
       <div class="buttonMaterialsBox">
-        <button  class="openCustomizeLanyardFromMaterials" type="button" name="button">Start</button>
+        <button  class="openCustomizeLanyardFromMaterials" type="button" name="button">Select</button>
       </div>
     </div>
+
+
     <div class="containerTextMaterials">
       <div class="closeMaterial">
         <img src="../assets/img/home/3-materials/Close-Materials.png" alt="">
@@ -29,7 +31,7 @@
         <h3 class="material-for-select">Tubular</h3>
       </div>
       <div class="buttonMaterialsBox">
-        <button  class="openCustomizeLanyardFromMaterials" type="button" name="button">Start</button>
+        <button  class="openCustomizeLanyardFromMaterials" type="button" name="button">Select</button>
       </div>
     </div>
     <div class="containerTextMaterials">
@@ -43,7 +45,7 @@
         <h3 class="material-for-select">RPET Polyester</h3>
       </div>
       <div class="buttonMaterialsBox">
-        <button  class="openCustomizeLanyardFromMaterials" type="button" name="button">Start</button>
+        <button  class="openCustomizeLanyardFromMaterials" type="button" name="button">Select</button>
       </div>
     </div>
     <div class="containerTextMaterials">
@@ -57,7 +59,7 @@
         <h3 class="material-for-select">Dye Sub polyester</h3>
       </div>
       <div class="buttonMaterialsBox">
-        <button  class="openCustomizeLanyardFromMaterials" type="button" name="button">Start</button>
+        <button  class="openCustomizeLanyardFromMaterials" type="button" name="button">Select</button>
       </div>
     </div>
     <div class="containerTextMaterials">
@@ -71,7 +73,7 @@
         <h3 class="material-for-select">Dye Sub RPET</h3>
       </div>
       <div class="buttonMaterialsBox">
-        <button  class="openCustomizeLanyardFromMaterials" type="button" name="button">Start</button>
+        <button  class="openCustomizeLanyardFromMaterials" type="button" name="button">Select</button>
       </div>
     </div>
     <div class="itemMaterial">

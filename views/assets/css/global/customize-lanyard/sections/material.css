@@ -53,21 +53,16 @@
   cursor: pointer;
 
   display: flex;
-  justify-content: flex-start;
+  justify-content:space-between;
   flex-direction: row;
 
   border: 2px solid transparent;
-}
-.container_boxes_material:active{
-  border: 2px solid white;
-}
-.container_boxes_material img{
-  width: 35%;
+
 }
 .container_boxes_material h4{
   position: relative;
   color: white;
-  margin: 8px 50px 8px 25px;
+  margin: 8px 12px;
   font-weight: 300;
   font-size: 1.1em;
 }
@@ -76,6 +71,7 @@
   color: #97A7BB;
   font-weight: 300;
   font-size: 0.8em;
+  margin: 8px 12px;
 }
 
 

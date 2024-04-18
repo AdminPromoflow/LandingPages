@@ -12,9 +12,13 @@ class Width {
 
   createWidth(data, index){
 
+<<<<<<< HEAD
   //  alert(priceClass.getPricePerMaterialWithAmount());
 
     var price = (data["price"]  );
+=======
+    var price = (data["price"] - 6.36).toFixed(2);
+>>>>>>> a2f988221e827f9c3ebce757711027f1773f3f48
     containersBoxesWidth.innerHTML +=
   '  <div class="container_boxes_width">'+
           '<img src="../../'+data["imgLink"]+'" alt="">'+

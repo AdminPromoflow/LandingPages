@@ -39,7 +39,6 @@ class Material {
         material.setJsonMaterials(data);
         containersBoxesMaterial.innerHTML = "";
 
-<<<<<<< HEAD
 
 
         material.setMaterialSelected("Tubular");
@@ -51,13 +50,6 @@ class Material {
 
         for (var i = 0; i < jsonMaterials.materials.length; i++) {
           material.createMaterials(data["materials"][i], priceClass.calculatePricePerMaterialWithAmount(jsonMaterials["materials"][i]));
-=======
-        material.setMaterialSelected("Tubular");
-        priceClass.setAmountSelected(1000);
-        for (var i = 0; i < data["materials"].length; i++) {
-          material.createMaterials(data["materials"][i], priceClass.calculatePricePerMaterialWithAmount(data["materials"][i]));
-
->>>>>>> a2f988221e827f9c3ebce757711027f1773f3f48
         }
       })
       .catch(error => {
@@ -78,25 +70,12 @@ class Material {
     const pricesDataMaterial = document.querySelectorAll(".pricesDataMaterial");
 
     for (var i = 0; i < jsonMaterials.materials.length; i++) {
-<<<<<<< HEAD
     pricesDataMaterial[i].innerHTML = "£" +priceClass.calculatePricePerMaterialWithAmount(jsonMaterials["materials"][i]) + " per unit";
     }
   }
   searchDataMaterialSelected(material){
 
 
-=======
-    pricesDataMaterial[i].innerHTML = "£" +priceClass.calculatePricePerMaterialWithAmount(jsonMaterials.materials[i]) + " per unit";
-    console.log(priceClass.calculatePricePerMaterialWithAmount(jsonMaterials.materials[i]));
-
-    }
-
-
-    //alert(index);
-  }
-  searchDataMaterialSelected(material){
-
->>>>>>> a2f988221e827f9c3ebce757711027f1773f3f48
     const url = "../../controller/lanyard/material.php";
     const data = {
       action: "setMaterialSelected",
@@ -126,19 +105,13 @@ class Material {
         throw new Error("Network error.");
       })
       .then(data => {
-<<<<<<< HEAD
 
 
-=======
-        console.log(data);
-      //  alert(data);
->>>>>>> a2f988221e827f9c3ebce757711027f1773f3f48
        data = JSON.parse(data);
 
         material.showSelectedMaterial(data["material"]);
         previewMaterial.showSelectedPreviewtMaterial(data["material"]);
         material.updatePriceMaterial();
-<<<<<<< HEAD
 
 
 
@@ -148,19 +121,6 @@ class Material {
           if (jsonMaterials.materials[i].material = data["material"]) {
            priceClass.calculatePricePerMaterialWithAmount(jsonMaterials["materials"][i]);
 
-=======
-
-        var price;
-
-
-        var jsonMaterials = {};
-        jsonMaterials = material.getJsonMaterials();
-        for (var i = 0; i < jsonMaterials.materials.length; i++) {
-          if (jsonMaterials.materials[i].material = data["material"]) {
-          price =  priceClass.calculatePricePerMaterialWithAmount(jsonMaterials["materials"][i]);
-        //  alert(price);
-          priceClass.changePricePerLanyard(price);
->>>>>>> a2f988221e827f9c3ebce757711027f1773f3f48
           }
         }
         oneTwoEndsClass.cleanOneTwoEnds();

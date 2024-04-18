@@ -16,10 +16,6 @@ class MaterialHome {
           action: "setMaterialSelected",
           optionSelected: materialForSelect[i].textContent,
           amountSelected: priceClass.getAmountSelected()
-<<<<<<< HEAD
-=======
-
->>>>>>> a2f988221e827f9c3ebce757711027f1773f3f48
         };
 
         material.setMaterialSelected(materialForSelect[i].textContent);

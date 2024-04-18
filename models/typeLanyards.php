@@ -13,7 +13,7 @@ class TypeLanyards_Models {
 
   // Set the user's name
   public function setIdMaterial($idMaterial) {
-    
+
     $this->idMaterial = $idMaterial;
   }
   public function setLanyardType($lanyardType) {
@@ -79,7 +79,7 @@ class TypeLanyards_Models {
         try {
 
             // Prepare the SQL query with placeholders
-            $sql = $this->connection->getConnection()->prepare("SELECT `type`  FROM `LanyardTypes` WHERE `idLanyard`  =  :idMaterial");
+            $sql = $this->connection->getConnection()->prepare("SELECT `type`, `price`, `imgLink`  FROM `LanyardTypes` WHERE `idLanyard`  =  :idMaterial ORDER BY `type` ");
 
 
             // Bind the email parameter

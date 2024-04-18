@@ -71,7 +71,12 @@
   font-weight: 300;
   font-size: 1.1em;
 }
-
+.container_boxes_material h3{
+  position: relative;
+  color: #97A7BB;
+  font-weight: 300;
+  font-size: 0.8em;
+}
 
 
 

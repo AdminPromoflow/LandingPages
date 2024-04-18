@@ -22,51 +22,33 @@ class Material {
             $rawData = file_get_contents("php://input");
             $data = json_decode($rawData);
 
+
             // Validate the JSON data to ensure it contains an "action" field
             if ($data !== null && isset($data->action)) {
-                $action = $data->action; // Extract the action from the JSON data
+                $action = $data->action;  // Extract the action from the JSON data
 
                 // Switch case to handle different actions based on the request
                 switch ($action) {
                     case "getMaterials":
                         // Handle the retrieval of materials
                         $materials = $this->getMaterials($data);
-
                         // Randomly select a material and set it as the session material
-                        $materialSelected = $this->selectMaterial($materials);
-                        $this->setSessionMaterial((object)$materialSelected);
+                      //  $materialSelected = $this->selectMaterial($materials);
 
-                        // Retrieve all lanyard types
-                        $lanyardTypes = new TypeLanyards();
-                        $allLanyardTypes  = $lanyardTypes->getAllLanyardsType();
-
-                        // Retrieve all widths based on the selected material
-                        $width = new Width();
-                        $allWidthByMaterial  = $width->getAllWidthByMaterial($_SESSION['materialSelected']);
-
-                        // Set the first width as the session width
-
-                        $width->setSessionWidth($allWidthByMaterial[0]['width']);
-
-
-                        //$sidePrinted = new SidePrinted();
-
+                    //  $infoMaterial  = $this->getAttributesMaterial($materialSelected["optionSelected"]);
 
                         // Prepare response with materials, lanyard types, and widths
-                        $response = array('materials' => $materials,
-                                           'lanyardsType' => $allLanyardTypes,
-                                           'width' => $allWidthByMaterial);
+                        $response = array('materials' => $materials);
 
                         echo json_encode($response);
                         break;
 
                     case "setMaterialSelected":
 
-
-
                         // Handle setting the selected material and searching its attributes
                         $this->setSessionMaterial($data);
-                        $infoMaterial  = $this->getAttributesMaterial($data);
+                        $infoMaterial  = $this->getAttributesMaterial($data->optionSelected
+                      );
 
 
                         $lanyardTypes = new TypeLanyards();
@@ -80,12 +62,15 @@ class Material {
                         $width = new Width();
                         $allWidth =  $width->getAllWidthByMaterial($data->optionSelected);
                         $widthSelected = $width->selectWidth($allWidth);
+                          //echo json_encode($widthSelected);exit;
                         $width-> setSessionWidth($widthSelected);
 
 
                         // Retrieve all side printed options based on the selected width and material
                         $sidePrinted = new SidePrinted();
                         $allSidePrinted = $sidePrinted->getAllSidePrintedByWidth($widthSelected, $data->optionSelected);
+
+
                         $sidePrintedSelected =  $sidePrinted->selectSidePrinted($allSidePrinted);
                         $sidePrinted->setSessionSidePrinted($sidePrintedSelected);
 
@@ -98,6 +83,14 @@ class Material {
                         $noColourSelected = $noColour-> selectNoColour($allNoColours);
                         $noColour-> setSessionNoColour($noColourSelected);
 
+                        $amount = new Amount();
+                        $amount->setMaterial($data->optionSelected);
+                        $amount->setWidth($widthSelected);
+                        $amount->setNoSides($sidePrintedSelected);
+                        $amount->setNoColour($noColourSelected);
+                        $allAmount =  $amount->getAllAmountByNoColour();
+                        $priceSelected = $amount-> selectPrice($allAmount);
+                        $amount-> setSessionAmount($priceSelected);
 
                         $amount = new Amount();
                         $amount->setMaterial($data->optionSelected);
@@ -106,25 +99,20 @@ class Material {
                         $amount->setNoColour($noColourSelected);
                         $allAmount =  $amount->getAllAmountByNoColour();
                         $amountSelected = $amount-> selectAmount($allAmount);
-                        $amount-> setSessionAmount($amountSelected);
-
+                        $amount->setMinAmount($amountSelected);
+                        $allWidthPrice = $amount-> getAllPriceOfWidth();
 
                         // Prepare and send the response with material information
                         $response = array('material' => $infoMaterial,
                                           'allLanyardTypes' => $allLanyardTypes,
+                                          'allWidth' => $allWidthPrice,
                                           'lanyardTypesSelected' => $lanyardTypesSelected,
-                                          'allWidth' => $allWidth,
-                                          'widthSelected' => $widthSelected,
-                                          'allSidePrinted' => $allSidePrinted,
-                                          'sidePrintedSelected' => $sidePrintedSelected,
-                                          'allNoColours' => $allNoColours,
-                                          'noColourSelected' => $noColourSelected,
+                                          //'allSidePrinted' => $allSidePrinted,
+                                          //'sidePrintedSelected' => $sidePrintedSelected,
+                                          //'allNoColours' => $allNoColours,
+                                          //'noColourSelected' => $noColourSelected,
                                           //'allAmount' => $allAmount,
-                                          'amountPriceSelected' => $amountSelected
-
-
-
-
+                                          'amountPriceSelected' => $priceSelected
                                         );
                         //,  'allWidth' => $allWidth
                         echo json_encode($response);
@@ -185,10 +173,11 @@ class Material {
 
     // Private function to handle searching for attributes of the selected material
     private function getAttributesMaterial($data) {
+
         $connection = new Database(); // Create a new database connection
 
         $lanyards = new Lanyards($connection); // Instantiate the Lanyards model
-        $lanyards->setMaterial($data->optionSelected); // Set the selected material in the model
+        $lanyards->setMaterial($data); // Set the selected material in the model
 
         $response = $lanyards->getInfoMaterials(); // Retrieve material information
 
@@ -199,14 +188,7 @@ class Material {
             'link' => $response['linkImg'],
             'description' => $response['description']
         );
-
-        // Start or resume a session
-        if (session_status() === PHP_SESSION_NONE) {
-          // Si no hay una sesión activa, inicia una
-          session_start();
-          }
-
-        $_SESSION['IdmaterialSelected'] = $response['idLanyard']; // Store the selected material ID in the session
+          // Start or resume a session
 
         return $infoMaterial;
     }

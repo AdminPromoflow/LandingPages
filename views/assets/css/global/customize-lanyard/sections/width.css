@@ -46,28 +46,32 @@
 .container_boxes_width{
   position: relative;
   width: 98%;
+  height: 40px;
   background-color: rgba(48, 79, 112, 1);
   padding: 5px  0;
   margin: 5px 0;
   cursor: pointer;
 
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-evenly;
+  align-items: center;
   flex-direction: row;
 
   border: 2px solid transparent;
 }
-.container_boxes_width:active{
-  border: 2px solid white;
-}
-
 .container_boxes_width img{
-  width: 35%;
+  width: auto;
+  height: 70%;
 }
 .container_boxes_width h4{
   position: relative;
   color: white;
-  margin: 8px 50px 8px 25px;
   font-weight: 300;
   font-size: 1.1em;
+}
+.container_boxes_width h3{
+  position: relative;
+  color: #97A7BB;
+  font-weight: 300;
+  font-size: 0.8em;
 }

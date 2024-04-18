@@ -55,7 +55,7 @@ class Width {
    }
    function selectWidth($allWidth){
      // Start or resume a session
-     if (session_status() === PHP_SESSION_NONE) {
+     /*if (session_status() === PHP_SESSION_NONE) {
        // Si no hay una sesión activa, inicia una
        session_start();
        }
@@ -68,8 +68,14 @@ class Width {
           $array[] = (int)$key["width"];
         }
         $widthSelected = min($array);
-        return $widthSelected;
+        return $widthSelected."mm";
+      }*/
+      $array = [];
+      foreach ($allWidth as $key) {
+        $array[] = (int)$key["width"];
       }
+      $widthSelected = min($array);
+      return $widthSelected."mm";
 
 
    }

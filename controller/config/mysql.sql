@@ -21,8 +21,6 @@ DROP TABLE IF EXISTS `Jobs`
 DROP TABLE IF EXISTS `LanyardTypes`
 ;
 
-
-
 DROP TABLE IF EXISTS `Orders_Users`
 ;
 
@@ -41,12 +39,12 @@ DROP TABLE IF EXISTS `SidePrinted`
 DROP TABLE IF EXISTS `Width`
 ;
 
-
 DROP TABLE IF EXISTS `Artwork`
 ;
 
 DROP TABLE IF EXISTS `Orders`
 ;
+
 DROP TABLE IF EXISTS `Lanyards`
 ;
 
@@ -121,6 +119,7 @@ CREATE TABLE `LanyardTypes`
 	`idLanayardType` INT NOT NULL AUTO_INCREMENT,
 	`type` VARCHAR(50) NULL,
 	`price` FLOAT(3,2) NULL,
+	`imgLink` TEXT NULL,
 	`idLanyard` INT NULL,
 	CONSTRAINT `PK_LanyardTypes` PRIMARY KEY (`idLanayardType` ASC)
 )
@@ -180,6 +179,7 @@ CREATE TABLE `Width`
 (
 	`idWidth` INT NOT NULL AUTO_INCREMENT,
 	`width` VARCHAR(20) NOT NULL,
+	`imgLink` TEXT NULL,
 	`idLanyard` INT NOT NULL,
 	CONSTRAINT `PK_Width` PRIMARY KEY (`idWidth` ASC)
 )

@@ -62,9 +62,6 @@
 
   border: 2px solid transparent;
 }
-.container_boxes_one_two_ends:nth-child(1){
-  border: 2px solid white;
-}
 .container_boxes_one_two_ends:active{
   border: 2px solid white;
 }
@@ -73,11 +70,20 @@
   width: auto;
   height: 70%;
 }
+.container_boxes_one_two_ends h3{
+  position: relative;
+  width: 100%;
+  margin: 3px 0px;
+  text-align: center;
+  color: #97A7BB;
+  font-weight: 300;
+  font-size: 0.8em;
+}
 .container_boxes_one_two_ends h4{
   position: relative;
   width: 100%;
   margin: 0;
-  margin-top: 9px;
+  margin-top: 8px;
   text-align: center;
   color: white;
   font-weight: 300;

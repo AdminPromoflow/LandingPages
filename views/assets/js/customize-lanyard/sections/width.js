@@ -11,12 +11,18 @@ class Width {
   }
 
   createWidth(data, index){
-    containersBoxesMaterial.innerHTML +=
-    '<div class="container_boxes_material"  onclick="material.setMaterialSelected(\'' + data['material']  + '\');">'  +
-      '<h4 class="dataWidth">'+data['material']+'</h4>' +
-    '</div>'
+    containersBoxesWidth.innerHTML +=
+  '  <div class="container_boxes_width">'+
+          '<img src="../../'+data["imgLink"]+'" alt="">'+
+          '<h4 class="dataWidth">'+data["width"]+'</h4>'+
+          '<h3 class="priceWidth">+£'+data["price"]+' per unit</h3>'+
+        '</div>'
     ;
   }
+  cleanWidth(){
+    containersBoxesWidth.innerHTML = "";
+  }
+
   showSelectedWidth(data){
 
   //  const containerBoxesWidth = document.querySelectorAll(".container_boxes_width");
@@ -46,5 +52,7 @@ class Width {
 
 // la siguiente linea se va a eliminar porque se van a crear box-width automaticos
 const containerBoxesWidth = document.querySelectorAll(".container_boxes_width");
+const containersBoxesWidth = document.getElementById("containers_boxes_width");
+
 const dataWidth = document.querySelectorAll(".dataWidth");
 const widthClass = new Width();

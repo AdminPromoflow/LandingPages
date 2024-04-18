@@ -43,11 +43,15 @@ class OneTwoEnds {
   }
 
   showSelectedOneTwoEnds(data){
+    const dataOneTwoEnds = document.querySelectorAll(".data-one-two-ends");
+    const containerBoxesOneTwoEnds = document.querySelectorAll(".container_boxes_one_two_ends");
     var index;
-
+  //alert(dataOneTwoEnds[0].textContent);
    for (var i = 0; i < dataOneTwoEnds.length; i++) {
-     if (dataOneTwoEnds[i].textContent == data["type"]) {
+
+     if (dataOneTwoEnds[i].textContent == data) {
        //alert(data["type"]);
+
        index = i;
      }
    }
@@ -62,11 +66,25 @@ class OneTwoEnds {
     }
 
   }
+  createOneTwoEnds(data, index){
+    containersBoxesOneTwoEnds.innerHTML +=
+    '<div class="container_boxes_one_two_ends">'+
+      '<h3 class="price-one_two_ends">+£'+data["price"]+' per unit</h3>'+
+      '<h4 class="data-one-two-ends">'+data["type"]+'</h4>'+
+      '<img src="../../'+data["imgLink"]+'" alt="">'+
+    '</div>'
+    ;
+  }
+  cleanOneTwoEnds(){
+    containersBoxesOneTwoEnds.innerHTML = "";
+  }
 }
 
 
 const dataOneTwoEnds = document.querySelectorAll(".data-one-two-ends");
 
 const containerBoxesOneTwoEnds = document.querySelectorAll(".container_boxes_one_two_ends");
+
+const containersBoxesOneTwoEnds = document.getElementById('containers_boxes_one_two_ends');
 
 const oneTwoEndsClass = new OneTwoEnds();
